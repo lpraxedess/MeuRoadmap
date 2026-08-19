@@ -1,4 +1,4 @@
-﻿param(
+param(
     [Parameter(Mandatory=$true)]
     [string]$Arquivo,
 
@@ -17,43 +17,51 @@ if ($Item -lt 1) {
     exit 1
 }
 
-$linhas = Get-Content $Arquivo -Encoding UTF8
-
+$linhas = @(Get-Content $Arquivo -Encoding UTF8)
+$emValidacao = $false
 $contador = 0
-$alterado = $false
+$indiceAlvo = -1
 
 for ($i = 0; $i -lt $linhas.Count; $i++) {
+    $linha = $linhas[$i]
 
-    if ($linhas[$i] -match '^\s*-\s*\[\s*[xX ]\s*\]\s*(.*)$') {
+    if ($linha -match '^##\s+Valida(c|ç)ão\s*$') {
+        $emValidacao = $true
+        continue
+    }
 
+    if ($emValidacao -and $linha -match '^##\s+') {
+        break
+    }
+
+    if ($emValidacao -and $linha -match '^\s*-\s*\[\s*(x|X| )\s*\]\s*(.*)$') {
         $contador++
-
         if ($contador -eq $Item) {
-
-            if ($linhas[$i] -match '^\s*-\s*\[\s*[xX]\s*\]') {
-                Write-Host "Item ja estava concluido."
-                Write-Host "Item: $Item"
-                Write-Host "Arquivo: $Arquivo"
-                exit 0
-            }
-
-            $linhas[$i] = $linhas[$i] -replace '(\[\s*) (\s*\])', '$1x$2'
-
-            if ($linhas[$i] -notmatch '\[x\]') {
-                $linhas[$i] = $linhas[$i] -replace '\[\s*\]', '[x]'
-            }
-
-            $alterado = $true
+            $indiceAlvo = $i
             break
         }
     }
 }
 
-if (-not $alterado) {
+if ($contador -eq 0) {
+    Write-Host "Nenhum item de validacao encontrado no arquivo."
+    exit 1
+}
+
+if ($indiceAlvo -lt 0) {
     Write-Host "Item nao encontrado."
     Write-Host "Itens disponiveis: $contador"
     exit 1
 }
+
+if ($linhas[$indiceAlvo] -match '^\s*-\s*\[\s*[xX]\s*\]') {
+    Write-Host "Item ja estava concluido."
+    Write-Host "Item: $Item"
+    Write-Host "Arquivo: $Arquivo"
+    exit 0
+}
+
+$linhas[$indiceAlvo] = $linhas[$indiceAlvo] -replace '\[\s*\]', '[x]'
 
 [System.IO.File]::WriteAllText(
     (Resolve-Path $Arquivo).Path,
