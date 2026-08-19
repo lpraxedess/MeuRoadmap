@@ -8,7 +8,7 @@
 
 Você só precisa seguir esta sequência:
 
-1. **Estude:** [Conceitos](01-Fundamentos/01-Conceitos/README.md) — identidade, conta, Authentication, Authorization, modelos de acesso, least privilege, JML, entitlement, SoD e arquitetura.
+1. **Estude:** [Conceitos](01-Conceitos/README.md) — identidade, conta, Authentication, Authorization, modelos de acesso, least privilege, JML, entitlement, SoD e arquitetura.
 2. **Pratique:** [Prática](03-Pratica/README.md) — transforme os conceitos em decisões.
 3. **Aplique:** [Laboratórios](04-Laboratorios/README.md) — execute pelo menos um cenário.
 4. **Explique:** registre sua explicação em [PROGRESSO](PROGRESSO.md) ou na evidência do exercício.
