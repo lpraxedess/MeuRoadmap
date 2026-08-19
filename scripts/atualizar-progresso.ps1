@@ -2,7 +2,13 @@ $Root = Split-Path $PSScriptRoot -Parent
 $EstadoPath = Join-Path $Root "docs\progresso\estado.json"
 $PainelPath = Join-Path $Root "docs\progresso\painel.md"
 
-$FaseAtual = 1
+$estadoAtual = if (Test-Path $EstadoPath) {
+    Get-Content $EstadoPath -Raw -Encoding UTF8 | ConvertFrom-Json
+} else {
+    $null
+}
+
+$FaseAtual = if ($estadoAtual -and $estadoAtual.faseAtual) { [int]$estadoAtual.faseAtual } else { 1 }
 
 $fases = @(
     @{ Id=1; Nome="Fundamentos de IAM"; Diretorio="01-Fundamentos" },
@@ -31,10 +37,6 @@ $areas = @(
     @{ Nome="Certificacoes"; Diretorio="09-Certificacoes" }
 )
 
-function Eh-CabecalhoValidacao([string]$Linha) {
-    return ($Linha -match '^##\s+.*Valida(c|ç)ão.*$')
-}
-
 function Get-Validacao {
     param([string]$Arquivo)
 
@@ -44,7 +46,7 @@ function Get-Validacao {
     $concluidos = 0
 
     foreach ($linha in $linhas) {
-        if (Eh-CabecalhoValidacao $linha) {
+        if ($linha -match '^##\s+.*Valida(c|ç)ão.*$') {
             $emValidacao = $true
             continue
         }
@@ -88,18 +90,20 @@ function Get-Progresso {
     }
 }
 
+if ($FaseAtual -lt 1 -or $FaseAtual -gt $fases.Count) {
+    $FaseAtual = 1
+}
+
 $faseAtualObj = $fases[$FaseAtual - 1]
 $faseAtualPath = Join-Path $Root $faseAtualObj.Diretorio
 $progressoAtual = Get-Progresso $faseAtualPath
 
 $areaTabela = ""
-$areasEstado = @{}
 
 foreach ($area in $areas) {
     $path = Join-Path $faseAtualPath $area.Diretorio
     $resultado = Get-Progresso $path
     $areaTabela += "| $($area.Nome) | $($resultado.Concluidos)/$($resultado.Total) | $($resultado.Percentual)% |`r`n"
-    $areasEstado[$area.Diretorio] = $resultado.Percentual
 }
 
 $faseTabela = ""
@@ -109,9 +113,15 @@ foreach ($fase in $fases) {
     $path = Join-Path $Root $fase.Diretorio
     $resultado = Get-Progresso $path
 
-    if ($fase.Id -lt $FaseAtual) { $status = "CONCLUIDA" }
-    elseif ($fase.Id -eq $FaseAtual) { $status = "EM_ANDAMENTO" }
-    else { $status = "BLOQUEADA" }
+    if ($fase.Id -lt $FaseAtual) {
+        $status = "CONCLUIDA"
+    }
+    elseif ($fase.Id -eq $FaseAtual) {
+        $status = "EM_ANDAMENTO"
+    }
+    else {
+        $status = "NAO_INICIADA"
+    }
 
     $faseTabela += "| $($fase.Id.ToString('00')) | $($fase.Nome) | $status | $($resultado.Percentual)% |`r`n"
 
@@ -120,7 +130,6 @@ foreach ($fase in $fases) {
         nome = $fase.Nome
         diretorio = $fase.Diretorio
         status = $status
-        progresso = $resultado.Percentual
     }
 }
 
@@ -130,7 +139,7 @@ $proximaTexto = if ($proxima) { "Fase $($proxima.Id.ToString('00')) - $($proxima
 $painel = @"
 # 📈 Painel de Progresso — MeuRoadmap
 
-[🏠 Início](../../README.md) · [▶️ Fase atual](../../01-Fundamentos/README.md)
+[🏠 Início](../../README.md) · [▶️ Fase atual](../../$($faseAtualObj.Diretorio)/README.md)
 
 ## 🧭 Agora
 
@@ -165,7 +174,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 status
 ```
 
 > [!IMPORTANT]
-> O progresso é calculado pelas caixas de seleção existentes nas seções `Validação` dos módulos. Checklists de orientação não entram na conta.
+> Todo o conteúdo do roadmap permanece disponível. O status apenas mostra sua evolução; ele não impede a entrada em uma fase.
 "@
 
 Set-Content -Path $PainelPath -Value $painel -Encoding UTF8
