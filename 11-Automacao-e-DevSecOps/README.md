@@ -1,68 +1,33 @@
 # Fase 11 — Automação e DevSecOps
 
-[← Início](../README.md) · [📈 Painel](../docs/progresso/painel.md)
+[← Início](../README.md) · [Painel](../docs/progresso/painel.md)
 
-> **Objetivo:** automatizar tarefas, integrações e controles de IAM com scripts, APIs e práticas DevSecOps.
+> **Objetivo:** transformar controles IAM em processos automatizados, repetíveis, auditáveis e integrados ao ciclo de desenvolvimento.
 
-> [!IMPORTANT]
-> Automação só é domínio quando o fluxo pode ser reproduzido, validado, observado e corrigido com segurança.
+## Rota principal
 
----
+1. **Estude:** [Conceitos](01-Conceitos/README.md).
+2. **Pratique:** [Prática](03-Pratica/README.md).
+3. **Aplique:** [Laboratórios](04-Laboratorios/README.md).
+4. **Explique:** descreva onde automatizar provisionamento, validação e resposta.
+5. **Valide:** execute `roadmap.ps1 validar`.
 
-## 🧭 Caminho da fase
+## 🎯 Validação final
 
-**01 Conceitos → 02 Conhecimentos → 03 Prática → 04 Laboratórios → 05 Exercícios → 06 Troubleshooting → 07 Checklist → 08 Validação → 09 Certificações**
+1. O que vale a pena automatizar em IAM e por quê?
+2. Como evitar que automação replique um erro em escala?
+3. Onde IAM entra em CI/CD e DevSecOps?
+4. Como testar e auditar uma automação de acesso?
+5. Como você responderia a uma falha ou execução indevida automatizada?
 
-| # | Etapa | Foco | Ação |
-|---:|---|---|---|
-| **01** | 🧠 Conceitos | automação e DevSecOps | [▶️ Começar](01-Conceitos/README.md) |
-| **02** | 📚 Conhecimentos | APIs, scripts e pipelines | [Abrir](02-Conhecimentos/README.md) |
-| **03** | 🧪 Prática | automações de IAM | [Abrir](03-Pratica/README.md) |
-| **04** | 🖥️ Laboratórios | implementação | [Abrir](04-Laboratorios/README.md) |
-| **05** | 📝 Exercícios | retenção | [Abrir](05-Exercicios/README.md) |
-| **06** | 🔎 Troubleshooting | diagnóstico | [Abrir](06-Troubleshooting/README.md) |
-| **07** | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
-| **08** | 🎯 Validação | prova final | [Abrir](08-Revisao/README.md) |
-| **09** | 🎓 Certificações | aplicação profissional | [Abrir](09-Certificacoes/README.md) |
+## 🎯 Gate da fase
 
----
+- [ ] Estudei o núcleo da fase
+- [ ] Executei a prática
+- [ ] Apliquei o conceito em cenário ou laboratório
+- [ ] Expliquei o desenho de automação sem consultar
+- [ ] Passei na validação final e registrei evidência
 
-## ▶️ Comece aqui
+## Aprofundamento opcional
 
-**[Abrir Conceitos →](01-Conceitos/README.md)**
-
-### Modelo mental
-
-**Problema → API/script → autenticação segura → mudança → validação → observabilidade → rollback**
-
-## ✍️ Meu registro
-
-**Automações que já consigo construir:**
-
-> Escreva aqui.
-
-**APIs e integrações praticadas:**
-
-> Escreva aqui.
-
-**Erros / dúvidas:**
-
-> Escreva aqui.
-
-**Evidências:**
-
-> Registre código, testes e resultados sem secrets, tokens ou credenciais reais.
-
-## 🏁 Definition of Done
-
-- [ ] Consigo automatizar uma tarefa de IAM
-- [ ] Consigo consumir uma API de forma segura
-- [ ] Scripts são reproduzíveis e documentados
-- [ ] Executei laboratórios
-- [ ] Validei falhas e rollback
-- [ ] Registrei evidências sanitizadas
-- [ ] Consigo explicar os controles DevSecOps envolvidos
-
-### 🧭 Navegação
-
-[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md) · [📈 Painel](../docs/progresso/painel.md)
+[02 Conhecimentos](02-Conhecimentos/README.md) · [03 Prática](03-Pratica/README.md) · [04 Laboratórios](04-Laboratorios/README.md) · [05 Exercícios](05-Exercicios/README.md) · [06 Troubleshooting](06-Troubleshooting/README.md) · [07 Checklist](07-Checklist/README.md) · [08 Revisão](08-Revisao/README.md) · [09 Certificações](09-Certificacoes/README.md)
