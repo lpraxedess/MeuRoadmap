@@ -1,72 +1,53 @@
-# 03 - PrÃ¡tica
+# 03 — Prática
 
-## Objetivo
+[← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-Transformar conhecimento teÃ³rico em capacidade operacional.
+> Aqui você transforma conceito em decisão e execução.
 
-## ExercÃ­cio 01 - Identidades
+## Exercícios
 
-Criar uma matriz contendo:
+### 01 — Matriz de identidades
 
-| Identidade | Tipo | Recurso | Acesso | Justificativa |
-|---|---|---|---|---|
-| usuÃ¡rio | humana | aplicaÃ§Ã£o | leitura | funÃ§Ã£o |
-| service account | nÃ£o humana | aplicaÃ§Ã£o | execuÃ§Ã£o | serviÃ§o |
-| admin | privilegiada | infraestrutura | administraÃ§Ã£o | operaÃ§Ã£o |
+Crie uma matriz com identidade, tipo, recurso, acesso e justificativa.
 
-## ExercÃ­cio 02 - RBAC
+### 02 — RBAC
 
-Criar:
+Crie 3 usuários, 3 roles e 3 recursos com permissões diferentes. Documente o resultado.
 
-- 3 usuÃ¡rios
-- 3 roles
-- 3 recursos
-- permissÃµes diferentes
+### 03 — Least Privilege
 
-Documentar o resultado.
+Crie um cenário com excesso de privilégios, identifique o excesso, reduza os acessos e justifique cada decisão.
 
-## ExercÃ­cio 03 - Least Privilege
+### 04 — JML
 
-Criar um cenÃ¡rio com excesso de privilÃ©gios.
+Modele Joiner → Mover → Leaver. Registre evento, identidade, aprovação, acesso concedido e acesso removido.
 
-Depois:
+### 05 — SoD
 
-1. identificar o excesso
-2. reduzir privilÃ©gios
-3. justificar cada permissÃ£o
+Crie duas funções incompatíveis, identifique o risco e proponha um controle.
 
-## ExercÃ­cio 04 - JML
+## Evidência obrigatória
 
-Criar um fluxo:
-
-Joiner -> Mover -> Leaver
-
-Documentar:
-
-- evento
-- identidade
-- aprovaÃ§Ã£o
-- acesso concedido
-- acesso removido
-
-## ExercÃ­cio 05 - SoD
-
-Criar duas funÃ§Ãµes incompatÃ­veis.
-
-Exemplo:
-
-- solicitante de pagamento
-- aprovador de pagamento
-
-Explicar o risco.
-
-## EvidÃªncia
-
-Cada exercÃ­cio deve possuir:
+Para cada exercício registre:
 
 - objetivo
-- cenÃ¡rio
-- execuÃ§Ã£o
+- cenário
+- execução
 - resultado
-- conclusÃ£o
-- evidÃªncia
+- conclusão
+- evidência
+
+## Validação
+
+- [ ] Matriz de identidades concluída
+- [ ] Exercício RBAC concluído
+- [ ] Exercício Least Privilege concluído
+- [ ] Exercício JML concluído
+- [ ] Exercício SoD concluído
+- [ ] Evidências registradas
+
+## Minha explicação
+
+> O que você aprendeu fazendo os exercícios? O que foi difícil?
+
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Laboratórios](../04-Laboratorios/README.md)
