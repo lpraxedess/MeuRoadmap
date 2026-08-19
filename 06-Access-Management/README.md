@@ -1,68 +1,33 @@
 # Fase 06 — Access Management
 
-[← Início](../README.md) · [📈 Painel](../docs/progresso/painel.md)
+[← Início](../README.md) · [Painel](../docs/progresso/painel.md)
 
-> **Objetivo:** dominar a operação de acesso: SSO, políticas, sessões, provisionamento, autorização e experiência segura do usuário.
+> **Objetivo:** controlar concessão, uso e remoção de acesso de forma segura e rastreável.
 
-> [!IMPORTANT]
-> Raciocine ponta a ponta: identidade, autenticação, política, concessão, uso, monitoramento e revogação.
+## Rota principal
 
----
+1. **Estude:** [Conceitos](01-Conceitos/README.md).
+2. **Pratique:** [Prática](03-Pratica/README.md).
+3. **Aplique:** [Laboratórios](04-Laboratorios/README.md).
+4. **Explique:** descreva como uma solicitação vira acesso efetivo e como ele é removido.
+5. **Valide:** execute `roadmap.ps1 validar`.
 
-## 🧭 Caminho da fase
+## 🎯 Validação final
 
-**01 Conceitos → 02 Conhecimentos → 03 Prática → 04 Laboratórios → 05 Exercícios → 06 Troubleshooting → 07 Checklist → 08 Validação → 09 Certificações**
+1. Diferencie solicitação, aprovação, entitlement e acesso efetivo.
+2. Como aplicar least privilege no gerenciamento de acesso?
+3. Quais controles reduzem acessos órfãos ou excessivos?
+4. Como investigar uma concessão que não deveria existir?
+5. Que evidências demonstram que um acesso foi corretamente governado?
 
-| # | Etapa | Foco | Ação |
-|---:|---|---|---|
-| **01** | 🧠 Conceitos | fundamentos de acesso | [▶️ Começar](01-Conceitos/README.md) |
-| **02** | 📚 Conhecimentos | componentes e fluxos | [Abrir](02-Conhecimentos/README.md) |
-| **03** | 🧪 Prática | cenários de acesso | [Abrir](03-Pratica/README.md) |
-| **04** | 🖥️ Laboratórios | implementação | [Abrir](04-Laboratorios/README.md) |
-| **05** | 📝 Exercícios | retenção | [Abrir](05-Exercicios/README.md) |
-| **06** | 🔎 Troubleshooting | diagnóstico | [Abrir](06-Troubleshooting/README.md) |
-| **07** | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
-| **08** | 🎯 Validação | prova final | [Abrir](08-Revisao/README.md) |
-| **09** | 🎓 Certificações | aplicação profissional | [Abrir](09-Certificacoes/README.md) |
+## 🎯 Gate da fase
 
----
+- [ ] Estudei o núcleo da fase
+- [ ] Executei a prática
+- [ ] Apliquei o processo em cenário ou laboratório
+- [ ] Expliquei o fluxo sem consultar
+- [ ] Passei na validação final e registrei evidência
 
-## ▶️ Comece aqui
+## Aprofundamento opcional
 
-**[Abrir Conceitos →](01-Conceitos/README.md)**
-
-### Modelo mental
-
-**Identificar → autenticar → avaliar política → conceder → monitorar → revogar**
-
-## ✍️ Meu registro
-
-**O que já domino:**
-
-> Escreva aqui.
-
-**O que preciso praticar:**
-
-> Escreva aqui.
-
-**Erros / dúvidas importantes:**
-
-> Escreva aqui.
-
-**Evidências:**
-
-> Links para labs, diagramas ou anotações sanitizadas. Nunca registre tokens, secrets ou dados reais.
-
-## 🏁 Definition of Done
-
-- [ ] Entendo SSO, sessões e políticas
-- [ ] Explico provisionamento e revogação
-- [ ] Consigo reconstruir uma decisão de acesso
-- [ ] Executei os laboratórios
-- [ ] Diagnostiquei falhas de acesso
-- [ ] Registrei evidências e explicações próprias
-- [ ] Consigo defender uma solução de Access Management
-
-### 🧭 Navegação
-
-[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md) · [📈 Painel](../docs/progresso/painel.md)
+[02 Conhecimentos](02-Conhecimentos/README.md) · [03 Prática](03-Pratica/README.md) · [04 Laboratórios](04-Laboratorios/README.md) · [05 Exercícios](05-Exercicios/README.md) · [06 Troubleshooting](06-Troubleshooting/README.md) · [07 Checklist](07-Checklist/README.md) · [08 Revisão](08-Revisao/README.md) · [09 Certificações](09-Certificacoes/README.md)
