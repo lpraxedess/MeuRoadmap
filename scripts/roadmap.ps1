@@ -42,26 +42,38 @@ function Obter-Validacao([string]$Caminho) {
     if ([string]::IsNullOrWhiteSpace($Caminho)) { return @() }
     if (-not (Test-Path -LiteralPath $Caminho -PathType Leaf)) { return @() }
 
-    $texto = Get-Content -LiteralPath $Caminho -Raw -Encoding UTF8
-    if ([string]::IsNullOrWhiteSpace($texto)) { return @() }
+    $linhas = @(Get-Content -LiteralPath $Caminho -Encoding UTF8)
+    if ($linhas.Count -eq 0) { return @() }
 
-    # Localiza a secao pelo titulo e captura somente ate o proximo H2.
-    $secao = [regex]::Match(
-        $texto,
-        '(?is)^##\s+.*?(?:Validação|Validacao|Definition\s+of\s+Done).*?\r?\n(.*?)(?=^##\s+|\z)',
-        [System.Text.RegularExpressions.RegexOptions]::Multiline
-    )
-
-    if (-not $secao.Success) { return @() }
-
+    # Parser deliberadamente baseado em linhas: o Markdown usa H2 para a secao
+    # e checkboxes Markdown para cada item de validacao. Nao depende de regex
+    # multiline, que varia entre versoes/ambientes do PowerShell.
+    $emValidacao = $false
     $itens = @()
-    $linhas = $secao.Groups[1].Value -split '\r?\n'
+
     foreach ($linha in $linhas) {
-        if ($linha -match '^\s*-\s*\[\s*[xX]\s*\]\s*(.*)$') {
-            $itens += [PSCustomObject]@{ Concluido = $true; Texto = ([string]$Matches[1]).Trim() }
+        if ($linha -match '^##\s+.*(?:Validação|Validacao|Definition\s+of\s+Done).*') {
+            $emValidacao = $true
+            continue
         }
-        elseif ($linha -match '^\s*-\s*\[\s*\]\s*(.*)$') {
-            $itens += [PSCustomObject]@{ Concluido = $false; Texto = ([string]$Matches[1]).Trim() }
+
+        if ($emValidacao -and $linha -match '^##\s+') {
+            break
+        }
+
+        if ($emValidacao -and $linha -match '^\s*-\s*\[\s*[xX]\s*\]\s*(.*)$') {
+            $itens += [PSCustomObject]@{
+                Concluido = $true
+                Texto = ([string]$Matches[1]).Trim()
+            }
+            continue
+        }
+
+        if ($emValidacao -and $linha -match '^\s*-\s*\[\s*\]\s*(.*)$') {
+            $itens += [PSCustomObject]@{
+                Concluido = $false
+                Texto = ([string]$Matches[1]).Trim()
+            }
         }
     }
 
