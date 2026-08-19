@@ -24,9 +24,10 @@ function Atualizar-Painel {
 function Caminho-Relativo([string]$Path) {
     if ([string]::IsNullOrWhiteSpace($Path)) { return "" }
     $fullPath = [System.IO.Path]::GetFullPath($Path)
-    $rootPath = [System.IO.Path]::GetFullPath($Root)
-    if ($fullPath.StartsWith($rootPath, [System.StringComparison]::OrdinalIgnoreCase)) {
-        return $fullPath.Substring($rootPath.Length).TrimStart('\')
+    $rootPath = [System.IO.Path]::GetFullPath($Root).TrimEnd('\')
+    if ($fullPath.Equals($rootPath, [System.StringComparison]::OrdinalIgnoreCase)) { return "" }
+    if ($fullPath.StartsWith($rootPath + '\', [System.StringComparison]::OrdinalIgnoreCase)) {
+        return $fullPath.Substring($rootPath.Length + 1)
     }
     return $fullPath
 }
@@ -41,36 +42,38 @@ function Obter-Validacao([string]$Caminho) {
     if ([string]::IsNullOrWhiteSpace($Caminho)) { return @() }
     if (-not (Test-Path -LiteralPath $Caminho -PathType Leaf)) { return @() }
 
-    $conteudo = Get-Content -LiteralPath $Caminho -Raw -Encoding UTF8
-    if ([string]::IsNullOrWhiteSpace($conteudo)) { return @() }
+    $linhas = @(Get-Content -LiteralPath $Caminho -Encoding UTF8)
+    if ($linhas.Count -eq 0) { return @() }
 
-    $cabecalho = [regex]::Match($conteudo, '(?im)^##[ \t]+[^\r\n]*(?:Valida(?:ção|cao)|Definition[ \t]+of[ \t]+Done)[^\r\n]*$')
-    if (-not $cabecalho.Success) { return @() }
-
-    $inicio = $cabecalho.Index + $cabecalho.Length
-    $restante = $conteudo.Substring($inicio)
-    $proximoCabecalho = [regex]::Match($restante, '(?m)^##[ \t]+')
-    if ($proximoCabecalho.Success) {
-        $secao = $restante.Substring(0, $proximoCabecalho.Index)
-    } else {
-        $secao = $restante
-    }
-
-    $itens = @()
-    foreach ($match in [regex]::Matches($secao, '(?m)^[ \t]*-[ \t]*\[[ \t]*(x|X|)[ \t]*\][ \t]*([^\r\n]*)$')) {
-        $marcador = [string]$match.Groups[1].Value
-        $texto = [string]$match.Groups[2].Value
-        $itens += [PSCustomObject]@{
-            Concluido = ($marcador -match '^[xX]$')
-            Texto = $texto.Trim()
+    $inicio = -1
+    for ($i = 0; $i -lt $linhas.Count; $i++) {
+        $linha = [string]$linhas[$i]
+        if ($linha -match '^##[ \t]+.*(Validação|Validacao|Definition[ \t]+of[ \t]+Done).*$') {
+            $inicio = $i + 1
+            break
         }
     }
+    if ($inicio -lt 0) { return @() }
 
+    $itens = @()
+    for ($i = $inicio; $i -lt $linhas.Count; $i++) {
+        $linha = [string]$linhas[$i]
+        if ($linha -match '^##[ \t]+') { break }
+        if ($linha -match '^[ \t]*-[ \t]*\[([ xX])\][ \t]*(.*)$') {
+            $marcador = [string]$Matches[1]
+            $texto = [string]$Matches[2]
+            $itens += [PSCustomObject]@{
+                Concluido = ($marcador -match '[xX]')
+                Texto = $texto.Trim()
+            }
+        }
+    }
     return ,$itens
 }
 
 function Obter-ArquivosDeEstudo($fase) {
-    $diretorio = Join-Path $Root $fase.diretorio
+    if (-not $fase) { return @() }
+    $diretorio = Join-Path $Root ([string]$fase.diretorio)
     $ordem = @("01-Conceitos", "02-Conhecimentos", "03-Pratica", "04-Laboratorios", "05-Exercicios", "06-Troubleshooting", "08-Revisao")
     $resultado = @()
 
@@ -86,7 +89,6 @@ function Obter-ArquivosDeEstudo($fase) {
             }
         }
     }
-
     return ,$resultado
 }
 
@@ -141,24 +143,34 @@ function Comando-Estudar {
             }
         }
     }
+
     $estado = Ler-Estado
     $proxima = @($estado.fases) | Where-Object { [int]$_.id -gt [int]$fase.id } | Sort-Object id | Select-Object -First 1
     Write-Host ""
     Write-Host "FASE CONCLUIDA" -ForegroundColor Green
-    if ($proxima) { Write-Host "Proximo passo: Fase $($proxima.id.ToString('00')) - $($proxima.nome)"; Write-Host "Arquivo: $($proxima.diretorio)\README.md" }
-    else { Write-Host "Todas as fases cadastradas foram concluidas."; Write-Host "Proximo passo: revisar painel e evidencias finais." }
+    if ($proxima) {
+        Write-Host "Proximo passo: Fase $($proxima.id.ToString('00')) - $($proxima.nome)"
+        Write-Host "Arquivo: $($proxima.diretorio)\README.md"
+    } else {
+        Write-Host "Todas as fases cadastradas foram concluidas."
+        Write-Host "Proximo passo: revisar painel e evidencias finais."
+    }
     Write-Host ""
 }
 
 function Comando-Concluir {
     if ([string]::IsNullOrWhiteSpace($Arquivo)) { Write-Host "Informe o arquivo."; return }
     if ($Item -lt 1) { Write-Host "Informe um numero de item valido."; return }
+
     $caminho = $Arquivo
     if (-not [System.IO.Path]::IsPathRooted($caminho)) { $caminho = Join-Path $Root $caminho }
+    $caminho = [System.IO.Path]::GetFullPath($caminho)
     if (-not (Test-Path -LiteralPath $caminho -PathType Leaf)) { Write-Host "Arquivo nao encontrado: $Arquivo"; return }
+
     $v = @(Obter-Validacao $caminho)
     if ($v.Count -eq 0) { Write-Host "O arquivo nao possui uma secao de validacao com itens."; return }
     if ($Item -gt $v.Count) { Write-Host "Item invalido. O arquivo possui $($v.Count) itens."; return }
+
     $marcar = Join-Path $Root "scripts\marcar-item.ps1"
     powershell -NoProfile -ExecutionPolicy Bypass -File $marcar -Arquivo $caminho -Item $Item
     Atualizar-Painel
