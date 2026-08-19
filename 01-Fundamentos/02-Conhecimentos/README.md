@@ -1,128 +1,63 @@
-# 02 - Conhecimentos Necessarios
+# 02 — Conhecimentos técnicos
+
+[← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
 ## Objetivo
 
-Construir os conhecimentos tecnicos que sustentam IAM.
+Construir a base técnica necessária para entender ambientes IAM reais.
 
-## Redes
+## O que estudar
 
-Estudar:
+### Redes
 
-- TCP/IP
-- DNS
-- HTTP
-- HTTPS
-- TLS
-- portas
-- firewall
-- proxy
-- load balancer
-- reverse proxy
+TCP/IP · DNS · HTTP · HTTPS · TLS · portas · firewall · proxy · load balancer · reverse proxy
 
-## Sistemas Operacionais
+### Windows e Active Directory
 
-### Windows
-
-- Active Directory
-- usuarios
-- grupos
-- permissoes
-- GPO
-- Kerberos
-- LDAP
-- DNS
-- dominio
+Usuários · grupos · permissões · GPO · Kerberos · LDAP · DNS · domínio
 
 ### Linux
 
-- usuarios
-- grupos
-- sudo
-- permissoes
-- ownership
-- ACL
-- PAM
-- SSH
+Usuários · grupos · sudo · permissões · ownership · ACL · PAM · SSH
 
-## Diretorios
+### Diretórios
 
-Estudar:
+LDAP · Active Directory · OpenLDAP · Directory Services · OU · Groups · Attributes · Schema
 
-- LDAP
-- Active Directory
-- OpenLDAP
-- Directory Services
-- Organizational Units
-- Groups
-- Attributes
-- Schema
+### Segurança
 
-## Seguranca
+CIA · threat · vulnerability · risk · attack surface · credential theft · phishing · brute force · identity attack
 
-Estudar:
+### Criptografia
 
-- CIA
-- threat
-- vulnerability
-- risk
-- attack surface
-- privilege escalation
-- credential theft
-- phishing
-- brute force
-- identity attack
+Hashing · encryption · symmetric/asymmetric encryption · chaves pública/privada · certificados · PKI · TLS
 
-## Criptografia
+### Cloud
 
-Conhecer:
+Tenant · account · identity · role · policy · resource · permission
 
-- hashing
-- encryption
-- symmetric encryption
-- asymmetric encryption
-- public key
-- private key
-- digital certificate
-- PKI
-- TLS
+### Automação
 
-## Cloud
+PowerShell · Bash · Python · JSON · YAML · REST API · Git
 
-Conhecer:
+## Prática
 
-- tenant
-- subscription
-- account
-- identity
-- role
-- policy
-- resource
-- permission
+A prática deste módulo será aplicada principalmente nos laboratórios de Windows/AD, Linux, LDAP e Cloud IAM.
 
-## Automacao
+## Validação
 
-Conhecer:
+- [ ] Consigo explicar fundamentos de redes relevantes para IAM
+- [ ] Consigo trabalhar com usuários e grupos no Windows
+- [ ] Entendo Active Directory e LDAP
+- [ ] Consigo trabalhar com usuários, grupos e permissões no Linux
+- [ ] Entendo certificados e TLS em nível operacional
+- [ ] Entendo fundamentos de cloud IAM
+- [ ] Consigo usar PowerShell para tarefas simples
+- [ ] Consigo interpretar JSON e uma REST API
+- [ ] Consigo usar Git no fluxo de estudo
 
-- PowerShell
-- Bash
-- Python
-- JSON
-- YAML
-- REST API
-- Git
+## Minha explicação
 
-## Checklist
+> Registre aqui o que você aprendeu e quais pontos ainda precisam de prática.
 
-- [ ] Conheco fundamentos de redes.
-- [ ] Conheco Windows Server.
-- [ ] Conheco Active Directory.
-- [ ] Conheco Linux.
-- [ ] Conheco LDAP.
-- [ ] Conheco conceitos basicos de criptografia.
-- [ ] Entendo certificados digitais.
-- [ ] Conheco fundamentos de cloud.
-- [ ] Consigo utilizar PowerShell.
-- [ ] Consigo utilizar Bash.
-- [ ] Consigo interpretar JSON.
-- [ ] Entendo REST API.
-- [ ] Consigo utilizar Git.
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Prática](../03-Pratica/README.md)
