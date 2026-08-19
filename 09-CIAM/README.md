@@ -1,42 +1,47 @@
 # Fase 09 — CIAM
 
-[← Início](../README.md)
+[← Início](../README.md) · [📈 Painel](../docs/progresso/painel.md)
 
-> **Status:** ⚪ Em preparação · conteúdo disponível para estudar quando quiser.
+> **Objetivo:** dominar Customer Identity and Access Management, equilibrando experiência, segurança, privacidade e escala.
 
-## 🎯 Objetivo
+> [!IMPORTANT]
+> Avalie cada jornada como produto de identidade: segura, utilizável, privada, observável e operável.
 
-Dominar Customer Identity and Access Management, equilibrando experiência do usuário, segurança, privacidade e escala.
+---
 
-## 🧭 Seu caminho
+## 🧭 Caminho da fase
 
-**1. Conceitos → 2. Conhecimentos → 3. Prática → 4. Laboratórios → 5. Exercícios → 6. Troubleshooting → 7. Checklist → 8. Validação → 9. Certificações**
+**01 Conceitos → 02 Conhecimentos → 03 Prática → 04 Laboratórios → 05 Exercícios → 06 Troubleshooting → 07 Checklist → 08 Validação → 09 Certificações**
 
-| # | Etapa | Foco | Acesso |
+| # | Etapa | Foco | Ação |
 |---:|---|---|---|
-| 01 | 🧠 Conceitos | identidade externa | [Abrir](01-Conceitos/README.md) |
-| 02 | 📚 Conhecimentos | jornadas e componentes | [Abrir](02-Conhecimentos/README.md) |
-| 03 | 🧪 Prática | jornadas de usuário | [Abrir](03-Pratica/README.md) |
-| 04 | 🖥️ Laboratórios | implementação | [Abrir](04-Laboratorios/README.md) |
-| 05 | 📝 Exercícios | cenários | [Abrir](05-Exercicios/README.md) |
-| 06 | 🔎 Troubleshooting | falhas de jornada | [Abrir](06-Troubleshooting/README.md) |
-| 07 | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
-| 08 | 🎯 Validação | prova final | [Abrir](08-Revisao/README.md) |
-| 09 | 🎓 Certificações | carreira | [Abrir](09-Certificacoes/README.md) |
+| **01** | 🧠 Conceitos | identidade externa | [▶️ Começar](01-Conceitos/README.md) |
+| **02** | 📚 Conhecimentos | jornadas e componentes | [Abrir](02-Conhecimentos/README.md) |
+| **03** | 🧪 Prática | jornadas de usuário | [Abrir](03-Pratica/README.md) |
+| **04** | 🖥️ Laboratórios | implementação | [Abrir](04-Laboratorios/README.md) |
+| **05** | 📝 Exercícios | cenários | [Abrir](05-Exercicios/README.md) |
+| **06** | 🔎 Troubleshooting | falhas de jornada | [Abrir](06-Troubleshooting/README.md) |
+| **07** | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
+| **08** | 🎯 Validação | prova final | [Abrir](08-Revisao/README.md) |
+| **09** | 🎓 Certificações | aplicação profissional | [Abrir](09-Certificacoes/README.md) |
+
+---
 
 ## ▶️ Comece aqui
 
 **[Abrir Conceitos →](01-Conceitos/README.md)**
 
-Avalie cada solução por quatro lentes: **segurança → experiência → privacidade → operação**.
+### Modelo mental
 
-## ✍️ Meu registro da fase
+**Necessidade → jornada → autenticação → consentimento → acesso → segurança → recuperação → observabilidade**
+
+## ✍️ Meu registro
 
 **O que já domino:**
 
 > Escreva aqui.
 
-**O que preciso praticar:**
+**Jornadas que consigo desenhar:**
 
 > Escreva aqui.
 
@@ -44,16 +49,20 @@ Avalie cada solução por quatro lentes: **segurança → experiência → priva
 
 > Escreva aqui.
 
+**Evidências:**
+
+> Links para fluxos, labs ou decisões sanitizadas. Nunca registre dados pessoais, tokens ou secrets reais.
+
 ## 🏁 Definition of Done
 
 - [ ] Entendo identidade de cliente e jornadas
-- [ ] Sei explicar autenticação e recuperação de conta
+- [ ] Explico autenticação e recuperação de conta
 - [ ] Entendo consentimento e privacidade no contexto de identidade
 - [ ] Executei laboratórios
 - [ ] Resolvi cenários de falha
 - [ ] Registrei evidências e decisões
 - [ ] Consigo defender uma jornada CIAM tecnicamente
 
-### Navegação
+### 🧭 Navegação
 
-[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md)
+[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md) · [📈 Painel](../docs/progresso/painel.md)
