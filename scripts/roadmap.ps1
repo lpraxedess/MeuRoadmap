@@ -25,6 +25,7 @@ function Caminho-Relativo([string]$Path) {
     if ([string]::IsNullOrWhiteSpace($Path)) { return "" }
     $fullPath = [System.IO.Path]::GetFullPath($Path)
     $rootPath = [System.IO.Path]::GetFullPath($Root).TrimEnd('\')
+    if ($fullPath.Equals($rootPath, [System.StringComparison]::OrdinalIgnoreCase)) { return "." }
     if ($fullPath.StartsWith($rootPath + '\', [System.StringComparison]::OrdinalIgnoreCase)) {
         return $fullPath.Substring($rootPath.Length + 1)
     }
@@ -42,29 +43,30 @@ function Obter-Validacao([string]$Caminho) {
     if (-not (Test-Path -LiteralPath $Caminho -PathType Leaf)) { return @() }
 
     $linhas = @(Get-Content -LiteralPath $Caminho -Encoding UTF8)
-    $inicio = -1
-    for ($i = 0; $i -lt $linhas.Count; $i++) {
-        $linha = [string]$linhas[$i]
-        if ($linha -match '^##[ \t]+.*(Validação|Validacao|Definition[ \t]+of[ \t]+Done).*$') {
-            $inicio = $i + 1
-            break
-        }
-    }
-    if ($inicio -lt 0) { return @() }
-
+    $emValidacao = $false
     $itens = @()
-    for ($i = $inicio; $i -lt $linhas.Count; $i++) {
-        $linha = [string]$linhas[$i]
-        if ($linha -match '^##[ \t]+') { break }
-        if ($linha -match '^[ \t]*-[ \t]*\[([ xX])\][ \t]*(.*)$') {
-            $marcador = [string]$Matches[1]
-            $texto = [string]$Matches[2]
-            $itens += [PSCustomObject]@{
-                Concluido = ($marcador -match '[xX]')
-                Texto = $texto.Trim()
+
+    foreach ($linhaObj in $linhas) {
+        $linha = [string]$linhaObj
+
+        if ($linha -match '^##[ \t]+') {
+            if ($emValidacao) { break }
+            if ($linha -match '(?i)(Validação|Validacao|Definition[ \t]+of[ \t]+Done)') {
+                $emValidacao = $true
             }
+            continue
+        }
+
+        if ($emValidacao -and $linha -match '^[ \t]*-[ \t]*\[[ \t]*([xX])[ \t]*\][ \t]*(.*)$') {
+            $itens += [PSCustomObject]@{ Concluido = $true; Texto = ([string]$Matches[2]).Trim() }
+            continue
+        }
+
+        if ($emValidacao -and $linha -match '^[ \t]*-[ \t]*\[[ \t]*[ ][ \t]*\][ \t]*(.*)$') {
+            $itens += [PSCustomObject]@{ Concluido = $false; Texto = ([string]$Matches[1]).Trim() }
         }
     }
+
     return @($itens)
 }
 
@@ -73,13 +75,20 @@ function Obter-ArquivosDeEstudo($fase) {
     $diretorio = Join-Path $Root ([string]$fase.diretorio)
     if (-not (Test-Path -LiteralPath $diretorio -PathType Container)) { return @() }
 
-    $ordem = @("01-Conceitos", "02-Conhecimentos", "03-Pratica", "04-Laboratorios", "05-Exercicios", "06-Troubleshooting")
+    $ordem = @(
+        "01-Conceitos", "02-Conhecimentos", "03-Pratica", "04-Laboratorios",
+        "05-Exercicios", "06-Troubleshooting", "07-Checklist", "08-Revisao", "09-Certificacoes"
+    )
     $resultado = @()
 
     foreach ($nomeArea in $ordem) {
         $areaPath = Join-Path $diretorio $nomeArea
         if (-not (Test-Path -LiteralPath $areaPath -PathType Container)) { continue }
-        $arquivos = @(Get-ChildItem -LiteralPath $areaPath -Filter "*.md" -File | Where-Object { $_.Name -ne "README.md" } | Sort-Object Name)
+
+        $arquivos = @(Get-ChildItem -LiteralPath $areaPath -Filter "*.md" -File -Recurse |
+            Where-Object { $_.Name -ne "README.md" } |
+            Sort-Object FullName)
+
         foreach ($arquivo in $arquivos) {
             $validacao = @(Obter-Validacao $arquivo.FullName)
             if ($validacao.Count -gt 0) {
@@ -91,6 +100,7 @@ function Obter-ArquivosDeEstudo($fase) {
             }
         }
     }
+
     return @($resultado)
 }
 
@@ -127,6 +137,7 @@ function Comando-Estudar {
     $fase = Obter-FaseAtual
     if (-not $fase) { Write-Host "Estado do roadmap nao encontrado."; return }
     $itens = @(Obter-ArquivosDeEstudo $fase)
+
     foreach ($item in $itens) {
         $v = @($item.Validacao)
         for ($i = 0; $i -lt $v.Count; $i++) {
@@ -176,6 +187,7 @@ function Comando-Concluir {
     $marcar = Join-Path $Root "scripts\marcar-item.ps1"
     if (-not (Test-Path -LiteralPath $marcar -PathType Leaf)) { Write-Host "Script marcar-item.ps1 nao encontrado."; return }
     & powershell -NoProfile -ExecutionPolicy Bypass -File $marcar -Arquivo $caminho -Item $Item
+    if ($LASTEXITCODE -ne 0) { return }
     Atualizar-Painel
     Comando-Estudar
 }
