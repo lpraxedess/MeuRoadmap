@@ -1,27 +1,28 @@
-# Identity Governance and Administration — Laboratórios
+# 04 — Laboratórios de IGA
 
-## Laboratório principal
+[← Prática](../03-Pratica/README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-- [ ] Lab 01
-- [ ] Lab 02
-- [ ] Lab 03
+## 🖥️ Objetivo
 
-Cada laboratório deverá conter:
+Construir evidência prática de governança sem usar dados reais ou credenciais reais.
 
-- README.md
-- arquitetura
-- objetivo
-- pré-requisitos
-- implementação
-- validação
-- evidências
-- TROUBLESHOOTING.md
+## 🔬 Laboratório-base
 
-## Definition of Done
+Modele um ambiente com **usuário → diretório → aplicação → role/entitlement → aprovação → provisioning → revisão**.
 
-- [ ] Laboratório funciona
-- [ ] Consigo reproduzi-lo do zero
-- [ ] Documentei a implementação
-- [ ] Resolvi pelo menos um erro real
+Registre entradas, decisões, resultado esperado e evidência.
 
-[Voltar para a fase](../README.md)
+## 🔐 Segurança
+
+Use apenas ambiente de laboratório. Não registre senhas, tokens, chaves ou dados pessoais reais.
+
+## 🏁 Validação
+
+- [ ] Executei o fluxo completo
+- [ ] Capturei evidência suficiente
+- [ ] Expliquei cada decisão
+- [ ] Documentei o resultado
+
+### ▶️ Próximo
+
+[05 — Exercícios →](../05-Exercicios/README.md)
