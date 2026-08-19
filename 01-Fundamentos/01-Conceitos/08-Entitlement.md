@@ -2,43 +2,65 @@
 
 [← Voltar](07-JML.md) · [🏠 Início](../../README.md) · [Próximo →](09-SoD.md)
 
-## Objetivo
+> **Objetivo profissional:** entender um direito de acesso como algo que pode ser concedido, aprovado, revisado e removido.
 
-Entender entitlement como um direito de acesso associado a uma identidade e governado pela organização.
-
-## Estudar
+## 🎯 O que dominar
 
 - entitlement
-- permission
-- privilege
+- permission e privilege
 - role
 - ownership
-- access request
-- approval
-- access review
-- access certification
+- access request e approval
+- access review e certification
 
-## Você precisa conseguir
+## 🧠 Você precisa conseguir
 
 - explicar entitlement sem confundir com identidade ou credencial
-- dar exemplos de entitlement
-- explicar como um entitlement pode ser solicitado e aprovado
-- identificar o proprietário de um acesso
+- transformar uma necessidade de negócio em direito de acesso
+- identificar proprietário e justificativa de um acesso
+- explicar o ciclo **solicitar → aprovar → conceder → revisar → remover**
 
-## Prática
+## 🛠️ Prática guiada
 
-Crie 5 exemplos de entitlements e documente: identidade, recurso, direito, proprietário e justificativa.
+Crie 5 entitlements:
 
-## Minha explicação
+| Identidade | Recurso | Direito | Proprietário | Justificativa | Revisão |
+|---|---|---|---|---|---|
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
 
-> Explique entitlement com suas próprias palavras.
+## 🏢 Cenário profissional
 
-## Validação
+Um usuário solicita acesso administrativo a um sistema porque “precisa trabalhar mais rápido”.
+
+**Tarefa:** determine quais informações deveriam ser exigidas antes da aprovação e como provaria posteriormente que o acesso continua necessário.
+
+## 🎤 Pergunta de entrevista
+
+> O que é entitlement e como ele se relaciona com governança de acesso?
+
+## ✍️ Minha explicação
+
+> Explique entitlement usando um exemplo corporativo concreto.
+
+## 📎 Evidência
+
+Registre a matriz e o cenário em `docs/evidencias/08-entitlement/`.
+
+## ✅ Validação
 
 - [ ] Estudei
-- [ ] Fiz os exemplos
-- [ ] Consigo explicar sem consultar
+- [ ] Criei os exemplos
+- [ ] Resolvi o cenário profissional
+- [ ] Respondi à pergunta sem consultar
 - [ ] Registrei minha explicação
 - [ ] Consigo relacionar entitlement a governança
+
+## ▶️ Próximo passo
+
+Avance para **SoD** quando conseguir explicar por que um acesso precisa ter contexto, proprietário e justificativa.
 
 [← Voltar](07-JML.md) · [🏠 Início](../../README.md) · [Próximo →](09-SoD.md)
