@@ -1,20 +1,38 @@
-# Identity Governance and Administration — Conceitos
+# 01 — Conceitos de IGA
 
-## Objetivo
+[← Fase 05](../README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-Compreender os fundamentos teóricos necessários para dominar esta fase.
+> **Objetivo:** compreender o modelo de Identity Governance & Administration antes de operar processos de governança.
 
-## O que preciso saber
+## 🧭 Roteiro
 
-- [ ] Conceito 1
-- [ ] Conceito 2
-- [ ] Conceito 3
+1. Identidade e ciclo de vida
+2. Entitlement e catálogo de acesso
+3. Access Request
+4. Approval e workflow
+5. Access Review
+6. SoD
+7. Policy e governança
+8. Auditoria e evidências
 
-## Definition of Done
+## 🧠 Domínio esperado
 
-- [ ] Consigo explicar o conceito sem consultar material
-- [ ] Consigo explicar onde ele aparece em uma arquitetura IAM
-- [ ] Consigo explicar riscos e implicações de segurança
-- [ ] Consigo relacionar o conceito com um cenário corporativo
+- explicar por que IGA existe;
+- diferenciar identidade, conta, entitlement e role;
+- descrever request → approval → provisioning → review;
+- explicar como controles de SoD reduzem risco.
 
-[Voltar para a fase](../README.md)
+## ✍️ Evidência
+
+> Registre sua explicação, diagrama ou referência prática aqui.
+
+## 🏁 Validação
+
+- [ ] Expliquei o ciclo de governança sem consultar
+- [ ] Diferenciei request, approval e provisioning
+- [ ] Expliquei Access Review e SoD
+- [ ] Registrei uma evidência própria
+
+### ▶️ Próximo
+
+[02 — Conhecimentos →](../02-Conhecimentos/README.md)
