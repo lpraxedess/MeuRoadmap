@@ -2,7 +2,7 @@
 
 [← Início](../README.md)
 
-> **Status:** 🔒 Bloqueada · etapa avançada de privilégio e contas privilegiadas.
+> **Status:** ⚪ Não iniciada · **conteúdo disponível para estudo a qualquer momento.**
 
 ## 🎯 Objetivo
 
