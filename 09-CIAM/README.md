@@ -1,68 +1,33 @@
 # Fase 09 — CIAM
 
-[← Início](../README.md) · [📈 Painel](../docs/progresso/painel.md)
+[← Início](../README.md) · [Painel](../docs/progresso/painel.md)
 
-> **Objetivo:** dominar Customer Identity and Access Management, equilibrando experiência, segurança, privacidade e escala.
+> **Objetivo:** aplicar IAM a clientes e usuários externos com segurança, escala e boa experiência.
 
-> [!IMPORTANT]
-> Avalie cada jornada como produto de identidade: segura, utilizável, privada, observável e operável.
+## Rota principal
 
----
+1. **Estude:** [Conceitos](01-Conceitos/README.md).
+2. **Pratique:** [Prática](03-Pratica/README.md).
+3. **Aplique:** [Laboratórios](04-Laboratorios/README.md).
+4. **Explique:** descreva o ciclo completo de uma identidade de cliente.
+5. **Valide:** execute `roadmap.ps1 validar`.
 
-## 🧭 Caminho da fase
+## 🎯 Validação final
 
-**01 Conceitos → 02 Conhecimentos → 03 Prática → 04 Laboratórios → 05 Exercícios → 06 Troubleshooting → 07 Checklist → 08 Validação → 09 Certificações**
+1. O que diferencia CIAM de IAM corporativo?
+2. Como equilibrar segurança e experiência do usuário?
+3. Quais riscos aparecem no ciclo de vida de identidades externas?
+4. Como investigar uma falha de autenticação de cliente?
+5. Quais controles devem existir em uma arquitetura CIAM segura?
 
-| # | Etapa | Foco | Ação |
-|---:|---|---|---|
-| **01** | 🧠 Conceitos | identidade externa | [▶️ Começar](01-Conceitos/README.md) |
-| **02** | 📚 Conhecimentos | jornadas e componentes | [Abrir](02-Conhecimentos/README.md) |
-| **03** | 🧪 Prática | jornadas de usuário | [Abrir](03-Pratica/README.md) |
-| **04** | 🖥️ Laboratórios | implementação | [Abrir](04-Laboratorios/README.md) |
-| **05** | 📝 Exercícios | cenários | [Abrir](05-Exercicios/README.md) |
-| **06** | 🔎 Troubleshooting | falhas de jornada | [Abrir](06-Troubleshooting/README.md) |
-| **07** | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
-| **08** | 🎯 Validação | prova final | [Abrir](08-Revisao/README.md) |
-| **09** | 🎓 Certificações | aplicação profissional | [Abrir](09-Certificacoes/README.md) |
+## 🎯 Gate da fase
 
----
+- [ ] Estudei o núcleo da fase
+- [ ] Executei a prática
+- [ ] Apliquei o conceito em cenário ou laboratório
+- [ ] Expliquei o ciclo de identidade externa sem consultar
+- [ ] Passei na validação final e registrei evidência
 
-## ▶️ Comece aqui
+## Aprofundamento opcional
 
-**[Abrir Conceitos →](01-Conceitos/README.md)**
-
-### Modelo mental
-
-**Necessidade → jornada → autenticação → consentimento → acesso → segurança → recuperação → observabilidade**
-
-## ✍️ Meu registro
-
-**O que já domino:**
-
-> Escreva aqui.
-
-**Jornadas que consigo desenhar:**
-
-> Escreva aqui.
-
-**Dúvidas / decisões:**
-
-> Escreva aqui.
-
-**Evidências:**
-
-> Links para fluxos, labs ou decisões sanitizadas. Nunca registre dados pessoais, tokens ou secrets reais.
-
-## 🏁 Definition of Done
-
-- [ ] Entendo identidade de cliente e jornadas
-- [ ] Explico autenticação e recuperação de conta
-- [ ] Entendo consentimento e privacidade no contexto de identidade
-- [ ] Executei laboratórios
-- [ ] Resolvi cenários de falha
-- [ ] Registrei evidências e decisões
-- [ ] Consigo defender uma jornada CIAM tecnicamente
-
-### 🧭 Navegação
-
-[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md) · [📈 Painel](../docs/progresso/painel.md)
+[02 Conhecimentos](02-Conhecimentos/README.md) · [03 Prática](03-Pratica/README.md) · [04 Laboratórios](04-Laboratorios/README.md) · [05 Exercícios](05-Exercicios/README.md) · [06 Troubleshooting](06-Troubleshooting/README.md) · [07 Checklist](07-Checklist/README.md) · [08 Revisão](08-Revisao/README.md) · [09 Certificações](09-Certificacoes/README.md)
