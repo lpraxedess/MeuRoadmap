@@ -1,50 +1,48 @@
-# 08 - RevisÃ£o
+# 06 — Validação final
 
-## Objetivo
+[← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-Consolidar o conhecimento antes de avanÃ§ar.
+> A revisão confirma se o conhecimento ficou realmente seu.
 
-## RevisÃ£o 01
+## Revisão 01 — Sem consultar
 
-Responder sem consultar:
+Responda por escrito:
 
-- O que Ã© IAM?
-- Qual diferenÃ§a entre identidade e conta?
-- Qual diferenÃ§a entre AuthN e AuthZ?
+- O que é IAM?
+- Qual a diferença entre identidade e conta?
+- Qual a diferença entre AuthN e AuthZ?
 - Como funciona RBAC?
 - Como funciona ABAC?
-- O que Ã© Least Privilege?
-- O que Ã© JML?
-- O que Ã© SoD?
-- O que Ã© Federation?
-- O que Ã© SSO?
+- O que é Least Privilege?
+- O que é JML?
+- O que é SoD?
+- O que é Federation?
+- O que é SSO?
 
-## RevisÃ£o 02
+## Revisão 02 — Arquitetura
 
-Desenhar uma arquitetura IAM contendo:
+Desenhe uma arquitetura contendo usuário, dispositivo, IdP, Directory, aplicação, recurso, policy, role e autorização.
 
-- usuÃ¡rio
-- dispositivo
-- IdP
-- Directory
-- aplicaÃ§Ã£o
-- recurso
-- policy
-- role
-- autorizaÃ§Ã£o
+## Revisão 03 — Cenário corporativo
 
-## RevisÃ£o 03
+Resolva o ciclo completo:
 
-Resolver um cenÃ¡rio corporativo completo:
+**entrada → acesso inicial → mudança de departamento → novos acessos → remoção dos antigos → desligamento**
 
-FuncionÃ¡rio entra na empresa -> recebe acesso -> muda de departamento -> recebe novos acessos -> perde acessos antigos -> deixa a empresa.
+## Validação
 
-Documentar todo o ciclo.
+- [ ] Respondi a revisão sem copiar respostas
+- [ ] Desenhei a arquitetura
+- [ ] Resolvi o cenário corporativo
+- [ ] Documentei minhas dificuldades
+- [ ] Consigo explicar os fundamentos em uma conversa técnica
 
-## CritÃ©rio
+## Minha explicação
 
-A revisÃ£o deve ser realizada sem copiar respostas prontas.
+> O que ainda não está sólido? O que você consegue explicar para outra pessoa?
 
-Registrar pontos de dificuldade em:
+## Próximo passo
 
-../docs/revisoes/
+Quando a Fase 01 estiver validada, o roadmap libera a próxima etapa: **Fase 02 — Identidade e Diretórios**.
+
+[← Fase 01](../README.md) · [🏠 Início](../../README.md)
