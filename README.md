@@ -1,9 +1,9 @@
 # MeuRoadmap
 
-> **Minha bússola pessoal para me profissionalizar em IAM.**
+> **Minha bússola prática para me profissionalizar em IAM.**
 
 > [!IMPORTANT]
-> O roadmap é **aberto para estudo**. Nenhuma fase fica bloqueada: você pode explorar qualquer conteúdo. O status serve apenas para registrar o que já foi estudado e validado.
+> O roadmap é uma trilha guiada, mas não bloqueia exploração. O progresso representa **domínio demonstrado**, não quantidade de páginas lidas.
 
 ---
 
@@ -12,54 +12,47 @@
 | | |
 |---|---|
 | **Fase atual** | **01 — Fundamentos de IAM** |
-| **Área atual** | **01 — Conceitos** |
 | **Método** | Estudar → Praticar → Explicar → Validar → Concluir |
-| **Regra** | Só marque concluído quando conseguir explicar e demonstrar |
+| **Regra** | Só conclua quando conseguir reproduzir o raciocínio e demonstrar a aplicação |
 
-### ▶️ [CONTINUAR DE ONDE PAREI](./01-Fundamentos/01-Conceitos/01-Identidade.md)
+### ▶️ Próximo passo
 
----
-
-## 🗺️ Minha trilha
-
-Todas as fases estão disponíveis. Entre em qualquer uma para conhecer o conteúdo; o progresso é pessoal e independente.
-
-| # | Fase | Estado | Entrada |
-|---:|---|---|---|
-| **01** | Fundamentos de IAM | 🟢 **EM ANDAMENTO** | [Abrir](./01-Fundamentos/README.md) |
-| **02** | Identidade e Diretórios | 🟡 **DISPONÍVEL** | [Abrir](./02-Identidade-e-Diretorios/README.md) |
-| **03** | Protocolos IAM | 🟡 **DISPONÍVEL** | [Abrir](./03-Protocolos-IAM/README.md) |
-| **04** | Authentication e Authorization | 🟡 **DISPONÍVEL** | [Abrir](./04-Authentication-e-Authorization/README.md) |
-| **05** | IGA | 🟡 **DISPONÍVEL** | [Abrir](./05-IGA/README.md) |
-| **06** | Access Management | 🟡 **DISPONÍVEL** | [Abrir](./06-Access-Management/README.md) |
-| **07** | PAM | 🟡 **DISPONÍVEL** | [Abrir](./07-PAM/README.md) |
-| **08** | Cloud IAM | 🟡 **DISPONÍVEL** | [Abrir](./08-Cloud-IAM/README.md) |
-| **09** | CIAM | 🟡 **DISPONÍVEL** | [Abrir](./09-CIAM/README.md) |
-| **10** | Zero Trust e ITDR | 🟡 **DISPONÍVEL** | [Abrir](./10-Zero-Trust-e-ITDR/README.md) |
-| **11** | Automação e DevSecOps | 🟡 **DISPONÍVEL** | [Abrir](./11-Automacao-e-DevSecOps/README.md) |
-| **12** | Arquitetura IAM | 🟡 **DISPONÍVEL** | [Abrir](./12-Arquitetura-IAM/README.md) |
+Execute `estudar` no terminal para o roadmap apontar exatamente o próximo item pendente.
 
 ---
 
-## 🎯 Como usar
+## 🗺️ Trilha principal
 
-### Para cada tópico
+| # | Fase | Entrada |
+|---:|---|---|
+| **01** | Fundamentos de IAM | [Abrir](./01-Fundamentos/README.md) |
+| **02** | Identidade e Diretórios | [Abrir](./02-Identidade-e-Diretorios/README.md) |
+| **03** | Protocolos IAM | [Abrir](./03-Protocolos-IAM/README.md) |
+| **04** | Authentication e Authorization | [Abrir](./04-Authentication-e-Authorization/README.md) |
+| **05** | IGA | [Abrir](./05-IGA/README.md) |
+| **06** | Access Management | [Abrir](./06-Access-Management/README.md) |
+| **07** | PAM | [Abrir](./07-PAM/README.md) |
+| **08** | Cloud IAM | [Abrir](./08-Cloud-IAM/README.md) |
+| **09** | CIAM | [Abrir](./09-CIAM/README.md) |
+| **10** | Zero Trust e ITDR | [Abrir](./10-Zero-Trust-e-ITDR/README.md) |
+| **11** | Automação e DevSecOps | [Abrir](./11-Automacao-e-DevSecOps/README.md) |
+| **12** | Arquitetura IAM | [Abrir](./12-Arquitetura-IAM/README.md) |
 
-**1. Estude** → entenda o conceito.
+Cada fase usa a mesma sequência: **Conceitos → Conhecimentos → Prática → Laboratórios → Exercícios → Troubleshooting → Checklist → Validação → Certificações**.
 
-**2. Pratique** → faça algo com ele.
+---
 
-**3. Explique** → escreva com suas próprias palavras.
+## 🎯 Como estudar
 
-**4. Valide** → responda ou demonstre sem copiar.
+1. **Estude** — construa o modelo mental.
+2. **Pratique** — aplique em cenário ou laboratório.
+3. **Explique** — registre com suas próprias palavras.
+4. **Valide** — responda sem consultar.
+5. **Conclua** — marque somente a evidência realmente executada.
+6. **Avance** — use o próximo item indicado pelo controle.
 
-**5. Conclua** → marque o item e registre uma evidência.
-
-**6. Avance** → siga para o próximo item.
-
-> **Não use o checkbox como marcador de leitura.** Use-o como prova de domínio.
-
-Cada etapa possui **← Voltar · 🏠 Início · Próximo →** para manter a navegação fluida.
+> [!TIP]
+> O checkbox é um registro de domínio. Não é um marcador de leitura.
 
 ---
 
@@ -67,14 +60,14 @@ Cada etapa possui **← Voltar · 🏠 Início · Próximo →** para manter a n
 
 | Área | Objetivo | Acesso |
 |---|---|---|
-| 🔬 Labs | Construir experiência prática | [Abrir](./13-Labs/README.md) |
-| 🎓 Certificações | Validar conhecimento no momento certo | [Abrir](./14-Certificacoes/README.md) |
-| 💼 Projetos | Transformar estudo em portfólio | [Abrir](./15-Projetos/README.md) |
-| 🎤 Entrevistas | Preparar-me para o mercado | [Abrir](./16-Entrevistas/README.md) |
+| 🔬 Labs | experiência prática | [Abrir](./13-Labs/README.md) |
+| 🎓 Certificações | preparação profissional | [Abrir](./14-Certificacoes/README.md) |
+| 💼 Projetos | portfólio técnico | [Abrir](./15-Projetos/README.md) |
+| 🎤 Entrevistas | preparação para mercado | [Abrir](./16-Entrevistas/README.md) |
 
 ---
 
-## 📊 Meu acompanhamento
+## 📊 Acompanhamento
 
 [📈 Painel](./docs/progresso/painel.md) · [📝 Registro](./docs/progresso/registro-estudos.md) · [🔄 Revisões](./docs/revisoes/README.md) · [🏃 Sprints](./docs/sprints/README.md) · [💼 Career Log](./career-log.md)
 
@@ -91,11 +84,15 @@ powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 status
 ```
 
 ```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 verificar
+```
+
+```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 concluir ".\01-Fundamentos\01-Conceitos\01-Identidade.md" 1
 ```
 
 > [!NOTE]
-> `concluir` considera somente a seção **Validação** do arquivo informado.
+> `concluir` considera somente a seção **Validação** do arquivo informado. `verificar` audita a estrutura das 12 fases e suas 9 etapas.
 
 ---
 
