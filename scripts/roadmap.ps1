@@ -45,34 +45,42 @@ function Obter-Validacao([string]$Caminho) {
     $linhas = @(Get-Content -LiteralPath $Caminho -Encoding UTF8)
     if ($linhas.Count -eq 0) { return @() }
 
-    # Parser deliberadamente baseado em linhas: o Markdown usa H2 para a secao
-    # e checkboxes Markdown para cada item de validacao. Nao depende de regex
-    # multiline, que varia entre versoes/ambientes do PowerShell.
     $emValidacao = $false
     $itens = @()
 
     foreach ($linha in $linhas) {
-        if ($linha -match '^##\s+.*(?:Validação|Validacao|Definition\s+of\s+Done).*') {
+        $textoLinha = [string]$linha
+        $trim = $textoLinha.Trim()
+
+        # Detecta a secao por texto, sem depender de regex Unicode/emoji.
+        if ($trim.StartsWith('## ') -and (
+            $trim.IndexOf('Validação', [System.StringComparison]::OrdinalIgnoreCase) -ge 0 -or
+            $trim.IndexOf('Validacao', [System.StringComparison]::OrdinalIgnoreCase) -ge 0 -or
+            $trim.IndexOf('Definition of Done', [System.StringComparison]::OrdinalIgnoreCase) -ge 0
+        )) {
             $emValidacao = $true
             continue
         }
 
-        if ($emValidacao -and $linha -match '^##\s+') {
+        if ($emValidacao -and $trim.StartsWith('## ')) {
             break
         }
 
-        if ($emValidacao -and $linha -match '^\s*-\s*\[\s*[xX]\s*\]\s*(.*)$') {
+        if (-not $emValidacao) { continue }
+
+        # Aceita checkbox Markdown com qualquer quantidade de espacos internos.
+        if ($trim.StartsWith('- [ ]')) {
             $itens += [PSCustomObject]@{
-                Concluido = $true
-                Texto = ([string]$Matches[1]).Trim()
+                Concluido = $false
+                Texto = $trim.Substring(5).Trim()
             }
             continue
         }
 
-        if ($emValidacao -and $linha -match '^\s*-\s*\[\s*\]\s*(.*)$') {
+        if ($trim.StartsWith('- [x]') -or $trim.StartsWith('- [X]')) {
             $itens += [PSCustomObject]@{
-                Concluido = $false
-                Texto = ([string]$Matches[1]).Trim()
+                Concluido = $true
+                Texto = $trim.Substring(5).Trim()
             }
         }
     }
