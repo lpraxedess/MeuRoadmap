@@ -11,18 +11,24 @@ $VerificarPath = Join-Path $Root "scripts\verificar-roadmap.ps1"
 try { [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new() } catch {}
 
 function Ler-Estado {
-    if (-not (Test-Path $EstadoPath)) { return $null }
-    Get-Content $EstadoPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    if (-not (Test-Path -LiteralPath $EstadoPath)) { return $null }
+    Get-Content -LiteralPath $EstadoPath -Raw -Encoding UTF8 | ConvertFrom-Json
 }
 
 function Atualizar-Painel {
-    if (Test-Path $AtualizarPath) {
+    if (Test-Path -LiteralPath $AtualizarPath) {
         powershell -NoProfile -ExecutionPolicy Bypass -File $AtualizarPath | Out-Null
     }
 }
 
 function Caminho-Relativo([string]$Path) {
-    $Path.Substring($Root.Length).TrimStart('\')
+    if ([string]::IsNullOrWhiteSpace($Path)) { return "" }
+    $fullPath = [System.IO.Path]::GetFullPath($Path)
+    $rootPath = [System.IO.Path]::GetFullPath($Root)
+    if ($fullPath.StartsWith($rootPath, [System.StringComparison]::OrdinalIgnoreCase)) {
+        return $fullPath.Substring($rootPath.Length).TrimStart('\')
+    }
+    return $fullPath
 }
 
 function Obter-FaseAtual {
@@ -32,22 +38,18 @@ function Obter-FaseAtual {
 }
 
 function Obter-Validacao([string]$Caminho) {
-    if (-not (Test-Path -LiteralPath $Caminho)) { return @() }
+    if ([string]::IsNullOrWhiteSpace($Caminho)) { return @() }
+    if (-not (Test-Path -LiteralPath $Caminho -PathType Leaf)) { return @() }
 
     $conteudo = Get-Content -LiteralPath $Caminho -Raw -Encoding UTF8
     if ([string]::IsNullOrWhiteSpace($conteudo)) { return @() }
 
-    # Localiza a primeira secao de validacao, aceitando os formatos usados no roadmap:
-    # ## Validação, ## ✅ Validação e ## 🏁 Definition of Done.
-    $cabecalho = [regex]::Match(
-        $conteudo,
-        '(?im)^##\s+[^\r\n]*(?:Valida|Definition\s+of\s+Done)[^\r\n]*$'
-    )
+    $cabecalho = [regex]::Match($conteudo, '(?im)^##[ \t]+[^\r\n]*(?:Valida(?:ção|cao)|Definition[ \t]+of[ \t]+Done)[^\r\n]*$')
     if (-not $cabecalho.Success) { return @() }
 
     $inicio = $cabecalho.Index + $cabecalho.Length
     $restante = $conteudo.Substring($inicio)
-    $proximoCabecalho = [regex]::Match($restante, '(?m)^##\s+')
+    $proximoCabecalho = [regex]::Match($restante, '(?m)^##[ \t]+')
     if ($proximoCabecalho.Success) {
         $secao = $restante.Substring(0, $proximoCabecalho.Index)
     } else {
@@ -55,7 +57,7 @@ function Obter-Validacao([string]$Caminho) {
     }
 
     $itens = @()
-    foreach ($match in [regex]::Matches($secao, '(?m)^\s*-\s*\[\s*(x|X| )\s*\]\s*(.*?)\s*$')) {
+    foreach ($match in [regex]::Matches($secao, '(?m)^[ \t]*-[ \t]*\[[ \t]*(x|X|)[ \t]*\][ \t]*([^\r\n]*)$')) {
         $marcador = [string]$match.Groups[1].Value
         $texto = [string]$match.Groups[2].Value
         $itens += [PSCustomObject]@{
@@ -74,18 +76,13 @@ function Obter-ArquivosDeEstudo($fase) {
 
     foreach ($nomeArea in $ordem) {
         $area = Join-Path $diretorio $nomeArea
-        if (-not (Test-Path $area)) { continue }
+        if (-not (Test-Path -LiteralPath $area -PathType Container)) { continue }
 
-        $arquivos = @(Get-ChildItem $area -Filter "*.md" -File | Where-Object { $_.Name -ne "README.md" } | Sort-Object Name)
+        $arquivos = @(Get-ChildItem -LiteralPath $area -Filter "*.md" -File | Where-Object { $_.Name -ne "README.md" } | Sort-Object Name)
         foreach ($arquivo in $arquivos) {
             $validacao = @(Obter-Validacao $arquivo.FullName)
             if ($validacao.Count -gt 0) {
-                $novoArquivo = [PSCustomObject]@{
-                    Area = $nomeArea
-                    Arquivo = $arquivo
-                    Validacao = $validacao
-                }
-                $resultado += $novoArquivo
+                $resultado += [PSCustomObject]@{ Area = $nomeArea; Arquivo = $arquivo; Validacao = $validacao }
             }
         }
     }
@@ -105,17 +102,14 @@ function Comando-Status {
     Atualizar-Painel
     $fase = Obter-FaseAtual
     if (-not $fase) { Write-Host "Estado do roadmap nao encontrado."; return }
-
     $itens = @(Obter-ArquivosDeEstudo $fase)
-    $total = 0
-    $concluidos = 0
+    $total = 0; $concluidos = 0
     foreach ($item in $itens) {
         $validacoes = @($item.Validacao)
         $total += $validacoes.Count
         $concluidos += @($validacoes | Where-Object { $_.Concluido }).Count
     }
     $p = if ($total -gt 0) { [math]::Round(($concluidos / $total) * 100) } else { 0 }
-
     Write-Host ""
     Write-Host "STATUS DO ROADMAP" -ForegroundColor Cyan
     Write-Host "Fase atual : $($fase.id.ToString('00')) - $($fase.nome)"
@@ -128,7 +122,6 @@ function Comando-Estudar {
     $fase = Obter-FaseAtual
     if (-not $fase) { Write-Host "Estado do roadmap nao encontrado."; return }
     $itens = @(Obter-ArquivosDeEstudo $fase)
-
     foreach ($item in $itens) {
         $v = @($item.Validacao)
         for ($i = 0; $i -lt $v.Count; $i++) {
@@ -148,33 +141,24 @@ function Comando-Estudar {
             }
         }
     }
-
     $estado = Ler-Estado
     $proxima = @($estado.fases) | Where-Object { [int]$_.id -gt [int]$fase.id } | Sort-Object id | Select-Object -First 1
     Write-Host ""
     Write-Host "FASE CONCLUIDA" -ForegroundColor Green
-    if ($proxima) {
-        Write-Host "Proximo passo: Fase $($proxima.id.ToString('00')) - $($proxima.nome)"
-        Write-Host "Arquivo: $($proxima.diretorio)\README.md"
-    } else {
-        Write-Host "Todas as fases cadastradas foram concluidas."
-        Write-Host "Proximo passo: revisar painel e evidencias finais."
-    }
+    if ($proxima) { Write-Host "Proximo passo: Fase $($proxima.id.ToString('00')) - $($proxima.nome)"; Write-Host "Arquivo: $($proxima.diretorio)\README.md" }
+    else { Write-Host "Todas as fases cadastradas foram concluidas."; Write-Host "Proximo passo: revisar painel e evidencias finais." }
     Write-Host ""
 }
 
 function Comando-Concluir {
     if ([string]::IsNullOrWhiteSpace($Arquivo)) { Write-Host "Informe o arquivo."; return }
     if ($Item -lt 1) { Write-Host "Informe um numero de item valido."; return }
-
     $caminho = $Arquivo
     if (-not [System.IO.Path]::IsPathRooted($caminho)) { $caminho = Join-Path $Root $caminho }
-    if (-not (Test-Path -LiteralPath $caminho)) { Write-Host "Arquivo nao encontrado: $Arquivo"; return }
-
+    if (-not (Test-Path -LiteralPath $caminho -PathType Leaf)) { Write-Host "Arquivo nao encontrado: $Arquivo"; return }
     $v = @(Obter-Validacao $caminho)
     if ($v.Count -eq 0) { Write-Host "O arquivo nao possui uma secao de validacao com itens."; return }
     if ($Item -gt $v.Count) { Write-Host "Item invalido. O arquivo possui $($v.Count) itens."; return }
-
     $marcar = Join-Path $Root "scripts\marcar-item.ps1"
     powershell -NoProfile -ExecutionPolicy Bypass -File $marcar -Arquivo $caminho -Item $Item
     Atualizar-Painel
@@ -182,11 +166,8 @@ function Comando-Concluir {
 }
 
 function Comando-Verificar {
-    if (Test-Path $VerificarPath) {
-        powershell -NoProfile -ExecutionPolicy Bypass -File $VerificarPath
-    } else {
-        Write-Host "Script de verificacao nao encontrado."
-    }
+    if (Test-Path -LiteralPath $VerificarPath) { powershell -NoProfile -ExecutionPolicy Bypass -File $VerificarPath }
+    else { Write-Host "Script de verificacao nao encontrado." }
 }
 
 switch ($Comando.ToLower()) {
