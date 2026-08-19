@@ -1,59 +1,71 @@
 # Fase 02 — Identidade e Diretórios
 
-[← Início](../README.md)
+[← Início](../README.md) · [📈 Painel](../docs/progresso/painel.md)
 
-> **Status:** ⚪ Em preparação · conteúdo disponível para estudar quando quiser.
+> **Objetivo:** dominar como identidades são armazenadas, organizadas, sincronizadas e utilizadas em ambientes corporativos.
 
-## 🎯 Objetivo
+> [!IMPORTANT]
+> A fase é uma trilha integrada. O progresso é validado por evidência, não por leitura.
 
-Dominar como identidades são armazenadas, organizadas, sincronizadas e utilizadas em ambientes corporativos.
+---
 
-## 🧭 Seu caminho
+## 🧭 Caminho da fase
 
-**1. Conceitos → 2. Conhecimentos → 3. Prática → 4. Laboratórios → 5. Exercícios → 6. Troubleshooting → 7. Checklist → 8. Validação → 9. Certificações**
+**01 Conceitos → 02 Conhecimentos → 03 Prática → 04 Laboratórios → 05 Exercícios → 06 Troubleshooting → 07 Checklist → 08 Validação → 09 Certificações**
 
-| # | Etapa | O que você faz | Acesso |
+| # | Etapa | Foco | Ação |
 |---:|---|---|---|
-| 01 | 🧠 Conceitos | entende o modelo mental | [Abrir](01-Conceitos/README.md) |
-| 02 | 📚 Conhecimentos | aprende a base técnica | [Abrir](02-Conhecimentos/README.md) |
-| 03 | 🧪 Prática | aplica em cenários | [Abrir](03-Pratica/README.md) |
-| 04 | 🖥️ Laboratórios | executa de verdade | [Abrir](04-Laboratorios/README.md) |
-| 05 | 📝 Exercícios | testa retenção | [Abrir](05-Exercicios/README.md) |
-| 06 | 🔎 Troubleshooting | aprende a diagnosticar | [Abrir](06-Troubleshooting/README.md) |
-| 07 | ☑️ Checklist | confere o domínio | [Abrir](07-Checklist/README.md) |
-| 08 | 🎯 Validação | prova que consegue explicar | [Abrir](08-Revisao/README.md) |
-| 09 | 🎓 Certificações | conecta com carreira | [Abrir](09-Certificacoes/README.md) |
+| **01** | 🧠 Conceitos | modelo mental de diretórios e identidade | [▶️ Começar](01-Conceitos/README.md) |
+| **02** | 📚 Conhecimentos | LDAP, AD, objetos e sincronização | [Abrir](02-Conhecimentos/README.md) |
+| **03** | 🧪 Prática | cenários de identidade | [Abrir](03-Pratica/README.md) |
+| **04** | 🖥️ Laboratórios | implementação e integração | [Abrir](04-Laboratorios/README.md) |
+| **05** | 📝 Exercícios | retenção e raciocínio | [Abrir](05-Exercicios/README.md) |
+| **06** | 🔎 Troubleshooting | falhas de diretório e identidade | [Abrir](06-Troubleshooting/README.md) |
+| **07** | ☑️ Checklist | cobertura do domínio | [Abrir](07-Checklist/README.md) |
+| **08** | 🎯 Validação | domínio sem consulta | [Abrir](08-Revisao/README.md) |
+| **09** | 🎓 Certificações | aplicação profissional | [Abrir](09-Certificacoes/README.md) |
+
+---
 
 ## ▶️ Comece aqui
 
 **[Abrir Conceitos →](01-Conceitos/README.md)**
 
-Não avance apenas por leitura. Para cada assunto: **estude → pratique → escreva com suas palavras → marque como concluído**.
+### Regra de estudo
 
-## ✍️ Meu registro da fase
+**Estudar → Praticar → Explicar → Validar → Registrar evidência → Avançar**
 
-**O que já entendo:**
+Não use o checkbox como marcador de leitura. Marque somente quando conseguir reproduzir o raciocínio e demonstrar a aplicação.
+
+## ✍️ Meu registro
+
+**O que já domino:**
+
+> Escreva aqui.
+
+**O que preciso praticar:**
 
 > Escreva aqui.
 
-**O que ainda preciso estudar:**
+**Dúvidas / erros importantes:**
 
 > Escreva aqui.
 
-**Dificuldades / dúvidas:**
+**Evidências:**
 
-> Escreva aqui.
+> Links para diagramas, labs ou anotações. Nunca registre secrets, tokens ou dados reais.
 
 ## 🏁 Definition of Done
 
-- [ ] Consigo explicar diretórios e identidade sem consultar
+- [ ] Explico diretórios e identidade sem consultar
 - [ ] Consigo trabalhar com usuários, grupos e atributos
-- [ ] Entendo LDAP e Active Directory
+- [ ] Entendo LDAP, Active Directory, DNS e Kerberos
+- [ ] Entendo sincronização e federação
 - [ ] Executei os laboratórios
-- [ ] Resolvi os cenários de troubleshooting
-- [ ] Registrei minhas explicações e evidências
-- [ ] Consigo defender minhas decisões tecnicamente
+- [ ] Resolvi cenários de troubleshooting
+- [ ] Registrei explicações e evidências sanitizadas
+- [ ] Consigo defender decisões tecnicamente
 
-### Navegação
+### 🧭 Navegação
 
-[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md)
+[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md) · [📈 Painel](../docs/progresso/painel.md)
