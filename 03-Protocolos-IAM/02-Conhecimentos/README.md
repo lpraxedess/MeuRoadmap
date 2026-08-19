@@ -1,24 +1,43 @@
-# Protocolos e Padrões IAM — Conhecimentos
+# 🧠 Conhecimentos — Protocolos e Padrões IAM
 
-## Competências obrigatórias
+[← Voltar para a fase](../README.md) · [🏠 Início](../../README.md)
 
-- [ ] Conhecimento 1
-- [ ] Conhecimento 2
-- [ ] Conhecimento 3
+> **Como usar:** estude na ordem, abra cada módulo, faça a prática e só marque como concluído quando conseguir explicar o assunto com suas próprias palavras.
 
-## Nível atual
+## 🗺️ Trilha
 
-**Nível:** 0/5
+| # | Módulo | Objetivo |
+|---|---|---|
+| 01 | [Fluxos de autenticação e autorização](01-Fluxos.md) | Entender o caminho completo de uma requisição IAM |
+| 02 | [Tokens e Claims](02-Tokens-e-Claims.md) | Interpretar tokens e contexto de autorização |
+| 03 | [Federation e SSO](03-Federation-e-SSO.md) | Entender confiança entre IdP e aplicações |
+| 04 | [Provisioning e SCIM](04-Provisioning-e-SCIM.md) | Entender ciclo de vida e integração de identidades |
+| 05 | [LDAP e Diretórios](05-LDAP-e-Diretorios.md) | Entender armazenamento e consulta de identidades |
+| 06 | [Kerberos e Active Directory](06-Kerberos-e-AD.md) | Conectar autenticação, domínio e diretório |
 
-### Escala
+## 📈 Nível de domínio
 
-| Nível | Significado |
+**Nível inicial: 0/5**
+
+| Nível | Você consegue... |
 |---|---|
-| 0 | Nunca estudei |
-| 1 | Conheço a teoria |
-| 2 | Reproduzo laboratório guiado |
-| 3 | Implemento sozinho |
-| 4 | Resolvo troubleshooting |
-| 5 | Projeto, automatizo e explico a arquitetura |
+| 0 | reconhecer o tema |
+| 1 | explicar a teoria |
+| 2 | reproduzir uma prática guiada |
+| 3 | implementar sozinho |
+| 4 | diagnosticar problemas |
+| 5 | projetar, automatizar e explicar a arquitetura |
 
-[Voltar para a fase](../README.md)
+## ✅ Definition of Done
+
+Considere este módulo dominado somente quando você:
+
+- [ ] consegue explicar sem copiar uma definição;
+- [ ] consegue desenhar o fluxo principal;
+- [ ] realizou a prática proposta;
+- [ ] registrou sua própria explicação;
+- [ ] consegue responder perguntas de troubleshooting relacionadas.
+
+## ➡️ Depois desta trilha
+
+**Próximo:** [03 — Prática](../03-Pratica/README.md)
