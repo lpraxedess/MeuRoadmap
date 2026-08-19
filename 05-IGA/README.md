@@ -1,69 +1,33 @@
 # Fase 05 — IGA
 
-[← Início](../README.md) · [📈 Painel](../docs/progresso/painel.md)
+[← Início](../README.md) · [Painel](../docs/progresso/painel.md)
 
-> **Objetivo:** dominar Identity Governance & Administration: ciclo de vida, solicitações, aprovações, reviews, certificações, SoD e governança de acesso.
+> **Objetivo:** governar identidades e acessos ao longo do ciclo de vida, com aprovação, revisão e evidência.
 
-> [!IMPORTANT]
-> O foco é justificar decisões de acesso com rastreabilidade, necessidade, aprovação e revisão.
+## Rota principal
 
----
+1. **Estude:** [Conceitos](01-Conceitos/README.md).
+2. **Pratique:** [Prática](03-Pratica/README.md).
+3. **Aplique:** [Laboratórios](04-Laboratorios/README.md).
+4. **Explique:** descreva como um acesso nasce, é aprovado, revisado e removido.
+5. **Valide:** execute `roadmap.ps1 validar`.
 
-## 🧭 Caminho da fase
+## 🎯 Validação final
 
-**01 Conceitos → 02 Conhecimentos → 03 Prática → 04 Laboratórios → 05 Exercícios → 06 Troubleshooting → 07 Checklist → 08 Validação → 09 Certificações**
+1. Qual problema IGA resolve que um diretório sozinho não resolve?
+2. Como funciona um ciclo JML governado?
+3. Onde entram aprovação, entitlement, revisão e SoD?
+4. Que evidências você exigiria para provar governança de acesso?
+5. Como investigaria um acesso indevido que deveria ter sido removido?
 
-| # | Etapa | Foco | Ação |
-|---:|---|---|---|
-| **01** | 🧠 Conceitos | governança e lifecycle | [▶️ Começar](01-Conceitos/README.md) |
-| **02** | 📚 Conhecimentos | processos e controles | [Abrir](02-Conhecimentos/README.md) |
-| **03** | 🧪 Prática | decisões de acesso | [Abrir](03-Pratica/README.md) |
-| **04** | 🖥️ Laboratórios | fluxos de governança | [Abrir](04-Laboratorios/README.md) |
-| **05** | 📝 Exercícios | cenários | [Abrir](05-Exercicios/README.md) |
-| **06** | 🔎 Troubleshooting | falhas de lifecycle e acesso | [Abrir](06-Troubleshooting/README.md) |
-| **07** | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
-| **08** | 🎯 Validação | prova final | [Abrir](08-Revisao/README.md) |
-| **09** | 🎓 Certificações | aplicação profissional | [Abrir](09-Certificacoes/README.md) |
+## 🎯 Gate da fase
 
----
+- [ ] Estudei o núcleo da fase
+- [ ] Executei a prática
+- [ ] Apliquei o fluxo em cenário ou laboratório
+- [ ] Expliquei o ciclo de governança sem consultar
+- [ ] Passei na validação final e registrei evidência
 
-## ▶️ Comece aqui
+## Aprofundamento opcional
 
-**[Abrir Conceitos →](01-Conceitos/README.md)**
-
-### Modelo mental
-
-**Quem → precisa de quê → por quê → quem aprova → por quanto tempo → como revisar → como remover**
-
-## ✍️ Meu registro
-
-**O que já domino:**
-
-> Escreva aqui.
-
-**Decisões que consigo justificar:**
-
-> Escreva aqui.
-
-**Dúvidas / conflitos:**
-
-> Escreva aqui.
-
-**Evidências:**
-
-> Links para fluxos, labs ou decisões sanitizadas. Nunca registre dados reais ou secrets.
-
-## 🏁 Definition of Done
-
-- [ ] Domino JML e lifecycle
-- [ ] Entendo request, approval, review e certification
-- [ ] Identifico conflitos de SoD
-- [ ] Consigo justificar uma concessão e uma remoção de acesso
-- [ ] Executei os laboratórios
-- [ ] Resolvi cenários de governança
-- [ ] Registrei evidências e explicações próprias
-- [ ] Consigo defender uma política de acesso
-
-### 🧭 Navegação
-
-[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md) · [📈 Painel](../docs/progresso/painel.md)
+[02 Conhecimentos](02-Conhecimentos/README.md) · [03 Prática](03-Pratica/README.md) · [04 Laboratórios](04-Laboratorios/README.md) · [05 Exercícios](05-Exercicios/README.md) · [06 Troubleshooting](06-Troubleshooting/README.md) · [07 Checklist](07-Checklist/README.md) · [08 Revisão](08-Revisao/README.md) · [09 Certificações](09-Certificacoes/README.md)
