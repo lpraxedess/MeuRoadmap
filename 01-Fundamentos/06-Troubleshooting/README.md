@@ -1,34 +1,90 @@
 # 06 — Troubleshooting
 
-[← Fase 01](../README.md) · [🏠 Início](../../README.md)
+[← Exercícios](../05-Exercicios/README.md) · [🏠 Início](../../README.md) · [Próximo → Validação](../08-Revisao/README.md)
 
-> **Objetivo:** aprender a investigar sintomas de identidade e acesso até encontrar a causa raiz.
+> **Objetivo:** investigar sintomas de identidade e acesso até encontrar a causa raiz.
 
-## 🔎 Cenários
-
-| # | Sintoma | O que investigar |
-|---:|---|---|
-| 01 | Usuário não acessa uma aplicação | identidade, conta, grupo, role, policy, permission, AuthN/AuthZ |
-| 02 | Autentica, mas recebe Access Denied | AuthZ, entitlement, ACL, role, policy |
-| 03 | Usuário desligado ainda tem acesso | lifecycle, provisioning, deprovisioning |
-| 04 | Service account com privilégio excessivo | ownership, credential, permissions, least privilege |
-
-## 🧭 Método
+## 🧭 Método profissional
 
 **Sintoma → Hipótese → Evidência → Teste → Causa raiz → Correção → Validação → Registro**
 
+Não pule diretamente para a solução. Primeiro prove a causa.
+
+## 🔎 Cenário 01 — Usuário não acessa uma aplicação
+
+**Investigue:** identidade, conta, grupo, role, policy, permission, AuthN e AuthZ.
+
+**Pergunta-chave:** em qual ponto do caminho o acesso está falhando?
+
+- [ ] Listei hipóteses
+- [ ] Coletei evidências
+- [ ] Testei hipóteses
+- [ ] Encontrei causa raiz
+- [ ] Corrigi e validei
+
+## 🔎 Cenário 02 — Authentication funciona, mas Access Denied
+
+**Investigue:** AuthZ, entitlement, ACL, role e policy.
+
+**Pergunta-chave:** a identidade foi reconhecida, mas qual regra está negando o acesso?
+
+- [ ] Listei hipóteses
+- [ ] Coletei evidências
+- [ ] Testei hipóteses
+- [ ] Encontrei causa raiz
+- [ ] Corrigi e validei
+
+## 🔎 Cenário 03 — Usuário desligado ainda possui acesso
+
+**Investigue:** lifecycle, provisioning, deprovisioning, conta, grupos e aplicações.
+
+**Pergunta-chave:** em qual etapa do Leaver o acesso deixou de ser removido?
+
+- [ ] Listei hipóteses
+- [ ] Coletei evidências
+- [ ] Testei hipóteses
+- [ ] Encontrei causa raiz
+- [ ] Corrigi e validei
+
+## 🔎 Cenário 04 — Service account com privilégio excessivo
+
+**Investigue:** ownership, permissions, credential, least privilege e privilege escalation.
+
+**Pergunta-chave:** quais permissões são realmente necessárias para o serviço funcionar?
+
+- [ ] Listei hipóteses
+- [ ] Coletei evidências
+- [ ] Testei hipóteses
+- [ ] Encontrei causa raiz
+- [ ] Corrigi e validei
+
+## 📝 Registro do incidente
+
+```text
+Sintoma:
+Impacto:
+Hipóteses:
+Evidências coletadas:
+Testes realizados:
+Causa raiz:
+Correção:
+Validação:
+Lição aprendida:
+```
+
 ## ✍️ Minha explicação
 
-> Registre como você raciocinou, quais evidências foram decisivas e o que faria diferente.
+> Explique como você raciocinou, quais evidências foram decisivas e o que faria diferente em um incidente real.
 
-## ✅ Validação
+## 🎯 Definition of Done
 
 - [ ] Cenário 01
 - [ ] Cenário 02
 - [ ] Cenário 03
 - [ ] Cenário 04
-- [ ] Causa raiz e evidências documentadas
+- [ ] Registrei causa raiz e evidências
+- [ ] Consigo explicar meu método de diagnóstico
 
 ### Navegação
 
-[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Próximo: Validação](../08-Revisao/README.md)
+[← Exercícios](../05-Exercicios/README.md) · [🏠 Início](../../README.md) · [Próximo → Validação](../08-Revisao/README.md)
