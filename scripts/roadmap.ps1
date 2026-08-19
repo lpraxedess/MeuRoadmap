@@ -43,44 +43,26 @@ function Obter-Validacao([string]$Caminho) {
     if (-not (Test-Path -LiteralPath $Caminho -PathType Leaf)) { return @() }
 
     $linhas = @(Get-Content -LiteralPath $Caminho -Encoding UTF8)
-    if ($linhas.Count -eq 0) { return @() }
-
     $emValidacao = $false
     $itens = @()
 
     foreach ($linha in $linhas) {
-        $textoLinha = [string]$linha
-        $trim = $textoLinha.Trim()
+        $trim = ([string]$linha).Trim()
 
-        # Detecta a secao por texto, sem depender de regex Unicode/emoji.
-        if ($trim.StartsWith('## ') -and (
-            $trim.IndexOf('Validação', [System.StringComparison]::OrdinalIgnoreCase) -ge 0 -or
-            $trim.IndexOf('Validacao', [System.StringComparison]::OrdinalIgnoreCase) -ge 0 -or
-            $trim.IndexOf('Definition of Done', [System.StringComparison]::OrdinalIgnoreCase) -ge 0
-        )) {
+        # O marcador pode conter emoji antes de "Validação"; por isso a detecção
+        # procura apenas o texto do título, sem depender de encoding Unicode.
+        if ($trim -match '^## .*Valida') {
             $emValidacao = $true
             continue
         }
 
-        if ($emValidacao -and $trim.StartsWith('## ')) {
-            break
-        }
-
+        if ($emValidacao -and $trim -match '^## ') { break }
         if (-not $emValidacao) { continue }
 
-        # Aceita checkbox Markdown com qualquer quantidade de espacos internos.
-        if ($trim.StartsWith('- [ ]')) {
+        if ($trim -match '^[-*]\s*\[([ xX])\]\s*(.*)$') {
             $itens += [PSCustomObject]@{
-                Concluido = $false
-                Texto = $trim.Substring(5).Trim()
-            }
-            continue
-        }
-
-        if ($trim.StartsWith('- [x]') -or $trim.StartsWith('- [X]')) {
-            $itens += [PSCustomObject]@{
-                Concluido = $true
-                Texto = $trim.Substring(5).Trim()
+                Concluido = ($matches[1] -ne ' ')
+                Texto = $matches[2].Trim()
             }
         }
     }
