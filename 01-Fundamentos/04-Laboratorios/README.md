@@ -1,38 +1,99 @@
 # 04 — Laboratórios
 
-[← Fase 01](../README.md) · [🏠 Início](../../README.md)
+[← Prática](../03-Pratica/README.md) · [🏠 Início](../../README.md) · [Próximo → Exercícios](../05-Exercicios/README.md)
 
 > **Objetivo:** sair da teoria e operar ambientes próximos da realidade profissional.
 
-## 🧰 Laboratórios
+## 🗺️ Fluxo de cada laboratório
 
-| # | Lab | Prática principal |
-|---:|---|---|
-| 01 | Windows / Active Directory | domínio, usuários, grupos, OU, permissões, GPO |
-| 02 | Linux | usuários, grupos, sudo, ACL, SSH |
-| 03 | LDAP | estrutura, usuários, grupos, atributos e consultas |
-| 04 | Cloud IAM | roles, policies, permissions e least privilege |
-| 05 | JML | contratação, mudança, desligamento e automação |
+**Preparar ambiente → Executar → Quebrar/Investigar → Corrigir → Documentar → Validar**
+
+## 🧰 LAB 01 — Windows / Active Directory
+
+**Construir:** domínio, usuários, grupos, OU, permissões e GPO.
+
+**Executar:** criar usuário, alterar atributos, bloquear/desbloquear, adicionar/remover grupos e testar delegação.
+
+- [ ] Ambiente preparado
+- [ ] Executei as tarefas
+- [ ] Testei o acesso
+- [ ] Documentei comandos e resultado
+- [ ] Consigo explicar o que aconteceu
+
+## 🧰 LAB 02 — Linux
+
+**Construir:** usuários, grupos, sudo, ownership, permissions, ACL e SSH.
+
+**Executar:** criar identidades, aplicar permissões e testar acesso com diferentes usuários.
+
+- [ ] Ambiente preparado
+- [ ] Executei as tarefas
+- [ ] Testei o acesso
+- [ ] Documentei comandos e resultado
+- [ ] Consigo explicar o que aconteceu
+
+## 🧰 LAB 03 — LDAP
+
+**Construir:** estrutura LDAP com usuários, grupos e atributos.
+
+**Executar:** realizar consultas e explicar DN, atributos e organização dos objetos.
+
+- [ ] Ambiente preparado
+- [ ] Executei as tarefas
+- [ ] Fiz consultas
+- [ ] Documentei comandos e resultado
+- [ ] Consigo explicar o que aconteceu
+
+## 🧰 LAB 04 — Cloud IAM
+
+**Construir:** identidade, grupo/role, policy, permission e recurso.
+
+**Executar:** conceder somente o acesso necessário e testar um caso permitido e um negado.
+
+- [ ] Ambiente preparado
+- [ ] Criei as identidades
+- [ ] Configurei roles/policies
+- [ ] Testei permitido e negado
+- [ ] Documentei o resultado
+
+## 🧰 LAB 05 — JML
+
+**Simular:** contratação → acesso inicial → mudança de função → remoção de acesso antigo → desligamento.
+
+**Objetivo:** automatizar o máximo possível e identificar onde um erro de lifecycle poderia gerar risco.
+
+- [ ] Modelei o fluxo
+- [ ] Executei Joiner
+- [ ] Executei Mover
+- [ ] Executei Leaver
+- [ ] Validei remoções
+- [ ] Documentei a automação
 
 ## 📸 Evidência obrigatória
 
 Para cada laboratório registre:
 
-- objetivo e arquitetura
-- ambiente utilizado
-- configuração e comandos
-- resultado
-- problema encontrado
-- troubleshooting
-- solução
-- screenshots quando úteis
-- conclusão
+```text
+Objetivo:
+Arquitetura:
+Ambiente:
+Configuração:
+Comandos:
+Resultado:
+Problema:
+Hipótese:
+Correção:
+Validação:
+O que aprendi:
+```
+
+Adicione screenshots somente quando realmente ajudarem a provar o resultado.
 
 ## ✍️ Minha explicação
 
-> O que você conseguiu executar sozinho? Onde travou? Como resolveu?
+> O que você conseguiu executar sozinho? Onde travou? Como resolveu? O que faria diferente?
 
-## ✅ Validação
+## 🎯 Definition of Done
 
 - [ ] Windows / AD
 - [ ] Linux
@@ -40,7 +101,8 @@ Para cada laboratório registre:
 - [ ] Cloud IAM
 - [ ] JML
 - [ ] Evidências organizadas
+- [ ] Consigo explicar os ambientes e decisões sem consultar material
 
 ### Navegação
 
-[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Próximo: Troubleshooting](../06-Troubleshooting/README.md)
+[← Prática](../03-Pratica/README.md) · [🏠 Início](../../README.md) · [Próximo → Exercícios](../05-Exercicios/README.md)
