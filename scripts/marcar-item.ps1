@@ -25,7 +25,7 @@ $indiceAlvo = -1
 for ($i = 0; $i -lt $linhas.Count; $i++) {
     $linha = $linhas[$i]
 
-    if ($linha -match '^##\s+Valida(c|ç)ão\s*$') {
+    if ($linha -match '^##\s+.*Valida(c|ç)ão.*$') {
         $emValidacao = $true
         continue
     }
