@@ -1,23 +1,31 @@
-# Identity Governance and Administration — Troubleshooting
+# 06 — Troubleshooting de IGA
 
-Registre problemas reais encontrados durante os estudos e laboratórios.
+[← Exercícios](../05-Exercicios/README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-## Registro
+## 🔎 Método
 
-### Problema
+Investigue sempre na ordem:
 
-**Data:**
+**Sintoma → identidade → entitlement → policy → workflow → provisioning → evidência**
 
-**Sintoma:**
+### Casos para diagnosticar
 
-**Causa:**
+- acesso solicitado mas não provisionado;
+- aprovação pendente;
+- acesso removido incorretamente;
+- entitlement incompatível;
+- revisão sem evidência suficiente.
 
-**Investigação:**
+## ✍️ Registro
 
-**Solução:**
+> Sintoma, hipótese, evidência encontrada, causa raiz e correção.
 
-**Resultado:**
+## 🏁 Validação
 
-**Lição aprendida:**
+- [ ] Diferenciei sintoma de causa raiz
+- [ ] Usei evidências para confirmar a hipótese
+- [ ] Documentei a correção
 
-[Voltar para a fase](../README.md)
+### ▶️ Próximo
+
+[07 — Checklist →](../07-Checklist/README.md)
