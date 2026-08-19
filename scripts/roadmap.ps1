@@ -38,6 +38,12 @@ function Obter-FaseAtual {
     return @($estado.fases) | Where-Object { [int]$_.id -eq [int]$estado.faseAtual } | Select-Object -First 1
 }
 
+function Normalizar-Texto([string]$Texto) {
+    if ($null -eq $Texto) { return "" }
+    $normalizado = $Texto.Normalize([Text.NormalizationForm]::FormD)
+    return [regex]::Replace($normalizado, '\p{Mn}', '').ToLowerInvariant()
+}
+
 function Obter-Validacao([string]$Caminho) {
     if ([string]::IsNullOrWhiteSpace($Caminho)) { return @() }
     if (-not (Test-Path -LiteralPath $Caminho -PathType Leaf)) { return @() }
@@ -48,33 +54,20 @@ function Obter-Validacao([string]$Caminho) {
 
     foreach ($linha in $linhas) {
         $trim = ([string]$linha).Trim()
+        $normalizado = Normalizar-Texto $trim
 
-        # Aceita "## Validação", "## ✅ Validação" e variações de caixa/acentuação.
-        if ($trim -match '(?i)^##\s+.*valida') {
+        if (-not $emValidacao -and $normalizado -match '^##\s+.*validac') {
             $emValidacao = $true
             continue
         }
 
-        if ($emValidacao -and $trim -match '^##\s+') { break }
+        if ($emValidacao -and $trim -match '^##\s+' ) { break }
         if (-not $emValidacao) { continue }
 
         if ($trim -match '^[-*]\s*\[([ xX])\]\s*(.*)$') {
             $itens += [PSCustomObject]@{
                 Concluido = ($matches[1] -ne ' ')
                 Texto = $matches[2].Trim()
-            }
-        }
-    }
-
-    # Fallback para arquivos legados cujo título da seção não seja reconhecido.
-    if ($itens.Count -eq 0) {
-        foreach ($linha in $linhas) {
-            $trim = ([string]$linha).Trim()
-            if ($trim -match '^[-*]\s*\[([ xX])\]\s*(.*)$') {
-                $itens += [PSCustomObject]@{
-                    Concluido = ($matches[1] -ne ' ')
-                    Texto = $matches[2].Trim()
-                }
             }
         }
     }
