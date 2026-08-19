@@ -1,88 +1,58 @@
-# 04 - LaboratÃ³rios
+# 04 — Laboratórios
 
-## Objetivo
+[← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-Construir experiÃªncia prÃ¡tica em ambientes semelhantes aos encontrados em empresas.
+> O objetivo é sair da teoria e operar ambientes parecidos com os encontrados no trabalho.
 
-## LAB 01 - Windows / Active Directory
+## LAB 01 — Windows / Active Directory
 
-Implementar:
+Implemente domínio, usuários, grupos, OU, permissões e GPO.
 
-- domÃ­nio
-- usuÃ¡rios
-- grupos
-- Organizational Units
-- permissÃµes
-- GPO
+Pratique criação, alteração, bloqueio, desbloqueio, grupos e delegação.
 
-Praticar:
+## LAB 02 — Linux
 
-- criaÃ§Ã£o de usuÃ¡rio
-- alteraÃ§Ã£o
-- bloqueio
-- desbloqueio
-- inclusÃ£o em grupo
-- remoÃ§Ã£o de grupo
-- delegaÃ§Ã£o
+Pratique usuários, grupos, sudo, ownership, permissions, ACL e SSH.
 
-## LAB 02 - Linux
+## LAB 03 — LDAP
 
-Implementar:
+Pratique estrutura LDAP, usuários, grupos, atributos e consultas.
 
-- usuÃ¡rios
-- grupos
-- sudo
-- ownership
-- permissions
-- ACL
-- SSH
+## LAB 04 — Cloud IAM
 
-## LAB 03 - LDAP
+Crie um ambiente de laboratório e pratique usuários, grupos, roles, policies, permissions, resources e least privilege.
 
-Praticar:
+## LAB 05 — JML
 
-- estrutura LDAP
-- usuÃ¡rios
-- grupos
-- atributos
-- consultas LDAP
+Simule contratação, mudança de função e desligamento. Automatize o máximo possível.
 
-## LAB 04 - Cloud IAM
+## Evidência
 
-Criar ambiente de laboratÃ³rio em uma plataforma cloud.
-
-Praticar:
-
-- usuÃ¡rios
-- grupos
-- roles
-- policies
-- permissions
-- resources
-- least privilege
-
-## LAB 05 - JML
-
-Simular:
-
-1. contrataÃ§Ã£o
-2. mudanÃ§a de funÃ§Ã£o
-3. desligamento
-
-Automatizar o mÃ¡ximo possÃ­vel.
-
-## EvidÃªncias
-
-Para cada laboratÃ³rio registrar:
+Para cada laboratório registre:
 
 - objetivo
 - arquitetura
 - ambiente
-- configuraÃ§Ã£o
+- configuração
 - comandos
 - resultado
 - problemas
 - troubleshooting
-- soluÃ§Ã£o
+- solução
 - screenshots
-- conclusÃ£o
+- conclusão
+
+## Validação
+
+- [ ] LAB Windows/AD concluído
+- [ ] LAB Linux concluído
+- [ ] LAB LDAP concluído
+- [ ] LAB Cloud IAM concluído
+- [ ] LAB JML concluído
+- [ ] Evidências registradas
+
+## Minha explicação
+
+> Registre o que você conseguiu fazer sozinho e onde encontrou dificuldades.
+
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Troubleshooting](../06-Troubleshooting/README.md)
