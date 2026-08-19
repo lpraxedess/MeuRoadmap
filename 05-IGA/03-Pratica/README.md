@@ -1,22 +1,32 @@
-# Identity Governance and Administration — Prática
+# 03 — Prática de IGA
 
-A teoria só será considerada consolidada após aplicação prática.
+[← Conhecimentos](../02-Conhecimentos/README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-## Exercícios
+## 🎯 Objetivo
 
-- [ ] Exercício 1
-- [ ] Exercício 2
-- [ ] Exercício 3
+Treinar decisões de governança em cenários próximos do trabalho real.
 
-## Evidências
+## 🧪 Cenários
 
-Registre aqui links para:
+- colaborador entra na empresa;
+- mudança de área;
+- acesso temporário;
+- acesso incompatível por SoD;
+- desligamento;
+- revisão periódica de acesso.
 
-- código
-- screenshots
-- diagramas
-- configurações
-- logs
-- documentação
+Para cada cenário registre: **identidade → necessidade → risco → política → decisão → evidência**.
 
-[Voltar para a fase](../README.md)
+## ✍️ Evidência
+
+> Registre sua solução e o motivo técnico da decisão.
+
+## 🏁 Validação
+
+- [ ] Resolvi os cenários sem copiar uma solução
+- [ ] Justifiquei decisões de acesso
+- [ ] Registrei as evidências
+
+### ▶️ Próximo
+
+[04 — Laboratórios →](../04-Laboratorios/README.md)
