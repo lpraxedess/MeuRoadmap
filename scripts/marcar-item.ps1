@@ -62,7 +62,7 @@ $linhas[$indiceAlvo] = $linhas[$indiceAlvo] -replace '\[\s*\]', '[x]'
 [System.IO.File]::WriteAllText(
     (Resolve-Path -LiteralPath $Arquivo).Path,
     ($linhas -join [Environment]::NewLine),
-    (New-Object System.Text.UTF8Encoding($false)
+    (New-Object System.Text.UTF8Encoding($false))
 )
 
 Write-Host "Item concluido com sucesso."
