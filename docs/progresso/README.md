@@ -1,55 +1,47 @@
-# Painel de Progresso
+# Progresso do MeuRoadmap
 
-## Fase Atual
+O progresso agora é medido **por fase**, não por quantidade de páginas.
 
-**Fase:** 01 - Fundamentos de IAM
+## Fluxo
 
-**Status:** Em andamento
+**Estude → Pratique → Aplique → Explique → Valide → Próxima fase**
 
-**Percentual:** 0%
+Cada fase possui um **Gate de 5 etapas**. As áreas internas continuam disponíveis para aprofundamento, mas não são uma fila obrigatória.
 
----
+## Controle
 
-## Progresso da Fase 01
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 estudar
+```
 
-| Area | Status |
-|---|---|
-| Conceitos | [ ] |
-| Conhecimentos | [ ] |
-| Pratica | [ ] |
-| Laboratorios | [ ] |
-| Exercicios | [ ] |
-| Troubleshooting | [ ] |
-| Checklist | [ ] |
-| Revisao | [ ] |
-| Certificacoes | [ ] |
+Mostra somente o próximo passo.
 
----
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 validar
+```
 
-## Regra de progresso
+Mostra as perguntas da validação final.
 
-Uma area somente deve ser marcada como concluida quando houver evidencia real.
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 concluir
+```
 
-### Evidencias aceitas
+Marca automaticamente o próximo item pendente do Gate. Ao concluir os 5 itens, a próxima fase é ativada automaticamente.
 
-- anotacoes
-- laboratorio
-- exercicio
-- troubleshooting
-- projeto
-- documentacao
-- captura de tela
-- comandos executados
-- resultado obtido
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 status
+```
 
----
+Mostra somente o progresso da fase atual.
 
-## Proxima fase
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 verificar
+```
 
-**02 - Identidade e Diretorios**
+Audita estrutura, Gates e validações das 12 fases.
 
-Status:
+## Evidência
 
-**BLOQUEADA**
+Uma evidência deve demonstrar aplicação real: anotação própria, laboratório, exercício, troubleshooting, projeto, documentação, comando executado ou resultado obtido.
 
-A Fase 02 sera liberada somente quando a Fase 01 atingir os criterios de conclusao.
+**Não é necessário preencher todas as áreas internas para avançar.** Aprofundamento é acionado quando surgir uma lacuna ou quando o passo guiado pedir.
