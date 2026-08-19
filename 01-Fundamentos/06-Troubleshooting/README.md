@@ -1,75 +1,50 @@
-# 06 - Troubleshooting
+# 05 — Troubleshooting
+
+[← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
 ## Objetivo
 
-Desenvolver capacidade de diagnÃ³stico.
+Desenvolver capacidade de diagnóstico de problemas de identidade e acesso.
 
-## CenÃ¡rio 01
+## Cenários
 
-UsuÃ¡rio nÃ£o consegue acessar uma aplicaÃ§Ã£o.
+### 01 — Usuário não acessa uma aplicação
 
-Investigar:
+Investigue identidade, conta, grupo, role, policy, permission, autenticação e autorização.
 
-- identidade
-- conta
-- grupo
-- role
-- policy
-- permission
-- autenticaÃ§Ã£o
-- autorizaÃ§Ã£o
+### 02 — Authentication funciona, mas existe Access Denied
 
-## CenÃ¡rio 02
+Investigue AuthN, AuthZ, entitlement, ACL, role e policy.
 
-UsuÃ¡rio autentica mas recebe Access Denied.
+### 03 — Usuário desligado ainda possui acesso
 
-Investigar:
+Investigue lifecycle, provisioning, deprovisioning, conta, grupos e aplicações.
 
-- AuthN
-- AuthZ
-- entitlement
-- ACL
-- role
-- policy
+### 04 — Service account com privilégio excessivo
 
-## CenÃ¡rio 03
+Investigue ownership, permissions, least privilege, credencial e privilege escalation.
 
-UsuÃ¡rio desligado ainda possui acesso.
-
-Investigar:
-
-- lifecycle
-- provisioning
-- deprovisioning
-- conta
-- grupos
-- aplicaÃ§Ãµes
-
-## CenÃ¡rio 04
-
-Service account possui privilÃ©gios excessivos.
-
-Investigar:
-
-- ownership
-- permissions
-- least privilege
-- credential
-- privilege escalation
-
-## MÃ©todo
-
-Para cada incidente:
+## Método
 
 1. identificar sintoma
-2. formular hipÃ³tese
-3. coletar evidÃªncia
-4. testar hipÃ³tese
+2. formular hipótese
+3. coletar evidência
+4. testar hipótese
 5. identificar causa raiz
 6. corrigir
 7. validar
 8. documentar
 
-## EvidÃªncia
+## Validação
 
-Registrar todos os passos.
+- [ ] Resolvi o cenário 01
+- [ ] Resolvi o cenário 02
+- [ ] Resolvi o cenário 03
+- [ ] Resolvi o cenário 04
+- [ ] Documentei evidências e causa raiz
+
+## Minha explicação
+
+> Registre como você pensa durante um troubleshooting e quais sinais usa para chegar à causa raiz.
+
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Revisão](../08-Revisao/README.md)
