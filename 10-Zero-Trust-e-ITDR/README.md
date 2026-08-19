@@ -1,36 +1,41 @@
 # Fase 10 — Zero Trust e ITDR
 
-[← Início](../README.md)
+[← Início](../README.md) · [📈 Painel](../docs/progresso/painel.md)
 
-> **Status:** ⚪ Em preparação · conteúdo disponível para estudar quando quiser.
+> **Objetivo:** conectar IAM à estratégia Zero Trust e à detecção, investigação e resposta a ameaças de identidade.
 
-## 🎯 Objetivo
+> [!IMPORTANT]
+> Investigue por evidências: sinal, contexto, hipótese, confirmação, contenção e recuperação.
 
-Conectar IAM à estratégia Zero Trust e à detecção, investigação e resposta a ameaças de identidade.
+---
 
-## 🧭 Seu caminho
+## 🧭 Caminho da fase
 
-**1. Conceitos → 2. Conhecimentos → 3. Prática → 4. Laboratórios → 5. Exercícios → 6. Troubleshooting → 7. Checklist → 8. Validação → 9. Certificações**
+**01 Conceitos → 02 Conhecimentos → 03 Prática → 04 Laboratórios → 05 Exercícios → 06 Troubleshooting → 07 Checklist → 08 Validação → 09 Certificações**
 
-| # | Etapa | Foco | Acesso |
+| # | Etapa | Foco | Ação |
 |---:|---|---|---|
-| 01 | 🧠 Conceitos | Zero Trust e ITDR | [Abrir](01-Conceitos/README.md) |
-| 02 | 📚 Conhecimentos | sinais e controles | [Abrir](02-Conhecimentos/README.md) |
-| 03 | 🧪 Prática | cenários de ameaça | [Abrir](03-Pratica/README.md) |
-| 04 | 🖥️ Laboratórios | detecção e resposta | [Abrir](04-Laboratorios/README.md) |
-| 05 | 📝 Exercícios | investigação | [Abrir](05-Exercicios/README.md) |
-| 06 | 🔎 Troubleshooting | diagnóstico | [Abrir](06-Troubleshooting/README.md) |
-| 07 | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
-| 08 | 🎯 Validação | prova final | [Abrir](08-Revisao/README.md) |
-| 09 | 🎓 Certificações | carreira | [Abrir](09-Certificacoes/README.md) |
+| **01** | 🧠 Conceitos | Zero Trust e ITDR | [▶️ Começar](01-Conceitos/README.md) |
+| **02** | 📚 Conhecimentos | sinais e controles | [Abrir](02-Conhecimentos/README.md) |
+| **03** | 🧪 Prática | cenários de ameaça | [Abrir](03-Pratica/README.md) |
+| **04** | 🖥️ Laboratórios | detecção e resposta | [Abrir](04-Laboratorios/README.md) |
+| **05** | 📝 Exercícios | investigação | [Abrir](05-Exercicios/README.md) |
+| **06** | 🔎 Troubleshooting | diagnóstico | [Abrir](06-Troubleshooting/README.md) |
+| **07** | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
+| **08** | 🎯 Validação | prova final | [Abrir](08-Revisao/README.md) |
+| **09** | 🎓 Certificações | aplicação profissional | [Abrir](09-Certificacoes/README.md) |
+
+---
 
 ## ▶️ Comece aqui
 
 **[Abrir Conceitos →](01-Conceitos/README.md)**
 
-Raciocine como um defensor: **sinal → contexto → hipótese → evidência → resposta → recuperação**.
+### Modelo mental
 
-## ✍️ Meu registro da fase
+**Sinal → contexto → hipótese → evidência → resposta → recuperação → melhoria**
+
+## ✍️ Meu registro
 
 **O que já domino:**
 
@@ -44,15 +49,20 @@ Raciocine como um defensor: **sinal → contexto → hipótese → evidência �
 
 > Escreva aqui.
 
+**Evidências:**
+
+> Registre indicadores, hipóteses e conclusões sem dados sensíveis, credenciais ou informações pessoais.
+
 ## 🏁 Definition of Done
 
-- [ ] Entendo os princípios de Zero Trust aplicados à identidade
-- [ ] Reconheço sinais de comprometimento de identidade
+- [ ] Entendo Zero Trust aplicado à identidade
+- [ ] Reconheço sinais de comprometimento
 - [ ] Consigo investigar um incidente de identidade
 - [ ] Executei laboratórios
 - [ ] Documentei evidências e resposta
-- [ ] Consigo explicar decisões de contenção e recuperação
+- [ ] Consigo explicar contenção e recuperação
+- [ ] Consigo propor melhoria após o incidente
 
-### Navegação
+### 🧭 Navegação
 
-[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md)
+[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md) · [📈 Painel](../docs/progresso/painel.md)
