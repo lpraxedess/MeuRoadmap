@@ -1,33 +1,29 @@
-# Fase 10 — Zero Trust e ITDR
+# 10 — Zero Trust e ITDR
 
-[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
+**Missão:** operar identidade como superfície crítica de segurança.
 
-> **Missão:** reduzir risco de identidade e detectar, investigar e responder a ataques contra identidades.
+## 1. ESTUDAR
 
-## Rota única
-**Estude → Pratique → Aplique → Explique → Teste → Avance**
+Domine zero trust, sinais de risco, identidade comprometida, comportamento anômalo, detecção, contenção, recuperação e restauração de confiança.
 
-**Núcleo:** Zero Trust, sinais de risco, identidade comprometida, detecção, resposta e recuperação.
+**Modelo mental:** `Verificar → Avaliar risco → Permitir com menor privilégio → Monitorar → Conter → Recuperar`.
 
-1. Estude os princípios.
-2. Pratique uma investigação de identidade.
-3. Aplique controles em um cenário de comprometimento.
-4. Explique a resposta.
-5. Teste.
+## 2. PRATICAR
 
-### Teste da fase
+Modele uma investigação de identidade comprometida com sinais, hipóteses, evidências e ações.
+
+## 3. APLICAR
+
+Uma conta apresenta comportamento anômalo. Determine contenção, revogação de sessões/tokens, rotação, análise de impacto e recuperação.
+
+## 4. EXPLICAR
+
+Sem consultar, explique o que muda quando confiança implícita deixa de existir.
+
+## 5. TESTAR
+
 1. O que muda quando confiança implícita deixa de existir?
 2. Quais sinais indicam risco de identidade?
 3. Como detectar uso anômalo de credenciais?
 4. Quais ações limitam impacto após comprometimento?
 5. Como recuperar a confiança depois do incidente?
-
-## Gate
-- [ ] Estudei o núcleo
-- [ ] Analisei sinais de risco
-- [ ] Resolvi um cenário de comprometimento
-- [ ] Expliquei a resposta
-- [ ] Passei no teste e registrei evidência
-
-## Biblioteca
-[`conteudo/`](conteudo/) contém o material detalhado.

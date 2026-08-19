@@ -1,33 +1,29 @@
-# Fase 09 — CIAM
+# 09 — CIAM
 
-[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
+**Missão:** proteger identidade, experiência e confiança do cliente.
 
-> **Missão:** projetar identidade de clientes equilibrando segurança, experiência e privacidade.
+## 1. ESTUDAR
 
-## Rota única
-**Estude → Pratique → Aplique → Explique → Teste → Avance**
+Domine registro, login, recuperação, MFA, passkeys, consentimento, privacidade, sessões, antifraude, account takeover e experiência de autenticação.
 
-**Núcleo:** customer identity, registration, login, MFA, federation, consent, recovery e lifecycle.
+**Modelo mental:** `Registro → Verificação → Authentication → Sessão → Autorização → Recuperação/Revogação`.
 
-1. Estude o ciclo de identidade do cliente.
-2. Pratique um fluxo de registro/login.
-3. Aplique controles de risco e recuperação.
-4. Explique as decisões de segurança e experiência.
-5. Teste.
+## 2. PRATICAR
 
-### Teste da fase
+Modele um fluxo seguro de registro, login e recuperação de conta sem criar fricção desnecessária.
+
+## 3. APLICAR
+
+Investigue uma tomada de conta considerando credenciais, sessão, recuperação, MFA, sinais de risco e evidências.
+
+## 4. EXPLICAR
+
+Sem consultar, explique o que muda quando o sujeito é um cliente externo.
+
+## 5. TESTAR
+
 1. O que diferencia CIAM de IAM corporativo?
 2. Como proteger registro e recuperação?
 3. Onde MFA entra no fluxo?
 4. Como consentimento e privacidade afetam identidade?
 5. Como investigar fraude ou tomada de conta?
-
-## Gate
-- [ ] Estudei o núcleo
-- [ ] Modelei um fluxo de cliente
-- [ ] Apliquei controles de risco
-- [ ] Expliquei as decisões
-- [ ] Passei no teste e registrei evidência
-
-## Biblioteca
-[`conteudo/`](conteudo/) contém o material detalhado.

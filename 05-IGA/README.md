@@ -1,33 +1,29 @@
-# Fase 05 — IGA
+# 05 — IGA
 
-[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
+**Missão:** governar quem recebe acesso, por quê, por quanto tempo e com qual evidência.
 
-> **Missão:** governar identidades, acessos, solicitações, aprovações e revisões.
+## 1. ESTUDAR
 
-## Rota única
-**Estude → Pratique → Aplique → Explique → Teste → Avance**
+Domine identidade como objeto de governança, JML, request, approval, provisioning, deprovisioning, access review, SoD, exceções, ownership e auditoria.
 
-**Núcleo:** lifecycle, entitlement, approval, access review, SoD, policy e governança.
+**Modelo mental:** `Necessidade → Solicitação → Aprovação → Provisioning → Uso → Revisão → Revogação`.
 
-1. Estude o ciclo de vida e a governança.
-2. Pratique uma solicitação e aprovação de acesso.
-3. Aplique uma revisão periódica e trate exceções.
-4. Explique quem decide, quem aprova e quem audita.
-5. Teste.
+## 2. PRATICAR
 
-### Teste da fase
+Modele um fluxo de solicitação de acesso com aprovador, owner, política, evidência e revogação.
+
+## 3. APLICAR
+
+Uma revisão encontrou um acesso incompatível com a função. Investigue origem, aprovação, owner, SoD, histórico e ação corretiva.
+
+## 4. EXPLICAR
+
+Sem consultar, explique como provar que um acesso é legítimo e continua necessário.
+
+## 5. TESTAR
+
 1. O que IGA governa?
 2. Como JML se conecta ao acesso?
 3. O que torna uma aprovação auditável?
 4. Como funciona uma access review?
 5. Como SoD e exceções devem ser tratados?
-
-## Gate
-- [ ] Estudei o núcleo
-- [ ] Modelei uma solicitação/aprovação
-- [ ] Executei uma revisão de acesso
-- [ ] Expliquei a governança
-- [ ] Passei no teste e registrei evidência
-
-## Biblioteca
-[`conteudo/`](conteudo/) contém o material detalhado.

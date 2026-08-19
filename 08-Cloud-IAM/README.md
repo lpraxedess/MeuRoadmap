@@ -1,33 +1,29 @@
-# Fase 08 — Cloud IAM
+# 08 — Cloud IAM
 
-[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
+**Missão:** controlar identidades humanas e workloads em ambientes cloud.
 
-> **Missão:** aplicar princípios de IAM a ambientes cloud, contas, recursos e workloads.
+## 1. ESTUDAR
 
-## Rota única
-**Estude → Pratique → Aplique → Explique → Teste → Avance**
+Domine principals, roles, policies, resource policies, federation, workload identity, service identities, temporary credentials e boundaries.
 
-**Núcleo:** identidade cloud, roles, policies, service identities, federation, secrets e least privilege.
+**Modelo mental:** `Principal → Role/Policy → Contexto → Recurso Cloud → Decisão`.
 
-1. Estude o modelo de identidade do cloud.
-2. Pratique uma policy mínima.
-3. Aplique-a a um workload.
-4. Explique a decisão e os riscos.
-5. Teste.
+## 2. PRATICAR
 
-### Teste da fase
+Escreva uma policy mínima para um workload que precisa acessar apenas um recurso específico.
+
+## 3. APLICAR
+
+Investigue acesso indevido a um recurso cloud: identidade, role assumida, policy, sessão, recurso, condição e logs.
+
+## 4. EXPLICAR
+
+Sem consultar, explique a cadeia principal → role → policy → recurso.
+
+## 5. TESTAR
+
 1. Como identidade humana e workload diferem em cloud?
 2. Como uma role concede acesso?
 3. Como evitar permissões amplas?
 4. Como federation reduz credenciais persistentes?
 5. Como investigar acesso indevido a um recurso cloud?
-
-## Gate
-- [ ] Estudei o núcleo
-- [ ] Criei uma policy mínima
-- [ ] Apliquei a um cenário
-- [ ] Expliquei a decisão
-- [ ] Passei no teste e registrei evidência
-
-## Biblioteca
-[`conteudo/`](conteudo/) contém o material detalhado.

@@ -1,33 +1,29 @@
-# Fase 11 — Automação e DevSecOps
+# 11 — Automação e DevSecOps
 
-[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
+**Missão:** tornar operações IAM repetíveis, auditáveis e reversíveis.
 
-> **Missão:** automatizar operações de IAM com segurança, rastreabilidade e baixo risco operacional.
+## 1. ESTUDAR
 
-## Rota única
-**Estude → Pratique → Aplique → Explique → Teste → Avance**
+Domine APIs, automação, IaC, secrets, service identities, CI/CD, validação, aprovação, logs, idempotência, rollback e controle de mudanças.
 
-**Núcleo:** APIs, scripts, pipelines, provisioning, secrets, testes e controles de mudança.
+**Modelo mental:** `Código → Validação → Aprovação → Execução → Evidência → Rollback`.
 
-1. Estude os padrões de automação.
-2. Pratique uma operação repetível.
-3. Aplique validação e controle de mudança.
-4. Explique riscos e rollback.
-5. Teste.
+## 2. PRATICAR
 
-### Teste da fase
+Automatize uma operação repetível de IAM com entrada validada, logs e tratamento de erro.
+
+## 3. APLICAR
+
+Uma mudança automatizada concedeu acesso incorreto. Investigue commit, pipeline, identidade usada, mudança aplicada e rollback.
+
+## 4. EXPLICAR
+
+Sem consultar, explique como automatizar sem transformar a automação em uma nova identidade privilegiada sem controle.
+
+## 5. TESTAR
+
 1. O que deve ser automatizado em IAM?
 2. Como proteger segredos usados por automações?
 3. Como validar mudanças antes de produção?
 4. Como garantir rastreabilidade?
 5. Como executar rollback seguro?
-
-## Gate
-- [ ] Estudei o núcleo
-- [ ] Automatizei uma tarefa
-- [ ] Adicionei validação
-- [ ] Expliquei riscos e rollback
-- [ ] Passei no teste e registrei evidência
-
-## Biblioteca
-[`conteudo/`](conteudo/) contém o material detalhado.

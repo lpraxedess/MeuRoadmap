@@ -1,33 +1,29 @@
-# Fase 07 — PAM
+# 07 — PAM
 
-[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
+**Missão:** reduzir o risco das identidades que podem causar maior impacto.
 
-> **Missão:** controlar contas e sessões privilegiadas com o mínimo de exposição.
+## 1. ESTUDAR
 
-## Rota única
-**Estude → Pratique → Aplique → Explique → Teste → Avance**
+Domine contas privilegiadas, vault, rotação, JIT, JEA, elevação, sessões privilegiadas, gravação, aprovação e break-glass.
 
-**Núcleo:** privilégio, vault, elevação, JIT/JEA, contas administrativas, gravação e auditoria.
+**Modelo mental:** `Necessidade → Elevação controlada → Credencial temporária → Sessão → Evidência → Revogação`.
 
-1. Estude o ciclo de privilégio.
-2. Pratique uma concessão temporária.
-3. Aplique controles a um administrador.
-4. Explique como reduzir exposição.
-5. Teste.
+## 2. PRATICAR
 
-### Teste da fase
+Modele acesso administrativo temporário com aprovação, duração, escopo e registro da sessão.
+
+## 3. APLICAR
+
+Uma credencial administrativa foi comprometida. Defina contenção, revogação, rotação, investigação e recuperação.
+
+## 4. EXPLICAR
+
+Sem consultar, explique como PAM reduz blast radius sem impedir operações legítimas.
+
+## 5. TESTAR
+
 1. Por que privilégio exige controles especiais?
 2. O que uma vault protege?
 3. Como JIT/JEA reduz risco?
 4. Que evidências uma sessão privilegiada deve gerar?
 5. Como responder a uma credencial administrativa comprometida?
-
-## Gate
-- [ ] Estudei o núcleo
-- [ ] Pratiquei controle privilegiado
-- [ ] Apliquei em cenário realista
-- [ ] Expliquei os controles
-- [ ] Passei no teste e registrei evidência
-
-## Biblioteca
-[`conteudo/`](conteudo/) contém o material detalhado.

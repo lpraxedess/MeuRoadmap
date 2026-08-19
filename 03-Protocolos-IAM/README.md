@@ -1,33 +1,29 @@
-# Fase 03 — Protocolos IAM
+# 03 — Protocolos IAM
 
-[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
+**Missão:** escolher e diagnosticar os protocolos que transportam identidade, autenticação e autorização.
 
-> **Missão:** reconhecer o protocolo certo, entender seu fluxo e diagnosticar falhas de integração.
+## 1. ESTUDAR
 
-## Rota única
-**Estude → Pratique → Aplique → Explique → Teste → Avance**
+Domine SAML, OAuth 2.0, OpenID Connect, SCIM, LDAP, Kerberos, federation, SSO, JWT, tokens, claims e endpoints.
 
-**Núcleo:** SAML, OAuth 2.0, OpenID Connect, SCIM, LDAP, Kerberos, JWT e federação.
+**Modelo mental:** `Identidade → Protocolo → Mensagem/Token → Serviço consumidor → Decisão`.
 
-1. Estude os fluxos essenciais.
-2. Pratique identificando protocolo, emissor, cliente, token e recurso.
-3. Aplique em um cenário SSO/provisionamento.
-4. Explique um fluxo ponta a ponta sem consultar.
-5. Teste.
+## 2. PRATICAR
 
-### Teste da fase
-1. Quando usar SAML, OAuth 2.0 e OIDC?
+Desenhe um fluxo SSO e um fluxo de provisioning. Identifique participantes, mensagens, tokens e confiança.
+
+## 3. APLICAR
+
+Um usuário não consegue entrar em uma aplicação federada. Investigue IdP, redirect/ACS, issuer, audience, assinatura, relógio, claims e logs.
+
+## 4. EXPLICAR
+
+Sem consultar, escolha entre SAML, OAuth 2.0, OIDC e SCIM para quatro necessidades diferentes e justifique.
+
+## 5. TESTAR
+
+1. Quando usar SAML, OAuth 2.0, OIDC e SCIM?
 2. Qual a diferença entre autenticação e autorização em OAuth/OIDC?
 3. Para que SCIM serve?
 4. Como JWT participa de uma decisão de acesso?
 5. Como investigar uma falha de SSO?
-
-## Gate
-- [ ] Estudei o núcleo
-- [ ] Pratiquei fluxos
-- [ ] Resolvi um cenário de integração
-- [ ] Expliquei um fluxo sem consultar
-- [ ] Passei no teste e registrei evidência
-
-## Biblioteca
-[`conteudo/`](conteudo/) contém o material detalhado.
