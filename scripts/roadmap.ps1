@@ -68,7 +68,7 @@ function Obter-Validacao([string]$Caminho) {
             }
         }
     }
-    return ,$itens
+    return $itens
 }
 
 function Obter-ArquivosDeEstudo($fase) {
@@ -89,7 +89,7 @@ function Obter-ArquivosDeEstudo($fase) {
             }
         }
     }
-    return ,$resultado
+    return $resultado
 }
 
 function Mostrar-Ajuda {
