@@ -15,6 +15,10 @@ function Ler-Estado {
     return Get-Content -LiteralPath $EstadoPath -Raw -Encoding UTF8 | ConvertFrom-Json
 }
 
+function Salvar-Estado($estado) {
+    $estado | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $EstadoPath -Encoding UTF8
+}
+
 function Atualizar-Painel {
     if (Test-Path -LiteralPath $AtualizarPath -PathType Leaf) {
         & powershell -NoProfile -ExecutionPolicy Bypass -File $AtualizarPath | Out-Null
@@ -44,8 +48,7 @@ function Obter-ProximaFase($fase) {
 
 function Obter-ReadmeFase($fase) {
     if (-not $fase) { return $null }
-    $path = Join-Path $Root ([string]$fase.diretorio)
-    $path = Join-Path $path "README.md"
+    $path = Join-Path (Join-Path $Root ([string]$fase.diretorio)) "README.md"
     if (Test-Path -LiteralPath $path -PathType Leaf) { return Get-Item -LiteralPath $path }
     return $null
 }
@@ -82,6 +85,23 @@ function Obter-ValidacaoFinal($fase) {
     return @($perguntas)
 }
 
+function Avancar-Se-Concluida($fase) {
+    $estado = Ler-Estado
+    if (-not $estado) { return $false }
+    $v = @(Obter-ValidacaoFase $fase)
+    if ($v.Count -eq 0 -or @($v | Where-Object { -not $_.Concluido }).Count -gt 0) { return $false }
+    $proxima = Obter-ProximaFase $fase
+    if (-not $proxima) { return $false }
+    $estado.faseAtual = [int]$proxima.id
+    foreach ($f in @($estado.fases)) {
+        if ([int]$f.id -lt [int]$proxima.id) { $f.status = "CONCLUIDA" }
+        elseif ([int]$f.id -eq [int]$proxima.id) { $f.status = "EM_ANDAMENTO" }
+        else { $f.status = "NAO_INICIADA" }
+    }
+    Salvar-Estado $estado
+    return $true
+}
+
 function Mostrar-Ajuda {
     Write-Host ""
     Write-Host "MEUROADMAP - MODO GUIADO" -ForegroundColor Cyan
@@ -94,18 +114,15 @@ function Comando-Status {
     $fase = Obter-FaseAtual
     if (-not $fase) { Write-Host "Estado do roadmap nao encontrado."; return }
     $v = @(Obter-ValidacaoFase $fase)
-    $total = $v.Count
-    $done = @($v | Where-Object { $_.Concluido }).Count
+    $total = $v.Count; $done = @($v | Where-Object { $_.Concluido }).Count
     $p = if ($total -gt 0) { [math]::Round(($done / $total) * 100) } else { 0 }
     Atualizar-Painel
     Write-Host ""
     Write-Host "STATUS DO ROADMAP" -ForegroundColor Cyan
     Write-Host "Fase atual : $($fase.id.ToString('00')) - $($fase.nome)"
     Write-Host "Progresso  : $p% ($done/$total etapas da fase)"
-    if ($total -gt 0) {
-        $pendente = $v | Where-Object { -not $_.Concluido } | Select-Object -First 1
-        if ($pendente) { Write-Host "Pendente   : $($pendente.Texto)" }
-    }
+    $pendente = $v | Where-Object { -not $_.Concluido } | Select-Object -First 1
+    if ($pendente) { Write-Host "Pendente   : $($pendente.Texto)" }
     Write-Host "Painel     : docs\progresso\painel.md"
     Write-Host ""
 }
@@ -120,12 +137,9 @@ function Comando-Estudar {
         $proxima = Obter-ProximaFase $fase
         Write-Host ""
         Write-Host "FASE CONCLUIDA" -ForegroundColor Green
-        if ($proxima) {
-            Write-Host "Proximo passo: Fase $($proxima.id.ToString('00')) - $($proxima.nome)"
-            Write-Host "Arquivo: $($proxima.diretorio)\README.md"
-        } else { Write-Host "Todas as fases cadastradas foram concluidas." }
-        Write-Host ""
-        return
+        if ($proxima) { Write-Host "Proximo passo: Fase $($proxima.id.ToString('00')) - $($proxima.nome)"; Write-Host "Arquivo: $($proxima.diretorio)\README.md" }
+        else { Write-Host "Todas as fases cadastradas foram concluidas." }
+        Write-Host ""; return
     }
     $indice = [array]::IndexOf([object[]]$v, $pendente) + 1
     Write-Host ""
@@ -140,7 +154,7 @@ function Comando-Estudar {
         '^Execute' { Write-Host "Abra a pratica/laboratorio indicado no Guia e produza uma evidencia." }
         '^Aplique' { Write-Host "Resolva o cenario profissional do Guia sem consultar a resposta." }
         '^Explique' { Write-Host "Registre uma explicacao curta com suas proprias palavras." }
-        '^Passe' { Write-Host "Execute 'validar' e responda as perguntas sem consultar." }
+        '^Passe|^Resolvi' { Write-Host "Execute 'validar' e responda as perguntas sem consultar." }
     }
     Write-Host ""
 }
@@ -154,7 +168,7 @@ function Comando-Validar {
     if ($perguntas.Count -eq 0) { Write-Host "A fase nao possui perguntas de validacao."; return }
     for ($i = 0; $i -lt $perguntas.Count; $i++) { Write-Host "$($i + 1). $($perguntas[$i])" }
     Write-Host ""
-    Write-Host "Responda sem consultar. Se conseguir defender as respostas, conclua a etapa final." -ForegroundColor Yellow
+    Write-Host "Responda sem consultar. Depois marque a etapa final do Gate." -ForegroundColor Yellow
 }
 
 function Comando-Concluir {
@@ -168,16 +182,13 @@ function Comando-Concluir {
         $pendente = $v | Where-Object { -not $_.Concluido } | Select-Object -First 1
         if (-not $pendente) { Comando-Estudar; return }
         $Item = [array]::IndexOf([object[]]$v, $pendente) + 1
-        $caminho = $readme.FullName
     } else {
         $caminho = $Arquivo
         if (-not [System.IO.Path]::IsPathRooted($caminho)) { $caminho = Join-Path $Root $caminho }
         $caminho = [System.IO.Path]::GetFullPath($caminho)
         if (-not (Test-Path -LiteralPath $caminho -PathType Leaf)) { Write-Host "Arquivo nao encontrado: $Arquivo"; return }
         if (-not $caminho.Equals($readme.FullName, [System.StringComparison]::OrdinalIgnoreCase)) {
-            Write-Host "O controle agora usa o Gate da fase. Conclua pelo README da fase:" -ForegroundColor Yellow
-            Write-Host "  $(Caminho-Relativo $readme.FullName)"
-            return
+            Write-Host "O controle usa o Gate da fase. Execute 'concluir' sem argumentos." -ForegroundColor Yellow; return
         }
         if ($Item -lt 1) { Write-Host "Informe o numero da etapa."; return }
     }
@@ -187,8 +198,16 @@ function Comando-Concluir {
     if (-not (Test-Path -LiteralPath $marcar -PathType Leaf)) { Write-Host "Script marcar-item.ps1 nao encontrado."; return }
     & powershell -NoProfile -ExecutionPolicy Bypass -File $marcar -Arquivo $readme.FullName -Item $Item
     if ($LASTEXITCODE -ne 0) { return }
-    Atualizar-Painel
-    Comando-Estudar
+
+    if (Avancar-Se-Concluida $fase) {
+        Atualizar-Painel
+        Write-Host ""
+        Write-Host "FASE CONCLUIDA — AVANCO AUTOMATICO" -ForegroundColor Green
+        Comando-Estudar
+    } else {
+        Atualizar-Painel
+        Comando-Estudar
+    }
 }
 
 function Comando-Verificar {
