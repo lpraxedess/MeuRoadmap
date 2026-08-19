@@ -1,29 +1,20 @@
-# Identity Governance and Administration — Checklist
+# 07 — Checklist de IGA
 
-## Conhecimento
+[← Troubleshooting](../06-Troubleshooting/README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-- [ ] Entendo a teoria
-- [ ] Consigo explicar sem consultar material
+## ☑️ Antes da validação
 
-## Prática
+- [ ] Entendo identidade, conta e entitlement
+- [ ] Entendo request e approval
+- [ ] Entendo provisioning e deprovisioning
+- [ ] Entendo Access Review
+- [ ] Consigo aplicar SoD
+- [ ] Sei quais evidências sustentam uma decisão
+- [ ] Resolvi cenários práticos
+- [ ] Registrei meus erros e correções
 
-- [ ] Fiz laboratório
-- [ ] Fiz exercícios
-- [ ] Resolvi um problema real
+> Só avance quando conseguir demonstrar o conhecimento, não apenas reconhecer os termos.
 
-## Documentação
+### ▶️ Próximo
 
-- [ ] README atualizado
-- [ ] Troubleshooting registrado
-- [ ] Evidências armazenadas
-
-## Carreira
-
-- [ ] Sei explicar o assunto em entrevista
-- [ ] Sei relacionar com cenário corporativo
-
-## Fase
-
-- [ ] Fase concluída
-
-[Voltar para a fase](../README.md)
+[08 — Validação →](../08-Revisao/README.md)
