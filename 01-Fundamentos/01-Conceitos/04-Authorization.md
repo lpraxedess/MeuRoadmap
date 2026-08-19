@@ -35,10 +35,12 @@ Crie uma matriz com 3 usuários, 3 recursos e permissões diferentes. Justifique
 
 ## Validação
 
-- [ ] Estudei
+- [x] Conhecimento teórico anterior já validado
 - [ ] Fiz a prática
 - [ ] Consigo explicar AuthZ sem consultar
 - [ ] Registrei minha explicação
 - [ ] Consigo identificar um acesso indevido
+
+> O primeiro item preserva o conhecimento que você já havia validado antes da reorganização do roadmap.
 
 [← Voltar](03-Authentication.md) · [🏠 Início](../../README.md) · [Próximo →](05-Modelos-de-Acesso.md)
