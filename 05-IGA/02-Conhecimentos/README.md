@@ -1,24 +1,38 @@
-# Identity Governance and Administration — Conhecimentos
+# 02 — Conhecimentos de IGA
 
-## Competências obrigatórias
+[← Conceitos](../01-Conceitos/README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-- [ ] Conhecimento 1
-- [ ] Conhecimento 2
-- [ ] Conhecimento 3
+> Transforme os conceitos em conhecimento operacional.
 
-## Nível atual
+## 📚 O que estudar
 
-**Nível:** 0/5
+- lifecycle de identidade;
+- catálogo e entitlement;
+- roles e grupos;
+- request e approval;
+- provisioning/deprovisioning;
+- access certification;
+- SoD e políticas;
+- auditoria e evidências.
 
-### Escala
+## 🔍 Como estudar
 
-| Nível | Significado |
-|---|---|
-| 0 | Nunca estudei |
-| 1 | Conheço a teoria |
-| 2 | Reproduzo laboratório guiado |
-| 3 | Implemento sozinho |
-| 4 | Resolvo troubleshooting |
-| 5 | Projeto, automatizo e explico a arquitetura |
+Para cada assunto, responda: **o que é → por que existe → como funciona → onde falha → qual evidência comprova o estado correto**.
 
-[Voltar para a fase](../README.md)
+## ✍️ Registro
+
+**Conceito que ainda confundo:**
+> Escreva aqui.
+
+**Evidência:**
+> Link ou referência.
+
+## 🏁 Definition of Done
+
+- [ ] Consigo explicar o fluxo ponta a ponta
+- [ ] Consigo identificar controles e evidências
+- [ ] Consigo analisar um cenário de governança
+
+### ▶️ Próximo
+
+[03 — Prática →](../03-Pratica/README.md)
