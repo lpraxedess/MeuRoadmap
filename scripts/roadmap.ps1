@@ -49,20 +49,32 @@ function Obter-Validacao([string]$Caminho) {
     foreach ($linha in $linhas) {
         $trim = ([string]$linha).Trim()
 
-        # O marcador pode conter emoji antes de "Validação"; por isso a detecção
-        # procura apenas o texto do título, sem depender de encoding Unicode.
-        if ($trim -match '^## .*Valida') {
+        # Aceita "## Validação", "## ✅ Validação" e variações de caixa/acentuação.
+        if ($trim -match '(?i)^##\s+.*valida') {
             $emValidacao = $true
             continue
         }
 
-        if ($emValidacao -and $trim -match '^## ') { break }
+        if ($emValidacao -and $trim -match '^##\s+') { break }
         if (-not $emValidacao) { continue }
 
         if ($trim -match '^[-*]\s*\[([ xX])\]\s*(.*)$') {
             $itens += [PSCustomObject]@{
                 Concluido = ($matches[1] -ne ' ')
                 Texto = $matches[2].Trim()
+            }
+        }
+    }
+
+    # Fallback para arquivos legados cujo título da seção não seja reconhecido.
+    if ($itens.Count -eq 0) {
+        foreach ($linha in $linhas) {
+            $trim = ([string]$linha).Trim()
+            if ($trim -match '^[-*]\s*\[([ xX])\]\s*(.*)$') {
+                $itens += [PSCustomObject]@{
+                    Concluido = ($matches[1] -ne ' ')
+                    Texto = $matches[2].Trim()
+                }
             }
         }
     }
