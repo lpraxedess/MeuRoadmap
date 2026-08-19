@@ -33,10 +33,12 @@ Crie um usuário com excesso de privilégios. Faça a redução e documente cada
 
 ## Validação
 
-- [ ] Estudei
+- [x] Conhecimento teórico anterior já validado
 - [ ] Fiz a prática
 - [ ] Reduzi um cenário de excesso de privilégio
 - [ ] Registrei minha explicação
 - [ ] Consigo explicar o risco de privilégio excessivo
+
+> O primeiro item preserva a validação teórica que você já havia feito.
 
 [← Voltar](05-Modelos-de-Acesso.md) · [🏠 Início](../../README.md) · [Próximo →](07-JML.md)
