@@ -1,6 +1,10 @@
-# 07 - Checklist da Fase 01
+# 07 — Checklist da Fase 01
 
-## Fundamentos
+[← Fase 01](../README.md) · [🏠 Início](../../README.md)
+
+> Use como visão rápida do que precisa estar sólido. O estudo detalhado fica nos módulos.
+
+## 🧠 Fundamentos
 
 - [ ] IAM
 - [ ] Identity
@@ -11,28 +15,20 @@
 - [ ] Permission
 - [ ] Privilege
 
-## Authentication
+## 🔐 Authentication e Authorization
 
 - [ ] Password
 - [ ] MFA
 - [ ] OTP
 - [ ] Certificate
-- [ ] Biometrics
-- [ ] Passkey
-- [ ] Passwordless
-
-## Authorization
-
+- [ ] Passkey / Passwordless
 - [ ] RBAC
 - [ ] ABAC
 - [ ] PBAC
 - [ ] ReBAC
-- [ ] ACL
-- [ ] Policy
-- [ ] Scope
-- [ ] Claim
+- [ ] ACL / Policy / Scope / Claim
 
-## Governance
+## 🏛️ Governança
 
 - [ ] JML
 - [ ] Access Request
@@ -42,38 +38,24 @@
 - [ ] SoD
 - [ ] Role Engineering
 
-## Infraestrutura
+## 🧰 Infraestrutura e automação
 
 - [ ] Networking
-- [ ] Windows
-- [ ] Active Directory
+- [ ] Windows / Active Directory
 - [ ] Linux
-- [ ] LDAP
-- [ ] DNS
-- [ ] TLS
-- [ ] PKI
-
-## AutomaÃ§Ã£o
-
+- [ ] LDAP / DNS
+- [ ] TLS / PKI
 - [ ] PowerShell
-- [ ] Bash
-- [ ] Python
-- [ ] JSON
-- [ ] REST API
-- [ ] Git
+- [ ] Bash / Python
+- [ ] JSON / REST API / Git
 
-## PrÃ¡tica
+## 🧪 Evidências
 
-- [ ] LaboratÃ³rio Windows/AD
-- [ ] LaboratÃ³rio Linux
-- [ ] LaboratÃ³rio LDAP
-- [ ] LaboratÃ³rio Cloud IAM
-- [ ] LaboratÃ³rio JML
-- [ ] Troubleshooting
-
-## EvidÃªncias
-
-- [ ] ExercÃ­cios documentados
-- [ ] Labs documentados
+- [ ] Exercícios documentados
+- [ ] Laboratórios documentados
 - [ ] Troubleshooting documentado
-- [ ] Projeto documentado
+- [ ] Validação final concluída
+
+### Navegação
+
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Validação](../08-Revisao/README.md)

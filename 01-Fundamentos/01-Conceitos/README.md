@@ -2,27 +2,36 @@
 
 [← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-> Estude os tópicos na ordem. Cada página é uma unidade de estudo.
+> **10 tópicos fundamentais.** Faça um por vez; não pule a validação.
 
-## Trilha
+## 🧭 Trilha
 
-| # | Tópico | O que dominar | |
-|---|---|---|---|
-| 01 | Identidade | identidade, principal, sujeito e atributos | [Abrir →](01-Identidade.md) |
-| 02 | Conta e credencial | conta, credencial e relação com identidade | [Abrir →](02-Conta-e-Credencial.md) |
-| 03 | Authentication | fatores, MFA, OTP, certificados e passwordless | [Abrir →](03-Authentication.md) |
-| 04 | Authorization | permission, privilege, role, policy e entitlement | [Abrir →](04-Authorization.md) |
-| 05 | Modelos de acesso | DAC, MAC, RBAC, ABAC, PBAC e ReBAC | [Abrir →](05-Modelos-de-Acesso.md) |
-| 06 | Least Privilege | privilégio mínimo, JIT e privilege escalation | [Abrir →](06-Least-Privilege.md) |
-| 07 | JML | Joiner, Mover, Leaver e ciclo de vida | [Abrir →](07-JML.md) |
-| 08 | Entitlement | direito de acesso e governança | [Abrir →](08-Entitlement.md) |
-| 09 | SoD | conflitos e segregação de funções | [Abrir →](09-SoD.md) |
-| 10 | Arquitetura básica | IdP, SP, Directory, SSO e Federation | [Abrir →](10-Arquitetura-IAM.md) |
+| # | Tópico | Domínio | Ação |
+|---:|---|---|---|
+| 01 | Identidade | identidade, principal, sujeito, atributos | [▶️ Abrir](01-Identidade.md) |
+| 02 | Conta e Credencial | conta, segredo, token, credencial | [Abrir](02-Conta-e-Credencial.md) |
+| 03 | Authentication | fatores, MFA, OTP, certificado | [Abrir](03-Authentication.md) |
+| 04 | Authorization | permission, privilege, role, policy | [Abrir](04-Authorization.md) |
+| 05 | Modelos de Acesso | DAC, MAC, RBAC, ABAC, PBAC, ReBAC | [Abrir](05-Modelos-de-Acesso.md) |
+| 06 | Least Privilege | mínimo privilégio, JIT, escalation | [Abrir](06-Least-Privilege.md) |
+| 07 | JML | Joiner, Mover, Leaver | [Abrir](07-JML.md) |
+| 08 | Entitlement | direito de acesso e governança | [Abrir](08-Entitlement.md) |
+| 09 | SoD | segregação de funções e conflitos | [Abrir](09-SoD.md) |
+| 10 | Arquitetura IAM | IdP, SP, Directory, SSO, Federation | [Abrir](10-Arquitetura-IAM.md) |
 
-## Ordem
+## 🔁 Fluxo de cada tópico
 
-**Estudar → Praticar → Explicar → Validar → Concluir → Próximo**
+**Estudar → Praticar → Escrever sua explicação → Validar → Marcar como concluído → Próximo**
 
-## Navegação
+<details>
+<summary>📌 Regra de conclusão</summary>
+
+Só marque um tópico quando conseguir explicar o conceito sem copiar uma definição e realizar a prática proposta.
+
+</details>
+
+---
+
+### Navegação
 
 [← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Primeiro tópico](01-Identidade.md)

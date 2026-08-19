@@ -1,52 +1,35 @@
-# 09 - CertificaÃ§Ãµes
+# 09 — Certificações
 
-## Objetivo
+[← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-Relacionar o conhecimento acumulado com certificaÃ§Ãµes profissionais.
+> Certificação é validação do conhecimento; não substitui prática.
 
-## Neste ponto
+## 🎓 Momento atual
 
-A certificaÃ§Ã£o nÃ£o Ã© obrigatÃ³ria.
+**Prioridade:** domínio técnico da Fase 01.
 
-O foco principal Ã© domÃ­nio tÃ©cnico.
+### SC-900
 
-## SC-900
+Pode ser considerada para validar fundamentos de segurança, identidade e serviços Microsoft.
 
-Pode ser considerada para validar fundamentos de seguranÃ§a, identidade e serviÃ§os Microsoft.
+### SC-300
 
-## SC-300
+**Não é prioridade agora.** Reavaliar após as Fases 01–04, com conhecimento e laboratórios consolidados.
 
-Ainda nÃ£o Ã© o momento ideal.
+### Security+
 
-Ela serÃ¡ reavaliada apÃ³s:
+Complementar para fundamentos gerais de segurança, se fizer sentido para sua trajetória.
 
-- Fase 01 - Fundamentos
-- Fase 02 - Identidade e DiretÃ³rios
-- Fase 03 - Protocolos IAM
-- Fase 04 - Authentication e Authorization
+## ✅ Antes de investir em uma certificação
 
-### Gatilho de recomendaÃ§Ã£o
-
-Ao concluir a Fase 04:
-
-> Se os conhecimentos das quatro primeiras fases estiverem dominados e os labs estiverem concluÃ­dos, avaliar preparaÃ§Ã£o especÃ­fica para SC-300.
-
-## Security+
-
-Pode complementar fundamentos gerais de seguranÃ§a.
-
-NÃ£o Ã© uma certificaÃ§Ã£o especÃ­fica de IAM.
-
-## Regra
-
-Nunca estudar apenas para memorizar questÃµes.
-
-Antes de considerar uma certificaÃ§Ã£o:
-
-- [ ] ConteÃºdo estudado
+- [ ] Conteúdo estudado
 - [ ] Labs realizados
-- [ ] ExercÃ­cios concluÃ­dos
+- [ ] Exercícios concluídos
 - [ ] Troubleshooting realizado
-- [ ] RevisÃ£o concluÃ­da
+- [ ] Revisão concluída
 - [ ] Simulados consistentes
-- [ ] Capacidade prÃ¡tica comprovada
+- [ ] Capacidade prática comprovada
+
+### Navegação
+
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Voltar ao fluxo](../01-Conceitos/README.md)

@@ -2,57 +2,45 @@
 
 [← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-> O objetivo é sair da teoria e operar ambientes parecidos com os encontrados no trabalho.
+> **Objetivo:** sair da teoria e operar ambientes próximos da realidade profissional.
 
-## LAB 01 — Windows / Active Directory
+## 🧰 Laboratórios
 
-Implemente domínio, usuários, grupos, OU, permissões e GPO.
+| # | Lab | Prática principal |
+|---:|---|---|
+| 01 | Windows / Active Directory | domínio, usuários, grupos, OU, permissões, GPO |
+| 02 | Linux | usuários, grupos, sudo, ACL, SSH |
+| 03 | LDAP | estrutura, usuários, grupos, atributos e consultas |
+| 04 | Cloud IAM | roles, policies, permissions e least privilege |
+| 05 | JML | contratação, mudança, desligamento e automação |
 
-Pratique criação, alteração, bloqueio, desbloqueio, grupos e delegação.
-
-## LAB 02 — Linux
-
-Pratique usuários, grupos, sudo, ownership, permissions, ACL e SSH.
-
-## LAB 03 — LDAP
-
-Pratique estrutura LDAP, usuários, grupos, atributos e consultas.
-
-## LAB 04 — Cloud IAM
-
-Crie um ambiente de laboratório e pratique usuários, grupos, roles, policies, permissions, resources e least privilege.
-
-## LAB 05 — JML
-
-Simule contratação, mudança de função e desligamento. Automatize o máximo possível.
-
-## Evidência
+## 📸 Evidência obrigatória
 
 Para cada laboratório registre:
 
-- objetivo
-- arquitetura
-- ambiente
-- configuração
-- comandos
+- objetivo e arquitetura
+- ambiente utilizado
+- configuração e comandos
 - resultado
-- problemas
+- problema encontrado
 - troubleshooting
 - solução
-- screenshots
+- screenshots quando úteis
 - conclusão
 
-## Validação
+## ✍️ Minha explicação
 
-- [ ] LAB Windows/AD concluído
-- [ ] LAB Linux concluído
-- [ ] LAB LDAP concluído
-- [ ] LAB Cloud IAM concluído
-- [ ] LAB JML concluído
-- [ ] Evidências registradas
+> O que você conseguiu executar sozinho? Onde travou? Como resolveu?
 
-## Minha explicação
+## ✅ Validação
 
-> Registre o que você conseguiu fazer sozinho e onde encontrou dificuldades.
+- [ ] Windows / AD
+- [ ] Linux
+- [ ] LDAP
+- [ ] Cloud IAM
+- [ ] JML
+- [ ] Evidências organizadas
 
-[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Troubleshooting](../06-Troubleshooting/README.md)
+### Navegação
+
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Próximo: Troubleshooting](../06-Troubleshooting/README.md)

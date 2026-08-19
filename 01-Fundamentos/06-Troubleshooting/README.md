@@ -1,50 +1,34 @@
-# 05 — Troubleshooting
+# 06 — Troubleshooting
 
 [← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-## Objetivo
+> **Objetivo:** aprender a investigar sintomas de identidade e acesso até encontrar a causa raiz.
 
-Desenvolver capacidade de diagnóstico de problemas de identidade e acesso.
+## 🔎 Cenários
 
-## Cenários
+| # | Sintoma | O que investigar |
+|---:|---|---|
+| 01 | Usuário não acessa uma aplicação | identidade, conta, grupo, role, policy, permission, AuthN/AuthZ |
+| 02 | Autentica, mas recebe Access Denied | AuthZ, entitlement, ACL, role, policy |
+| 03 | Usuário desligado ainda tem acesso | lifecycle, provisioning, deprovisioning |
+| 04 | Service account com privilégio excessivo | ownership, credential, permissions, least privilege |
 
-### 01 — Usuário não acessa uma aplicação
+## 🧭 Método
 
-Investigue identidade, conta, grupo, role, policy, permission, autenticação e autorização.
+**Sintoma → Hipótese → Evidência → Teste → Causa raiz → Correção → Validação → Registro**
 
-### 02 — Authentication funciona, mas existe Access Denied
+## ✍️ Minha explicação
 
-Investigue AuthN, AuthZ, entitlement, ACL, role e policy.
+> Registre como você raciocinou, quais evidências foram decisivas e o que faria diferente.
 
-### 03 — Usuário desligado ainda possui acesso
+## ✅ Validação
 
-Investigue lifecycle, provisioning, deprovisioning, conta, grupos e aplicações.
+- [ ] Cenário 01
+- [ ] Cenário 02
+- [ ] Cenário 03
+- [ ] Cenário 04
+- [ ] Causa raiz e evidências documentadas
 
-### 04 — Service account com privilégio excessivo
+### Navegação
 
-Investigue ownership, permissions, least privilege, credencial e privilege escalation.
-
-## Método
-
-1. identificar sintoma
-2. formular hipótese
-3. coletar evidência
-4. testar hipótese
-5. identificar causa raiz
-6. corrigir
-7. validar
-8. documentar
-
-## Validação
-
-- [ ] Resolvi o cenário 01
-- [ ] Resolvi o cenário 02
-- [ ] Resolvi o cenário 03
-- [ ] Resolvi o cenário 04
-- [ ] Documentei evidências e causa raiz
-
-## Minha explicação
-
-> Registre como você pensa durante um troubleshooting e quais sinais usa para chegar à causa raiz.
-
-[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Revisão](../08-Revisao/README.md)
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Próximo: Validação](../08-Revisao/README.md)

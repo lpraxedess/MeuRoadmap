@@ -2,62 +2,44 @@
 
 [← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-## Objetivo
+> Base técnica para entender os ambientes onde IAM realmente funciona.
 
-Construir a base técnica necessária para entender ambientes IAM reais.
+## 📚 O que estudar
 
-## O que estudar
+| Área | Conteúdo |
+|---|---|
+| 🌐 Redes | TCP/IP, DNS, HTTP/S, TLS, portas, firewall, proxy, load balancer |
+| 🪟 Windows / AD | usuários, grupos, permissões, GPO, Kerberos, LDAP, DNS, domínio |
+| 🐧 Linux | usuários, grupos, sudo, permissions, ACL, PAM, SSH |
+| 📁 Diretórios | LDAP, Active Directory, OpenLDAP, OU, Groups, Attributes, Schema |
+| 🛡️ Segurança | CIA, threat, risk, vulnerability, credential theft, identity attack |
+| 🔐 Criptografia | hashing, encryption, chaves, certificados, PKI, TLS |
+| ☁️ Cloud | tenant, account, identity, role, policy, resource, permission |
+| ⚙️ Automação | PowerShell, Bash, Python, JSON, YAML, REST API, Git |
 
-### Redes
+## 🎯 Você precisa conseguir
 
-TCP/IP · DNS · HTTP · HTTPS · TLS · portas · firewall · proxy · load balancer · reverse proxy
+- explicar por que redes, diretórios e sistemas operacionais importam para IAM
+- navegar por usuários, grupos e permissões em Windows e Linux
+- interpretar LDAP, JSON e chamadas REST simples
+- executar tarefas básicas com PowerShell e Git
 
-### Windows e Active Directory
+## ✍️ Minha explicação
 
-Usuários · grupos · permissões · GPO · Kerberos · LDAP · DNS · domínio
+> Registre aqui o que aprendeu, o que ainda está confuso e o que precisa praticar.
 
-### Linux
+## ✅ Validação
 
-Usuários · grupos · sudo · permissões · ownership · ACL · PAM · SSH
+- [ ] Redes relevantes para IAM
+- [ ] Windows / Active Directory
+- [ ] Linux
+- [ ] LDAP e diretórios
+- [ ] Criptografia, certificados e TLS
+- [ ] Cloud IAM básico
+- [ ] PowerShell
+- [ ] JSON / REST API
+- [ ] Git
 
-### Diretórios
+### Navegação
 
-LDAP · Active Directory · OpenLDAP · Directory Services · OU · Groups · Attributes · Schema
-
-### Segurança
-
-CIA · threat · vulnerability · risk · attack surface · credential theft · phishing · brute force · identity attack
-
-### Criptografia
-
-Hashing · encryption · symmetric/asymmetric encryption · chaves pública/privada · certificados · PKI · TLS
-
-### Cloud
-
-Tenant · account · identity · role · policy · resource · permission
-
-### Automação
-
-PowerShell · Bash · Python · JSON · YAML · REST API · Git
-
-## Prática
-
-A prática deste módulo será aplicada principalmente nos laboratórios de Windows/AD, Linux, LDAP e Cloud IAM.
-
-## Validação
-
-- [ ] Consigo explicar fundamentos de redes relevantes para IAM
-- [ ] Consigo trabalhar com usuários e grupos no Windows
-- [ ] Entendo Active Directory e LDAP
-- [ ] Consigo trabalhar com usuários, grupos e permissões no Linux
-- [ ] Entendo certificados e TLS em nível operacional
-- [ ] Entendo fundamentos de cloud IAM
-- [ ] Consigo usar PowerShell para tarefas simples
-- [ ] Consigo interpretar JSON e uma REST API
-- [ ] Consigo usar Git no fluxo de estudo
-
-## Minha explicação
-
-> Registre aqui o que você aprendeu e quais pontos ainda precisam de prática.
-
-[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Prática](../03-Pratica/README.md)
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Próximo: Prática](../03-Pratica/README.md)
