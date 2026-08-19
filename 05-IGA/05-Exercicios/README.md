@@ -1,15 +1,23 @@
-# Identity Governance and Administration — Exercícios
+# 05 — Exercícios de IGA
 
-## Exercícios técnicos
+[← Laboratórios](../04-Laboratorios/README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-- [ ] Exercício 01
-- [ ] Exercício 02
-- [ ] Exercício 03
-- [ ] Exercício 04
-- [ ] Exercício 05
+## 📝 Regra
 
-## Desafio
+Resolva sem consultar o material. Depois compare seu raciocínio com os conceitos estudados.
 
-Explique e implemente um cenário corporativo relacionado a esta fase.
+### Exercícios essenciais
 
-[Voltar para a fase](../README.md)
+- [ ] Defina o acesso mínimo para três perfis distintos
+- [ ] Analise uma violação de SoD
+- [ ] Modele um request com aprovação
+- [ ] Explique o que acontece no desligamento
+- [ ] Identifique evidências necessárias para auditoria
+
+## ✍️ Registro de erros
+
+> O que errei? Por que errei? Qual regra evita repetir o erro?
+
+### ▶️ Próximo
+
+[06 — Troubleshooting →](../06-Troubleshooting/README.md)
