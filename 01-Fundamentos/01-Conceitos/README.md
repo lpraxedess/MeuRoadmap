@@ -149,7 +149,7 @@ Conhecer:
 - [x] Sei explicar os fatores de autenticação.
 - [x] Sei comparar DAC, MAC, RBAC, ABAC, PBAC e ReBAC.
 - [x] Sei explicar Least Privilege.
-- [ ] Sei explicar JML.
+- [x] Sei explicar JML.
 - [ ] Sei explicar entitlement.
 - [ ] Sei explicar SoD.
 - [ ] Sei explicar IdP.
