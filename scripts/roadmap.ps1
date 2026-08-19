@@ -35,13 +35,17 @@ function Obter-FaseAtual {
     $estado.fases | Where-Object { [int]$_.id -eq $id } | Select-Object -First 1
 }
 
+function Eh-CabecalhoValidacao([string]$Linha) {
+    return ($Linha -match '^##\s+.*Valida(c|ç)ão.*$')
+}
+
 function Obter-Validacao([string]$Caminho) {
     $linhas = @(Get-Content $Caminho -Encoding UTF8)
     $emValidacao = $false
     $itens = @()
 
     foreach ($linha in $linhas) {
-        if ($linha -match '^##\s+Valida(c|ç)ão\s*$') {
+        if (Eh-CabecalhoValidacao $linha) {
             $emValidacao = $true
             continue
         }
@@ -104,7 +108,7 @@ function Mostrar-Ajuda {
     Write-Host "Exemplo:"
     Write-Host ".\scripts\roadmap.ps1 concluir .\01-Fundamentos\01-Conceitos\01-Identidade.md 1"
     Write-Host ""
-    Write-Host "O numero do item pertence somente a secao Validação do arquivo."
+    Write-Host "O numero do item pertence somente a secao de validacao do arquivo."
     Write-Host ""
 }
 
@@ -132,7 +136,7 @@ function Comando-Status {
     Write-Host "========================================"
     Write-Host ""
     Write-Host "Fase atual : $($fase.id.ToString('00')) - $($fase.nome)"
-    Write-Host "Progresso  : $progresso% ($concluidos/$total validações)"
+    Write-Host "Progresso  : $progresso% ($concluidos/$total validacoes)"
     Write-Host "Painel     : docs\progresso\painel.md"
     Write-Host ""
 }
@@ -212,7 +216,7 @@ function Comando-Concluir {
 
     $validacao = @(Obter-Validacao $caminho)
     if ($validacao.Count -eq 0) {
-        Write-Host "O arquivo nao possui uma secao Validação com itens."
+        Write-Host "O arquivo nao possui uma secao de validacao com itens."
         return
     }
     if ($Item -gt $validacao.Count) {
