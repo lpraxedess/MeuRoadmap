@@ -11,29 +11,29 @@ if (-not (Test-Path -LiteralPath $Arquivo -PathType Leaf)) {
     Write-Host $Arquivo
     exit 1
 }
-
 if ($Item -lt 1) {
     Write-Host "O numero do item deve ser maior que zero."
     exit 1
 }
 
 $linhas = @(Get-Content -LiteralPath $Arquivo -Encoding UTF8)
-$emValidacao = $false
+$emSecao = $false
 $contador = 0
 $indiceAlvo = -1
 
 foreach ($indice in 0..($linhas.Count - 1)) {
     $linha = [string]$linhas[$indice]
+    $trim = $linha.Trim()
 
     if ($linha -match '^##[ \t]+') {
-        if ($emValidacao) { break }
-        if ($linha -match '(?i)(Validação|Validacao|Definition[ \t]+of[ \t]+Done)') {
-            $emValidacao = $true
+        if ($emSecao) { break }
+        if ($trim -match '(?i)(Gate[ \t]+da[ \t]+fase|Validação|Validacao|Definition[ \t]+of[ \t]+Done)') {
+            $emSecao = $true
         }
         continue
     }
 
-    if ($emValidacao -and $linha -match '^[ \t]*-[ \t]*\[[ \t]*(x|X| )[ \t]*\][ \t]*(.*)$') {
+    if ($emSecao -and $linha -match '^[ \t]*-[ \t]*\[[ \t]*(x|X| )[ \t]*\][ \t]*(.*)$') {
         $contador++
         if ($contador -eq $Item) {
             $indiceAlvo = $indice
@@ -43,16 +43,14 @@ foreach ($indice in 0..($linhas.Count - 1)) {
 }
 
 if ($contador -eq 0) {
-    Write-Host "Nenhum item de validacao encontrado no arquivo."
+    Write-Host "Nenhum item de Gate/validacao encontrado no arquivo."
     exit 1
 }
-
 if ($indiceAlvo -lt 0) {
     Write-Host "Item nao encontrado."
     Write-Host "Itens disponiveis: $contador"
     exit 1
 }
-
 if ($linhas[$indiceAlvo] -match '^\s*-\s*\[\s*[xX]\s*\]') {
     Write-Host "Item ja estava concluido."
     Write-Host "Item: $Item"
@@ -61,11 +59,10 @@ if ($linhas[$indiceAlvo] -match '^\s*-\s*\[\s*[xX]\s*\]') {
 }
 
 $linhas[$indiceAlvo] = $linhas[$indiceAlvo] -replace '\[\s*\]', '[x]'
-
 [System.IO.File]::WriteAllText(
     (Resolve-Path -LiteralPath $Arquivo).Path,
     ($linhas -join [Environment]::NewLine),
-    (New-Object System.Text.UTF8Encoding($false))
+    (New-Object System.Text.UTF8Encoding($false)
 )
 
 Write-Host "Item concluido com sucesso."
