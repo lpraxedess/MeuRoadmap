@@ -1,38 +1,43 @@
 # Fase 12 — Arquitetura IAM
 
-[← Início](../README.md)
+[← Início](../README.md) · [📈 Painel](../docs/progresso/painel.md)
 
-> **Status:** ⚪ Em preparação · conteúdo disponível para estudar quando quiser.
+> **Objetivo:** projetar soluções IAM completas, conectando identidade, acesso, governança, segurança, cloud, automação e operação.
 
-## 🎯 Objetivo
+> [!IMPORTANT]
+> A arquitetura deve ser explicável por requisitos, riscos, decisões, controles, integrações, operação e evidências.
 
-Projetar soluções IAM completas, conectando identidade, acesso, governança, segurança, cloud, automação e operação.
+---
 
-## 🧭 Seu caminho
+## 🧭 Caminho da fase
 
-**1. Conceitos → 2. Conhecimentos → 3. Prática → 4. Laboratórios → 5. Exercícios → 6. Troubleshooting → 7. Checklist → 8. Validação → 9. Certificações**
+**01 Conceitos → 02 Conhecimentos → 03 Prática → 04 Laboratórios → 05 Exercícios → 06 Troubleshooting → 07 Checklist → 08 Validação → 09 Certificações**
 
-| # | Etapa | Foco | Acesso |
+| # | Etapa | Foco | Ação |
 |---:|---|---|---|
-| 01 | 🧠 Conceitos | princípios de arquitetura | [Abrir](01-Conceitos/README.md) |
-| 02 | 📚 Conhecimentos | componentes e padrões | [Abrir](02-Conhecimentos/README.md) |
-| 03 | 🧪 Prática | decisões arquiteturais | [Abrir](03-Pratica/README.md) |
-| 04 | 🖥️ Laboratórios | implementação | [Abrir](04-Laboratorios/README.md) |
-| 05 | 📝 Exercícios | cenários | [Abrir](05-Exercicios/README.md) |
-| 06 | 🔎 Troubleshooting | análise de falhas | [Abrir](06-Troubleshooting/README.md) |
-| 07 | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
-| 08 | 🎯 Validação | defesa da arquitetura | [Abrir](08-Revisao/README.md) |
-| 09 | 🎓 Certificações | carreira | [Abrir](09-Certificacoes/README.md) |
+| **01** | 🧠 Conceitos | princípios de arquitetura | [▶️ Começar](01-Conceitos/README.md) |
+| **02** | 📚 Conhecimentos | componentes e padrões | [Abrir](02-Conhecimentos/README.md) |
+| **03** | 🧪 Prática | decisões arquiteturais | [Abrir](03-Pratica/README.md) |
+| **04** | 🖥️ Laboratórios | implementação | [Abrir](04-Laboratorios/README.md) |
+| **05** | 📝 Exercícios | cenários | [Abrir](05-Exercicios/README.md) |
+| **06** | 🔎 Troubleshooting | análise de falhas | [Abrir](06-Troubleshooting/README.md) |
+| **07** | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
+| **08** | 🎯 Validação | defesa da arquitetura | [Abrir](08-Revisao/README.md) |
+| **09** | 🎓 Certificações | aplicação profissional | [Abrir](09-Certificacoes/README.md) |
+
+---
 
 ## ▶️ Comece aqui
 
 **[Abrir Conceitos →](01-Conceitos/README.md)**
 
-Pense como arquiteto: **requisito → risco → identidade → acesso → controle → integração → operação → evidência**.
+### Modelo mental
 
-## ✍️ Meu registro da fase
+**Requisito → risco → identidade → acesso → controle → integração → operação → evidência**
 
-**Arquiteturas que já consigo desenhar:**
+## ✍️ Meu registro
+
+**Arquiteturas que consigo desenhar:**
 
 > Escreva aqui.
 
@@ -40,20 +45,24 @@ Pense como arquiteto: **requisito → risco → identidade → acesso → contro
 
 > Escreva aqui.
 
-**Lacunas / dúvidas:**
+**Trade-offs / lacunas:**
 
 > Escreva aqui.
 
+**Evidências:**
+
+> Diagramas e decisões sanitizados. Nunca inclua secrets, tokens ou dados reais.
+
 ## 🏁 Definition of Done
 
-- [ ] Consigo desenhar uma arquitetura IAM de ponta a ponta
+- [ ] Desenho uma arquitetura IAM de ponta a ponta
 - [ ] Justifico decisões de identidade e acesso
 - [ ] Incluo segurança, governança e operação
-- [ ] Consigo avaliar trade-offs
+- [ ] Avalio trade-offs
 - [ ] Executei laboratórios e projetos
 - [ ] Organizei evidências e diagramas
-- [ ] Consigo defender a arquitetura em uma conversa técnica
+- [ ] Consigo defender a arquitetura em conversa técnica
 
-### Navegação
+### 🧭 Navegação
 
-[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md)
+[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md) · [📈 Painel](../docs/progresso/painel.md)
