@@ -2,7 +2,7 @@
 
 [← Início](../README.md)
 
-> **Status:** 🔒 Bloqueada · automação aplicada ao trabalho de IAM.
+> **Status:** ⚪ Não iniciada · **conteúdo disponível para estudo a qualquer momento.**
 
 ## 🎯 Objetivo
 
