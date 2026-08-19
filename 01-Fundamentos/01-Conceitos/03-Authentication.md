@@ -36,10 +36,12 @@ Desenhe um fluxo de login com senha + MFA e identifique cada etapa.
 
 ## Validação
 
-- [ ] Estudei
+- [x] Conhecimento teórico anterior já validado
 - [ ] Fiz a prática
 - [ ] Consigo explicar AuthN sem consultar
 - [ ] Registrei minha explicação
 - [ ] Consigo comparar dois métodos de autenticação
+
+> O primeiro item preserva o conhecimento que você já havia validado antes da reorganização do roadmap.
 
 [← Voltar](02-Conta-e-Credencial.md) · [🏠 Início](../../README.md) · [Próximo →](04-Authorization.md)
