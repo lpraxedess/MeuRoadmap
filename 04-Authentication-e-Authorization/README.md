@@ -1,36 +1,43 @@
 # Fase 04 — Authentication e Authorization
 
-[← Início](../README.md)
+[← Voltar ao início](../README.md) · [📈 Painel](../docs/progresso/painel.md)
 
-> **Status:** ⚪ Em preparação · conteúdo disponível para estudar quando quiser.
+> **Objetivo:** dominar autenticação e autorização a ponto de explicar, implementar e diagnosticar decisões de acesso.
 
-## 🎯 Objetivo
+> [!IMPORTANT]
+> A fase é uma trilha integrada: entre em um tópico, estude, pratique, registre sua explicação, valide e siga para o próximo.
 
-Dominar autenticação e autorização a ponto de explicar, implementar e diagnosticar decisões de acesso.
+---
 
-## 🧭 Seu caminho
+## 🧭 Caminho da fase
 
-**1. Conceitos → 2. Conhecimentos → 3. Prática → 4. Laboratórios → 5. Exercícios → 6. Troubleshooting → 7. Checklist → 8. Validação → 9. Certificações**
+**01 Conceitos → 02 Conhecimentos → 03 Prática → 04 Laboratórios → 05 Exercícios → 06 Troubleshooting → 07 Checklist → 08 Validação → 09 Certificações**
 
-| # | Etapa | Foco | Acesso |
+| # | Etapa | Foco | Ação |
 |---:|---|---|---|
-| 01 | 🧠 Conceitos | AuthN, AuthZ, tokens e sessões | [Abrir](01-Conceitos/README.md) |
-| 02 | 📚 Conhecimentos | mecanismos e controles | [Abrir](02-Conhecimentos/README.md) |
-| 03 | 🧪 Prática | políticas e cenários | [Abrir](03-Pratica/README.md) |
-| 04 | 🖥️ Laboratórios | implementação | [Abrir](04-Laboratorios/README.md) |
-| 05 | 📝 Exercícios | retenção | [Abrir](05-Exercicios/README.md) |
-| 06 | 🔎 Troubleshooting | falhas de acesso | [Abrir](06-Troubleshooting/README.md) |
-| 07 | ☑️ Checklist | domínio | [Abrir](07-Checklist/README.md) |
-| 08 | 🎯 Validação | prova prática | [Abrir](08-Revisao/README.md) |
-| 09 | 🎓 Certificações | carreira | [Abrir](09-Certificacoes/README.md) |
+| **01** | 🧠 Conceitos | AuthN, AuthZ, tokens, sessões e segurança | [▶️ Começar](01-Conceitos/README.md) |
+| **02** | 📚 Conhecimentos | mecanismos e controles | [Abrir](02-Conhecimentos/README.md) |
+| **03** | 🧪 Prática | decisões de acesso em cenários | [Abrir](03-Pratica/README.md) |
+| **04** | 🖥️ Laboratórios | implementação | [Abrir](04-Laboratorios/README.md) |
+| **05** | 📝 Exercícios | retenção e raciocínio | [Abrir](05-Exercicios/README.md) |
+| **06** | 🔎 Troubleshooting | falhas de acesso | [Abrir](06-Troubleshooting/README.md) |
+| **07** | ☑️ Checklist | cobertura | [Abrir](07-Checklist/README.md) |
+| **08** | 🎯 Validação | domínio sem consulta | [Abrir](08-Revisao/README.md) |
+| **09** | 🎓 Certificações | carreira | [Abrir](09-Certificacoes/README.md) |
+
+---
 
 ## ▶️ Comece aqui
 
 **[Abrir Conceitos →](01-Conceitos/README.md)**
 
-Use a regra: **quem é? → como provou? → o que pode fazer? → por que pode fazer? → como revogar?**
+### Regra de estudo
 
-## ✍️ Meu registro da fase
+**Estudar → Praticar → Explicar → Validar → Registrar evidência → Avançar**
+
+Não marque leitura como domínio. O objetivo é reproduzir o raciocínio sem depender do material.
+
+## ✍️ Meu registro
 
 **O que já domino:**
 
@@ -46,7 +53,7 @@ Use a regra: **quem é? → como provou? → o que pode fazer? → por que pode 
 
 ## 🏁 Definition of Done
 
-- [ ] Diferencio AuthN e AuthZ sem consultar
+- [ ] Diferencio Authentication e Authorization sem consultar
 - [ ] Entendo fatores, tokens, sessões e políticas
 - [ ] Consigo explicar uma decisão de autorização
 - [ ] Executei os laboratórios
@@ -54,6 +61,6 @@ Use a regra: **quem é? → como provou? → o que pode fazer? → por que pode 
 - [ ] Registrei evidências e explicações próprias
 - [ ] Consigo defender uma solução tecnicamente
 
-### Navegação
+### 🧭 Navegação
 
-[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md)
+[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md) · [📈 Painel](../docs/progresso/painel.md)
