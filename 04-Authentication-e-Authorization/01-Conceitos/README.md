@@ -1,151 +1,55 @@
-# Fase 04 · Conceitos de Authentication & Authorization
+# 01 — Conceitos de Authentication & Authorization
 
-[← Voltar para a Fase 04](../README.md) · [← Roadmap](../../README.md)
+[← Fase 04](../README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-> **Objetivo:** entender como uma identidade prova quem é e como uma aplicação decide o que ela pode fazer.
+> **7 tópicos fundamentais.** Faça um por vez. Cada página tem estudo, prática, cenário profissional, pergunta de entrevista, explicação própria e validação.
 
----
-
-## 🧭 Como estudar
-
-Para cada assunto: **estude → explique com suas palavras → aplique em um cenário → marque como concluído**.
-
-Não marque um item apenas porque leu sobre ele.
+> [!TIP]
+> Não marque um item porque leu. Marque quando conseguir **explicar, aplicar e validar**.
 
 ---
 
-## 01 · Authentication
+## 🧭 Trilha
 
-- [ ] Entendo o objetivo da autenticação.
-- [ ] Diferencio autenticação de identificação.
-- [ ] Explico autenticação baseada em senha.
-- [ ] Explico MFA e os fatores de autenticação.
-- [ ] Entendo passwordless e passkeys.
-- [ ] Sei explicar riscos de credenciais comprometidas.
-
-**Minha explicação:**
-
-> 
-
-**Exemplo corporativo:**
-
-> 
+| # | Tópico | Foco | Ação |
+|---:|---|---|---|
+| **01** | Authentication | identidade, fatores e MFA | [▶️ Começar](01-Authentication.md) |
+| **02** | Authorization | permissions, roles e policies | [Abrir](02-Authorization.md) |
+| **03** | Tokens e Claims | contexto e tokens | [Abrir](03-Tokens-e-Claims.md) |
+| **04** | Sessões | estado, expiração e revogação | [Abrir](04-Sessoes.md) |
+| **05** | Controle de Acesso | RBAC, ABAC e contexto | [Abrir](05-Controle-de-Acesso.md) |
+| **06** | Decisão de Acesso | investigação ponta a ponta | [Abrir](06-Decisao-de-Acesso.md) |
+| **07** | Segurança | ameaças e controles | [Abrir](07-Seguranca.md) |
 
 ---
 
-## 02 · Authorization
+## 🔁 Padrão de estudo
 
-- [ ] Sei explicar o objetivo da autorização.
-- [ ] Diferencio permission, privilege, role e policy.
-- [ ] Entendo como uma decisão de autorização é tomada.
-- [ ] Consigo explicar least privilege aplicado à autorização.
-- [ ] Sei diferenciar acesso permitido de autenticação bem-sucedida.
+**Estudar → Praticar → Explicar → Validar → Registrar evidência → Próximo**
 
-**Minha explicação:**
+Cada tópico segue o mesmo formato para que você não precise descobrir como estudar de novo a cada página.
 
-> 
+## ⚙️ Controle pelo terminal
 
-**Exemplo corporativo:**
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 estudar
+```
 
-> 
+Para concluir uma validação específica:
 
----
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 concluir ".\04-Authentication-e-Authorization\01-Conceitos\01-Authentication.md" 1
+```
 
-## 03 · Tokens e Claims
+> [!IMPORTANT]
+> O número usado em `concluir` conta somente os itens da seção **Validação** do arquivo informado.
 
-- [ ] Sei o que é um access token.
-- [ ] Sei o que é um ID token.
-- [ ] Entendo claims.
-- [ ] Entendo issuer (`iss`).
-- [ ] Entendo subject (`sub`).
-- [ ] Entendo audience (`aud`).
-- [ ] Entendo expiração (`exp`).
-- [ ] Entendo scopes.
+## 🏁 Critério do módulo
 
-**O que um token representa:**
-
-> 
-
-**Claims que eu consigo interpretar:**
-
-> 
-
----
-
-## 04 · Sessões
-
-- [ ] Entendo o conceito de sessão.
-- [ ] Sei diferenciar sessão de token.
-- [ ] Entendo expiração de sessão.
-- [ ] Entendo logout e revogação.
-- [ ] Entendo riscos de session hijacking.
-
-**Minha explicação:**
-
-> 
-
----
-
-## 05 · Controle de Acesso
-
-- [ ] RBAC
-- [ ] ABAC
-- [ ] Policy-based access
-- [ ] Claims-based access
-- [ ] Scope-based access
-- [ ] Context-aware access
-
-**Qual modelo eu escolheria para um cenário simples e por quê:**
-
-> 
-
----
-
-## 06 · Decisão de acesso
-
-Consigo explicar este fluxo:
+O módulo está concluído quando os 7 tópicos estiverem validados e você conseguir explicar o fluxo completo:
 
 `Identidade → Authentication → Token/Contexto → Policy → Authorization → Recurso`
 
-- [ ] Sei explicar cada etapa.
-- [ ] Sei identificar onde uma falha pode ocorrer.
-- [ ] Sei explicar por que autenticar não significa ter acesso.
+### 🧭 Navegação
 
-**Minha explicação do fluxo:**
-
-> 
-
----
-
-## 07 · Segurança
-
-- [ ] Credential stuffing
-- [ ] Brute force
-- [ ] Phishing
-- [ ] Token theft
-- [ ] Session hijacking
-- [ ] Privilege escalation
-- [ ] Broken access control
-
-**Risco que considero mais importante:**
-
-> 
-
-**Como eu reduziria esse risco:**
-
-> 
-
----
-
-## 🏁 Definition of Done
-
-- [ ] Consigo explicar AuthN e AuthZ sem consultar.
-- [ ] Consigo interpretar um token simples.
-- [ ] Consigo explicar uma decisão de acesso.
-- [ ] Consigo identificar onde uma falha de acesso ocorreu.
-- [ ] Consigo relacionar os conceitos a um cenário corporativo.
-- [ ] Registrei minhas explicações com minhas próprias palavras.
-
-### Próximo passo
-
-[📚 Conhecimentos →](../02-Conhecimentos/README.md)
+[← Fase 04](../README.md) · [🏠 Início](../../README.md) · [▶️ Primeiro tópico](01-Authentication.md) · [📚 Próximo módulo](../02-Conhecimentos/README.md)
