@@ -8,18 +8,18 @@
 
 **Fase 01 — Fundamentos de IAM**
 
-`██████░░░░░░░░░░░░` **6%**
+`██░░░░░░░░░░░░░░░░` **Em andamento**
 
 **Área atual:** 01 — Conceitos  
-**Próximo estudo:** Least Privilege
+**Próximo tópico:** Identidade
 
 ---
 
 ## 🚀 Continuar
 
-### [▶️ Próximo estudo](./01-Fundamentos/01-Conceitos/README.md)
+### [▶️ Continuar estudo](./01-Fundamentos/01-Conceitos/01-Identidade.md)
 
-> Sei explicar Least Privilege.
+> O fluxo é: estudar → praticar → explicar com suas palavras → validar → concluir → próximo.
 
 ---
 
@@ -61,9 +61,14 @@
 
 ---
 
-## ⚙️ Controle
-
-O progresso é atualizado pelo sistema local de estudo:
+## ⚙️ Controle local
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 estudar
+```
+
+Para concluir um item de validação:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 concluir ".\01-Fundamentos\01-Conceitos\01-Identidade.md" 1
+```
