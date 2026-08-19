@@ -1,121 +1,50 @@
-# Authentication e Authorization — Conhecimentos
+# 📚 02 — Conhecimentos
 
-[← Voltar para a fase](../README.md) · [→ Próxima etapa: Prática](../03-Pratica/README.md)
+[← Voltar para Conceitos](../01-Conceitos/README.md) · [🏠 Fase 04](../README.md) · [→ Prática](../03-Pratica/README.md)
 
-> **Objetivo:** entender os mecanismos por trás da autenticação e autorização antes de partir para implementação.
+> **Objetivo:** consolidar o funcionamento técnico de autenticação, sessões, autorização e segurança antes da prática.
 
-## 🧭 Como estudar
+## 🧭 Trilha de estudo
 
-Siga de cima para baixo. Para cada tópico: **estude → explique com suas palavras → relacione a um cenário IAM → marque como concluído**.
+Siga na ordem. Em cada tópico: **Estude → Pratique → Explique → Valide → Avance**.
 
-## 01 — Mecanismos de autenticação
-
-- [ ] Senha e política de senha
-- [ ] MFA e autenticação adaptativa
-- [ ] OTP e fatores de autenticação
-- [ ] Certificados e autenticação baseada em chave
-- [ ] Passkeys / WebAuthn
-- [ ] Passwordless
-
-**Consigo explicar:** por que cada mecanismo existe, seus riscos e quando utilizá-lo.
-
-### Minha explicação
-
-> Escreva aqui com suas próprias palavras.
-
-## 02 — Tokens e sessões
-
-- [ ] Token de acesso
-- [ ] Refresh token
-- [ ] ID token
-- [ ] Sessão
-- [ ] Expiração e renovação
-- [ ] Revogação
-- [ ] Cookies e armazenamento de sessão
-
-**Consigo explicar:** o que acontece depois da autenticação e como uma sessão é mantida e encerrada.
-
-### Minha explicação
-
-> Escreva aqui.
-
-## 03 — Autorização
-
-- [ ] Permission
-- [ ] Role
-- [ ] Policy
-- [ ] Scope
-- [ ] Claim
-- [ ] ACL
-- [ ] RBAC
-- [ ] ABAC
-- [ ] Policy-Based Access Control
-
-**Consigo explicar:** como uma solicitação chega a uma decisão de permitir ou negar acesso.
-
-### Minha explicação
-
-> Escreva aqui.
-
-## 04 — Decisão de acesso
-
-- [ ] Subject
-- [ ] Resource
-- [ ] Action
-- [ ] Contexto
-- [ ] Policy evaluation
-- [ ] Allow / Deny
-- [ ] Default deny
-- [ ] Least privilege
-
-**Exercício mental:**
-
-> Usuário solicita `ação X` no `recurso Y`. Quais informações o sistema precisa para decidir se permite ou nega?
-
-### Minha resposta
-
-> Escreva aqui.
-
-## 05 — Segurança e falhas comuns
-
-- [ ] Credential stuffing
-- [ ] Brute force
-- [ ] Phishing
-- [ ] Session hijacking
-- [ ] Token theft
-- [ ] Privilege escalation
-- [ ] Excessive permissions
-- [ ] Broken access control
-
-### Minha explicação
-
-> Escreva aqui.
+| # | Tópico | O que você precisa dominar | Ação |
+|---:|---|---|---|
+| **01** | Mecanismos de autenticação | senha, MFA, OTP, certificados, passkeys | [▶️ Começar](01-Mecanismos-de-Autenticacao.md) |
+| **02** | Tokens e sessões | access token, refresh token, sessão, expiração | [Abrir](02-Tokens-e-Sessoes.md) |
+| **03** | Autorização | roles, permissions, policies, RBAC, ABAC | [Abrir](03-Autorizacao.md) |
+| **04** | Decisão de acesso | subject, resource, action, policy evaluation | [Abrir](04-Decisao-de-Acesso.md) |
+| **05** | Segurança e falhas | ataques, abuso de sessão e controle de acesso | [Abrir](05-Seguranca-e-Falhas.md) |
 
 ## 🎯 Definition of Done
 
-- [ ] Consigo explicar os principais mecanismos de autenticação sem consultar
-- [ ] Consigo explicar token, sessão, expiração e revogação
-- [ ] Consigo diferenciar role, permission, policy, scope e claim
-- [ ] Consigo descrever uma decisão de autorização passo a passo
-- [ ] Consigo identificar riscos comuns de AuthN/AuthZ
+- [ ] Dominei os 5 tópicos sem depender do material
+- [ ] Fiz a prática de cada tópico
 - [ ] Registrei minhas explicações próprias
+- [ ] Resolvi os cenários profissionais
+- [ ] Respondi às perguntas de entrevista
+- [ ] Consigo explicar AuthN/AuthZ de ponta a ponta
 
-## 📝 Registro de estudo
+## 📝 Registro geral
 
 **O que aprendi:**
 
-> 
+> Escreva aqui.
 
 **O que ainda confundo:**
 
-> 
+> Escreva aqui.
 
 **O que preciso praticar:**
 
-> 
+> Escreva aqui.
 
 **Data da revisão:**
 
-> 
+> Escreva aqui.
 
-[← Voltar para a fase](../README.md) · [→ Ir para Prática](../03-Pratica/README.md)
+## 🚦 Próximo passo
+
+Quando todos os tópicos estiverem validados, siga para **Prática**.
+
+[← Voltar para Conceitos](../01-Conceitos/README.md) · [🏠 Fase 04](../README.md) · [→ Prática](../03-Pratica/README.md)
