@@ -29,10 +29,12 @@ Modele o mesmo cenário corporativo usando RBAC e ABAC. Compare o resultado.
 
 ## Validação
 
-- [ ] Estudei
+- [x] Conhecimento teórico anterior já validado
 - [ ] Fiz a prática
 - [ ] Comparei RBAC e ABAC
 - [ ] Registrei minha explicação
 - [ ] Consigo escolher um modelo para um cenário
+
+> O primeiro item preserva a validação teórica que você já havia feito.
 
 [← Voltar](04-Authorization.md) · [🏠 Início](../../README.md) · [Próximo →](06-Least-Privilege.md)
