@@ -1,18 +1,37 @@
-# Identity Governance and Administration — Certificações
+# 09 — Certificações e carreira em IGA
 
-Esta página relaciona esta fase com certificações profissionais.
+[← Validação](../08-Revisao/README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-## Certificações relacionadas
+## 🎓 Como usar
 
-- [ ] Certificação 1
-- [ ] Certificação 2
+Certificação é consequência do domínio. Use esta etapa para mapear lacunas e relacionar IGA a responsabilidades profissionais.
 
-## Recomendação
+### Competências para revisar
 
-A certificação só deve ser considerada quando os conhecimentos exigidos estiverem consolidados.
+- Identity Governance
+- Access Reviews
+- SoD
+- lifecycle
+- provisioning
+- auditoria e compliance
 
-### Status
+## ✍️ Plano pessoal
 
-**Não recomendado ainda.**
+**Certificação/objetivo:**
+> Escreva aqui.
 
-[Voltar para a fase](../README.md)
+**Lacunas identificadas:**
+> Escreva aqui.
+
+**Evidências práticas:**
+> Escreva aqui.
+
+## 🏁 Critério
+
+- [ ] Consigo explicar os controles de IGA
+- [ ] Tenho evidências práticas
+- [ ] Sei quais lacunas estudar antes da prova ou entrevista
+
+### 🏠 Encerramento da fase
+
+[← Fase 05](../README.md) · [📈 Painel](../../docs/progresso/painel.md)
