@@ -1,0 +1,142 @@
+window.ROADMAP={version:"1.0.0",career:{target:"IAM Engineer / Cloud IAM",focus:"Microsoft Identity → Cloud IAM → IGA/PAM/CIEM → Multi-cloud → Architecture",dailyStudyMinutes:120,dailyEnglishMinutes:60},phases:[
+{id:"F01",name:"Fundamentos de IAM e Cloud",goal:"Consolidar os conceitos que sustentam qualquer implementação de identidade.",tasks:[
+{id:"F01-01",name:"Authentication vs Authorization",type:"study",mins:45,skills:["IAM fundamentals"]},
+{id:"F01-02",name:"Identity, Principal, Account, Credential e Session",type:"study",mins:45,pre:["F01-01"]},
+{id:"F01-03",name:"MFA, Passwordless, FIDO2 e Authenticator",type:"study",mins:45,pre:["F01-01"]},
+{id:"F01-04",name:"SSO, Federation e Identity Provider",type:"study",mins:45,pre:["F01-01"]},
+{id:"F01-05",name:"RBAC, ABAC e Least Privilege",type:"study",mins:60,pre:["F01-01"]},
+{id:"F01-06",name:"JML: Joiner, Mover, Leaver",type:"study",mins:45,pre:["F01-02"]},
+{id:"F01-07",name:"IaaS, PaaS, SaaS e Shared Responsibility",type:"study",mins:45},
+{id:"F01-08",name:"Cloud networking essencial para IAM",type:"study",mins:60,pre:["F01-07"]},
+{id:"F01-09",name:"Lab: desenhar fluxo de identidade corporativa",type:"lab",mins:90,pre:["F01-04","F01-05","F01-06"]},
+{id:"F01-10",name:"Validação: explicar IAM sem consultar material",type:"validate",mins:30,pre:["F01-09"]}
+]},
+{id:"F02",name:"Active Directory e Windows Identity",goal:"Revalidar a base on-premises e conectá-la ao modelo moderno de identidade.",tasks:[
+{id:"F02-01",name:"AD DS: Domain, Forest, Tree, OU e DC",type:"study",mins:60},
+{id:"F02-02",name:"Users, Groups, Nested Groups e Group Scope",type:"lab",mins:60,pre:["F02-01"]},
+{id:"F02-03",name:"Delegation of Control e contas administrativas",type:"lab",mins:60,pre:["F02-02"]},
+{id:"F02-04",name:"GPO: segurança, aplicação e troubleshooting",type:"lab",mins:90,pre:["F02-01"]},
+{id:"F02-05",name:"Kerberos: tickets, SPN e autenticação",type:"study",mins:90,pre:["F02-01"]},
+{id:"F02-06",name:"LDAP e consultas de diretório",type:"study",mins:60,pre:["F02-01"]},
+{id:"F02-07",name:"NTLM e comparação com Kerberos",type:"study",mins:45,pre:["F02-05"]},
+{id:"F02-08",name:"Service Accounts e gMSA",type:"study",mins:60,pre:["F02-03","F02-05"]},
+{id:"F02-09",name:"AD audit, logon events e troubleshooting",type:"lab",mins:90,pre:["F02-05"]},
+{id:"F02-10",name:"PowerShell: consultas AD essenciais",type:"lab",mins:90,pre:["F02-02"]},
+{id:"F02-11",name:"Validação: explicar Kerberos, LDAP e AD delegation",type:"validate",mins:45,pre:["F02-05","F02-06","F02-03"]}
+]},
+{id:"F03",name:"Microsoft Entra ID Core",goal:"Dominar o diretório cloud e os controles de acesso Microsoft.",tasks:[
+{id:"F03-01",name:"Tenant, users, groups e administrative units",type:"study",mins:60},
+{id:"F03-02",name:"Entra roles vs Azure RBAC",type:"study",mins:60,pre:["F03-01"]},
+{id:"F03-03",name:"Authentication methods e MFA",type:"lab",mins:90,pre:["F03-01"]},
+{id:"F03-04",name:"Conditional Access: signals, conditions e controls",type:"study",mins:90,pre:["F03-02","F03-03"]},
+{id:"F03-05",name:"Lab: política MFA e política de bloqueio",type:"lab",mins:90,pre:["F03-04"]},
+{id:"F03-06",name:"Sign-in Logs e Audit Logs",type:"lab",mins:60,pre:["F03-01"]},
+{id:"F03-07",name:"Identity Protection e risco",type:"study",mins:75,pre:["F03-04","F03-06"]},
+{id:"F03-08",name:"Devices e device identity",type:"study",mins:60,pre:["F03-01"]},
+{id:"F03-09",name:"Lab: troubleshooting de login usando logs",type:"lab",mins:90,pre:["F03-06"]},
+{id:"F03-10",name:"Validação: Conditional Access de ponta a ponta",type:"validate",mins:45,pre:["F03-05","F03-09"]}
+]},
+{id:"F04",name:"Hybrid Identity",goal:"Conectar AD on-premises ao Entra e compreender sincronização e autenticação híbrida.",tasks:[
+{id:"F04-01",name:"Entra Connect e Cloud Sync",type:"study",mins:60,pre:["F02-01","F03-01"]},
+{id:"F04-02",name:"PHS, PTA e Federation",type:"study",mins:90,pre:["F04-01"]},
+{id:"F04-03",name:"Source of Authority e sincronização de objetos",type:"study",mins:60,pre:["F04-01"]},
+{id:"F04-04",name:"Lab: AD → Entra Sync",type:"lab",mins:120,pre:["F04-01","F04-03"]},
+{id:"F04-05",name:"Troubleshooting de sincronização",type:"lab",mins:90,pre:["F04-04"]},
+{id:"F04-06",name:"Validação: desenhar arquitetura Hybrid Identity",type:"validate",mins:45,pre:["F04-02","F04-05"]}
+]},
+{id:"F05",name:"Identity Protocols e Application Identity",goal:"Sair do nível de configuração e entender os protocolos que conectam aplicações a IdPs.",tasks:[
+{id:"F05-01",name:"HTTP, TLS, cookies e tokens para identidade",type:"study",mins:60},
+{id:"F05-02",name:"SAML 2.0: fluxo, assertions e claims",type:"study",mins:90,pre:["F05-01","F01-04"]},
+{id:"F05-03",name:"OAuth 2.0: roles, grants e access tokens",type:"study",mins:90,pre:["F05-01"]},
+{id:"F05-04",name:"OpenID Connect: ID token e authentication layer",type:"study",mins:75,pre:["F05-03"]},
+{id:"F05-05",name:"SCIM: provisioning e lifecycle",type:"study",mins:60,pre:["F01-06"]},
+{id:"F05-06",name:"WS-Federation e legado Microsoft",type:"study",mins:45,pre:["F05-02"]},
+{id:"F05-07",name:"App Registration vs Enterprise Application vs Service Principal",type:"study",mins:90,pre:["F03-01","F05-03"]},
+{id:"F05-08",name:"Lab: SSO SAML no Entra",type:"lab",mins:120,pre:["F05-02","F05-07"]},
+{id:"F05-09",name:"Lab: OAuth/OIDC e consentimento",type:"lab",mins:120,pre:["F05-04","F05-07"]},
+{id:"F05-10",name:"Lab: SCIM provisioning",type:"lab",mins:120,pre:["F05-05","F05-07"]},
+{id:"F05-11",name:"Validação: diagnosticar falha SAML/OIDC",type:"validate",mins:60,pre:["F05-08","F05-09"]}
+]},
+{id:"F06",name:"Identity Governance, PIM e PAM",goal:"Evoluir de administração de contas para governança e privilégio controlado.",tasks:[
+{id:"F06-01",name:"Identity lifecycle e access lifecycle",type:"study",mins:60,pre:["F01-06"]},
+{id:"F06-02",name:"Access Reviews e recertificação",type:"study",mins:60,pre:["F06-01"]},
+{id:"F06-03",name:"Entitlement Management e access packages",type:"study",mins:75,pre:["F06-02"]},
+{id:"F06-04",name:"Segregation of Duties e toxic combinations",type:"study",mins:60,pre:["F01-05"]},
+{id:"F06-05",name:"PIM: eligible, active, approval e JIT",type:"study",mins:90,pre:["F01-05","F03-02"]},
+{id:"F06-06",name:"Lab: PIM com aprovação e duração",type:"lab",mins:120,pre:["F06-05"]},
+{id:"F06-07",name:"Privileged accounts, break-glass e emergency access",type:"study",mins:60,pre:["F06-05"]},
+{id:"F06-08",name:"PAM: conceitos e integração com IAM",type:"study",mins:60,pre:["F06-07"]},
+{id:"F06-09",name:"Validação: desenhar JML + Access Review + PIM",type:"validate",mins:60,pre:["F06-03","F06-06","F06-08"]}
+]},
+{id:"F07",name:"Azure Cloud IAM e Security",goal:"Dominar o contexto Azure ao redor da identidade.",tasks:[
+{id:"F07-01",name:"Subscriptions, Management Groups e resource hierarchy",type:"study",mins:60},
+{id:"F07-02",name:"Azure RBAC: scope, role definition e assignment",type:"lab",mins:90,pre:["F03-02"]},
+{id:"F07-03",name:"Managed Identities e workload identity",type:"study",mins:90,pre:["F05-07"]},
+{id:"F07-04",name:"Key Vault: identity, RBAC e secrets",type:"lab",mins:90,pre:["F07-03"]},
+{id:"F07-05",name:"Azure Policy e governance",type:"study",mins:60,pre:["F07-01"]},
+{id:"F07-06",name:"VNets, NSGs, Private Endpoints e DNS para IAM",type:"study",mins:90,pre:["F01-08"]},
+{id:"F07-07",name:"Log Analytics, Monitor e identidade",type:"lab",mins:75,pre:["F03-06"]},
+{id:"F07-08",name:"Defender for Cloud e security posture",type:"study",mins:60,pre:["F07-05"]},
+{id:"F07-09",name:"Lab: arquitetura Azure segura com identidade",type:"lab",mins:120,pre:["F07-02","F07-04","F07-06","F07-07"]},
+{id:"F07-10",name:"Validação: least privilege em Azure",type:"validate",mins:45,pre:["F07-09"]}
+]},
+{id:"F08",name:"Automação IAM",goal:"Transformar administração manual em processos reproduzíveis e auditáveis.",tasks:[
+{id:"F08-01",name:"PowerShell para administração de identidade",type:"study",mins:60,pre:["F02-10"]},
+{id:"F08-02",name:"PowerShell: relatórios de usuários, grupos e inativos",type:"lab",mins:90,pre:["F08-01"]},
+{id:"F08-03",name:"REST API, HTTP verbs, headers e JSON",type:"study",mins:60,pre:["F05-03"]},
+{id:"F08-04",name:"Microsoft Graph: users, groups e directory",type:"study",mins:90,pre:["F08-03"]},
+{id:"F08-05",name:"Graph: authentication, permissions e app consent",type:"study",mins:90,pre:["F08-04"]},
+{id:"F08-06",name:"Lab: relatório automático de contas inativas",type:"lab",mins:120,pre:["F08-05"]},
+{id:"F08-07",name:"Lab: automação JML com Graph/PowerShell",type:"lab",mins:150,pre:["F08-06","F06-01"]},
+{id:"F08-08",name:"Terraform fundamentals para IAM",type:"study",mins:90,pre:["F07-02"]},
+{id:"F08-09",name:"IAM as Code: revisão e controle de mudanças",type:"lab",mins:120,pre:["F08-08"]},
+{id:"F08-10",name:"Validação: automatizar tarefa IAM com segurança",type:"validate",mins:60,pre:["F08-07","F08-09"]}
+]},
+{id:"F09",name:"AWS IAM e Multi-cloud Identity",goal:"Construir competência real de IAM AWS e federation entre clouds.",tasks:[
+{id:"F09-01",name:"AWS accounts, Organizations e responsabilidade compartilhada",type:"study",mins:60,pre:["F01-07"]},
+{id:"F09-02",name:"IAM Users, Groups, Roles e Policies",type:"study",mins:90,pre:["F01-05"]},
+{id:"F09-03",name:"Identity policies vs Resource policies",type:"study",mins:75,pre:["F09-02"]},
+{id:"F09-04",name:"Trust Policy, STS e AssumeRole",type:"study",mins:90,pre:["F09-02"]},
+{id:"F09-05",name:"IAM Access Analyzer e Policy Simulator",type:"lab",mins:90,pre:["F09-03"]},
+{id:"F09-06",name:"Permission Boundaries e SCP",type:"study",mins:90,pre:["F09-03","F09-01"]},
+{id:"F09-07",name:"IAM Identity Center",type:"study",mins:75,pre:["F09-04"]},
+{id:"F09-08",name:"Federation Entra → AWS via SAML",type:"lab",mins:120,pre:["F05-02","F09-07"]},
+{id:"F09-09",name:"CloudTrail para auditoria de identidade",type:"lab",mins:75,pre:["F09-02"]},
+{id:"F09-10",name:"GuardDuty/Config sob perspectiva IAM",type:"study",mins:60,pre:["F09-09"]},
+{id:"F09-11",name:"Validação: desenhar modelo multi-account least privilege",type:"validate",mins:60,pre:["F09-06","F09-08"]}
+]},
+{id:"F10",name:"CIEM, Zero Trust e Cloud Security",goal:"Conectar IAM a segurança cloud moderna.",tasks:[
+{id:"F10-01",name:"Zero Trust e identidade como perímetro",type:"study",mins:60,pre:["F01-05"]},
+{id:"F10-02",name:"Machine Identity e workload identity",type:"study",mins:75,pre:["F07-03","F09-04"]},
+{id:"F10-03",name:"Secrets, certificates e key management",type:"study",mins:90,pre:["F07-04"]},
+{id:"F10-04",name:"CIEM: entitlement discovery e excessive permissions",type:"study",mins:75,pre:["F07-02","F09-03"]},
+{id:"F10-05",name:"Shadow admins e privilege paths",type:"study",mins:75,pre:["F10-04"]},
+{id:"F10-06",name:"Cloud identity attack paths",type:"study",mins:90,pre:["F10-05"]},
+{id:"F10-07",name:"Lab: encontrar e corrigir excesso de privilégio",type:"lab",mins:120,pre:["F10-04","F10-05"]},
+{id:"F10-08",name:"Validação: threat model de IAM cloud",type:"validate",mins:60,pre:["F10-06","F10-07"]}
+]},
+{id:"F11",name:"IAM Architecture",goal:"Sair da execução operacional e projetar soluções de identidade.",tasks:[
+{id:"F11-01",name:"IAM reference architecture",type:"study",mins:75,pre:["F06-09","F10-01"]},
+{id:"F11-02",name:"Hybrid identity architecture",type:"study",mins:75,pre:["F04-06"]},
+{id:"F11-03",name:"Enterprise application onboarding model",type:"study",mins:75,pre:["F05-11"]},
+{id:"F11-04",name:"JML architecture e automation",type:"study",mins:75,pre:["F08-07"]},
+{id:"F11-05",name:"Privileged access architecture",type:"study",mins:75,pre:["F06-08","F10-01"]},
+{id:"F11-06",name:"Multi-cloud identity architecture",type:"study",mins:90,pre:["F09-11"]},
+{id:"F11-07",name:"IAM logging, monitoring e audit architecture",type:"study",mins:75,pre:["F03-06","F09-09"]},
+{id:"F11-08",name:"Projeto final: arquitetura IAM corporativa",type:"lab",mins:180,pre:["F11-02","F11-03","F11-04","F11-05","F11-06","F11-07"]},
+{id:"F11-09",name:"Defesa técnica: explicar decisões arquiteturais",type:"validate",mins:60,pre:["F11-08"]}
+]},
+{id:"F12",name:"Certificações e Entrevistas",goal:"Converter competência em certificação, evidência e empregabilidade.",tasks:[
+{id:"F12-01",name:"SC-900: revisão estruturada",type:"cert",mins:120,pre:["F01-10","F03-10"]},
+{id:"F12-02",name:"SC-900: simulados e lacunas",type:"cert",mins:120,pre:["F12-01"]},
+{id:"F12-03",name:"SC-300: revisão por domínio",type:"cert",mins:150,pre:["F03-10","F04-06","F06-09"]},
+{id:"F12-04",name:"SC-300: labs orientados ao exame",type:"cert",mins:180,pre:["F12-03"]},
+{id:"F12-05",name:"AZ-900: revisão objetiva",type:"cert",mins:90,pre:["F01-07"]},
+{id:"F12-06",name:"AWS Cloud Practitioner: fundamentos",type:"cert",mins:120,pre:["F09-01"]},
+{id:"F12-07",name:"Entrevista: IAM fundamentals",type:"validate",mins:45,pre:["F01-10"]},
+{id:"F12-08",name:"Entrevista: Entra/AD/Conditional Access",type:"validate",mins:60,pre:["F03-10"]},
+{id:"F12-09",name:"Entrevista: SAML/OIDC/OAuth/SCIM",type:"validate",mins:60,pre:["F05-11"]},
+{id:"F12-10",name:"Entrevista: cenários de troubleshooting IAM",type:"validate",mins:60,pre:["F06-09","F08-10"]},
+{id:"F12-11",name:"Portfólio: projeto IAM completo",type:"lab",mins:120,pre:["F11-08"]}
+]}
+]};
