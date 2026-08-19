@@ -1,0 +1,21 @@
+﻿# Arquivos temporarios de desenvolvimento
+*.tmp
+*.bak
+*.backup
+
+# Arquivos de sistema
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+
+# Configuracoes locais
+.env
+.env.*
+
+# Temporarios do PowerShell
+~*
+
+# Backups
+README.backup.md
