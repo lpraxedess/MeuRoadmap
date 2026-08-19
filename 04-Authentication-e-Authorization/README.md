@@ -1,42 +1,33 @@
 # Fase 04 — Authentication e Authorization
 
-[← Início](../README.md) · [Painel](../docs/progresso/painel.md)
+[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
 
-> **Objetivo:** explicar e diagnosticar como uma identidade é autenticada e como uma decisão de autorização é tomada.
+> **Missão:** explicar como uma identidade prova quem é e como uma decisão de autorização libera ou bloqueia um recurso.
 
-## Rota principal
+## Rota única
+**Estude → Pratique → Aplique → Explique → Teste → Avance**
 
-1. **Estude:** [Conceitos](01-Conceitos/README.md) — Authentication, Authorization, tokens/claims, sessões, controle de acesso, decisão de acesso e segurança.
-2. **Pratique:** [Prática](03-Pratica/README.md).
-3. **Aplique:** [Laboratórios](04-Laboratorios/README.md).
-4. **Explique:** descreva um acesso completo: identidade → autenticação → contexto → policy → autorização → recurso.
-5. **Valide:** execute `roadmap.ps1 validar` e responda sem consultar.
+**Núcleo:** fatores, MFA, tokens, claims, sessões, RBAC/ABAC, policies, decisões de acesso e ameaças.
 
-Os sete tópicos detalhados continuam disponíveis, mas não precisam ser consumidos em sequência antes da prática.
+1. Estude o fluxo identidade → autenticação → contexto → policy → autorização → recurso.
+2. Pratique decisões de acesso.
+3. Aplique em um cenário de Access Denied.
+4. Explique a decisão e as evidências necessárias.
+5. Teste.
 
-## 🎯 Validação final
+### Teste da fase
+1. Diferencie identificação, autenticação e autorização.
+2. Por que MFA não é simplesmente duas senhas?
+3. Como claims e contexto influenciam uma policy?
+4. Como investigar um Access Denied?
+5. Como reduzir risco de credenciais comprometidas?
 
-1. Diferencie identificação, Authentication e Authorization.
-2. Explique como fatores, tokens e sessão participam de um acesso.
-3. Como uma policy pode produzir `allow` ou `deny`?
-4. Como você investigaria um `Access Denied` ponta a ponta?
-5. Quais sinais podem justificar bloquear uma credencial correta por risco?
+## Gate
+- [ ] Estudei o núcleo
+- [ ] Pratiquei decisões de acesso
+- [ ] Resolvi um Access Denied
+- [ ] Expliquei o fluxo sem consultar
+- [ ] Passei no teste e registrei evidência
 
-## 🎯 Gate da fase
-
-- [ ] Estudei o núcleo da fase
-- [ ] Executei a prática proposta
-- [ ] Apliquei o fluxo em laboratório ou cenário
-- [ ] Expliquei uma decisão de acesso sem consultar
-- [ ] Passei na validação final e registrei a evidência
-
-## Aprofundamento opcional
-
-- [02 Conhecimentos](02-Conhecimentos/README.md)
-- [03 Prática](03-Pratica/README.md)
-- [04 Laboratórios](04-Laboratorios/README.md)
-- [05 Exercícios](05-Exercicios/README.md)
-- [06 Troubleshooting](06-Troubleshooting/README.md)
-- [07 Checklist](07-Checklist/README.md)
-- [08 Revisão](08-Revisao/README.md)
-- [09 Certificações](09-Certificacoes/README.md)
+## Biblioteca
+[`conteudo/`](conteudo/) contém o material detalhado.

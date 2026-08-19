@@ -1,33 +1,33 @@
 # Fase 05 — IGA
 
-[← Início](../README.md) · [Painel](../docs/progresso/painel.md)
+[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
 
-> **Objetivo:** governar identidades e acessos ao longo do ciclo de vida, com aprovação, revisão e evidência.
+> **Missão:** governar identidades, acessos, solicitações, aprovações e revisões.
 
-## Rota principal
+## Rota única
+**Estude → Pratique → Aplique → Explique → Teste → Avance**
 
-1. **Estude:** [Conceitos](01-Conceitos/README.md).
-2. **Pratique:** [Prática](03-Pratica/README.md).
-3. **Aplique:** [Laboratórios](04-Laboratorios/README.md).
-4. **Explique:** descreva como um acesso nasce, é aprovado, revisado e removido.
-5. **Valide:** execute `roadmap.ps1 validar`.
+**Núcleo:** lifecycle, entitlement, approval, access review, SoD, policy e governança.
 
-## 🎯 Validação final
+1. Estude o ciclo de vida e a governança.
+2. Pratique uma solicitação e aprovação de acesso.
+3. Aplique uma revisão periódica e trate exceções.
+4. Explique quem decide, quem aprova e quem audita.
+5. Teste.
 
-1. Qual problema IGA resolve que um diretório sozinho não resolve?
-2. Como funciona um ciclo JML governado?
-3. Onde entram aprovação, entitlement, revisão e SoD?
-4. Que evidências você exigiria para provar governança de acesso?
-5. Como investigaria um acesso indevido que deveria ter sido removido?
+### Teste da fase
+1. O que IGA governa?
+2. Como JML se conecta ao acesso?
+3. O que torna uma aprovação auditável?
+4. Como funciona uma access review?
+5. Como SoD e exceções devem ser tratados?
 
-## 🎯 Gate da fase
+## Gate
+- [ ] Estudei o núcleo
+- [ ] Modelei uma solicitação/aprovação
+- [ ] Executei uma revisão de acesso
+- [ ] Expliquei a governança
+- [ ] Passei no teste e registrei evidência
 
-- [ ] Estudei o núcleo da fase
-- [ ] Executei a prática
-- [ ] Apliquei o fluxo em cenário ou laboratório
-- [ ] Expliquei o ciclo de governança sem consultar
-- [ ] Passei na validação final e registrei evidência
-
-## Aprofundamento opcional
-
-[02 Conhecimentos](02-Conhecimentos/README.md) · [03 Prática](03-Pratica/README.md) · [04 Laboratórios](04-Laboratorios/README.md) · [05 Exercícios](05-Exercicios/README.md) · [06 Troubleshooting](06-Troubleshooting/README.md) · [07 Checklist](07-Checklist/README.md) · [08 Revisão](08-Revisao/README.md) · [09 Certificações](09-Certificacoes/README.md)
+## Biblioteca
+[`conteudo/`](conteudo/) contém o material detalhado.

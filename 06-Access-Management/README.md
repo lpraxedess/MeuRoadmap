@@ -1,33 +1,33 @@
 # Fase 06 — Access Management
 
-[← Início](../README.md) · [Painel](../docs/progresso/painel.md)
+[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
 
-> **Objetivo:** controlar concessão, uso e remoção de acesso de forma segura e rastreável.
+> **Missão:** transformar regras de acesso em permissões concretas e auditáveis.
 
-## Rota principal
+## Rota única
+**Estude → Pratique → Aplique → Explique → Teste → Avance**
 
-1. **Estude:** [Conceitos](01-Conceitos/README.md).
-2. **Pratique:** [Prática](03-Pratica/README.md).
-3. **Aplique:** [Laboratórios](04-Laboratorios/README.md).
-4. **Explique:** descreva como uma solicitação vira acesso efetivo e como ele é removido.
-5. **Valide:** execute `roadmap.ps1 validar`.
+**Núcleo:** RBAC, ABAC, grupos, permissões, regras condicionais e revisões de acesso.
 
-## 🎯 Validação final
+1. Estude modelos de acesso.
+2. Pratique uma matriz de permissões.
+3. Aplique regras a um cenário corporativo.
+4. Explique por que um acesso foi permitido ou negado.
+5. Teste.
 
-1. Diferencie solicitação, aprovação, entitlement e acesso efetivo.
-2. Como aplicar least privilege no gerenciamento de acesso?
-3. Quais controles reduzem acessos órfãos ou excessivos?
-4. Como investigar uma concessão que não deveria existir?
-5. Que evidências demonstram que um acesso foi corretamente governado?
+### Teste da fase
+1. Quando RBAC resolve o problema?
+2. Quando atributos e contexto são necessários?
+3. Como evitar permissões excessivas?
+4. Como investigar uma decisão de acesso?
+5. Como tornar uma regra auditável?
 
-## 🎯 Gate da fase
+## Gate
+- [ ] Estudei o núcleo
+- [ ] Modelei permissões
+- [ ] Apliquei regras
+- [ ] Expliquei uma decisão de acesso
+- [ ] Passei no teste e registrei evidência
 
-- [ ] Estudei o núcleo da fase
-- [ ] Executei a prática
-- [ ] Apliquei o processo em cenário ou laboratório
-- [ ] Expliquei o fluxo sem consultar
-- [ ] Passei na validação final e registrei evidência
-
-## Aprofundamento opcional
-
-[02 Conhecimentos](02-Conhecimentos/README.md) · [03 Prática](03-Pratica/README.md) · [04 Laboratórios](04-Laboratorios/README.md) · [05 Exercícios](05-Exercicios/README.md) · [06 Troubleshooting](06-Troubleshooting/README.md) · [07 Checklist](07-Checklist/README.md) · [08 Revisão](08-Revisao/README.md) · [09 Certificações](09-Certificacoes/README.md)
+## Biblioteca
+[`conteudo/`](conteudo/) contém o material detalhado.

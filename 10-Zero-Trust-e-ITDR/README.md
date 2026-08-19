@@ -1,33 +1,33 @@
 # Fase 10 — Zero Trust e ITDR
 
-[← Início](../README.md) · [Painel](../docs/progresso/painel.md)
+[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
 
-> **Objetivo:** proteger identidades continuamente e detectar, responder e recuperar de ameaças contra IAM.
+> **Missão:** reduzir risco de identidade e detectar, investigar e responder a ataques contra identidades.
 
-## Rota principal
+## Rota única
+**Estude → Pratique → Aplique → Explique → Teste → Avance**
 
-1. **Estude:** [Conceitos](01-Conceitos/README.md).
-2. **Pratique:** [Prática](03-Pratica/README.md).
-3. **Aplique:** [Laboratórios](04-Laboratorios/README.md).
-4. **Explique:** descreva uma decisão contínua de confiança e uma resposta a ataque de identidade.
-5. **Valide:** execute `roadmap.ps1 validar`.
+**Núcleo:** Zero Trust, sinais de risco, identidade comprometida, detecção, resposta e recuperação.
 
-## 🎯 Validação final
+1. Estude os princípios.
+2. Pratique uma investigação de identidade.
+3. Aplique controles em um cenário de comprometimento.
+4. Explique a resposta.
+5. Teste.
 
-1. O que muda quando confiança deixa de ser implícita?
-2. Como identidade, dispositivo, contexto e recurso participam de uma decisão Zero Trust?
-3. O que ITDR acrescenta à defesa de identidade?
-4. Como investigar sinais de comprometimento de identidade?
-5. Como conter, erradicar e recuperar um incidente de IAM?
+### Teste da fase
+1. O que muda quando confiança implícita deixa de existir?
+2. Quais sinais indicam risco de identidade?
+3. Como detectar uso anômalo de credenciais?
+4. Quais ações limitam impacto após comprometimento?
+5. Como recuperar a confiança depois do incidente?
 
-## 🎯 Gate da fase
+## Gate
+- [ ] Estudei o núcleo
+- [ ] Analisei sinais de risco
+- [ ] Resolvi um cenário de comprometimento
+- [ ] Expliquei a resposta
+- [ ] Passei no teste e registrei evidência
 
-- [ ] Estudei o núcleo da fase
-- [ ] Executei a prática
-- [ ] Apliquei o conceito em cenário ou laboratório
-- [ ] Expliquei o raciocínio de detecção e resposta sem consultar
-- [ ] Passei na validação final e registrei evidência
-
-## Aprofundamento opcional
-
-[02 Conhecimentos](02-Conhecimentos/README.md) · [03 Prática](03-Pratica/README.md) · [04 Laboratórios](04-Laboratorios/README.md) · [05 Exercícios](05-Exercicios/README.md) · [06 Troubleshooting](06-Troubleshooting/README.md) · [07 Checklist](07-Checklist/README.md) · [08 Revisão](08-Revisao/README.md) · [09 Certificações](09-Certificacoes/README.md)
+## Biblioteca
+[`conteudo/`](conteudo/) contém o material detalhado.

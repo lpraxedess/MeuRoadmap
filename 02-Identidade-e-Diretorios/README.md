@@ -1,42 +1,32 @@
 # Fase 02 — Identidade e Diretórios
 
-[← Início](../README.md) · [Painel](../docs/progresso/painel.md)
+[← Roadmap](../README.md) · [Painel](../docs/progresso/painel.md)
 
-> **Objetivo:** entender como identidades são armazenadas, organizadas, autenticadas e integradas entre diretórios.
+> **Missão:** entender como identidades são armazenadas, organizadas, autenticadas e sincronizadas.
 
-## Rota principal
+## Rota única
 
-1. **Estude:** [Conceitos](01-Conceitos/README.md) — diretórios, LDAP, Active Directory, objetos, grupos, DNS/Kerberos, sincronização, contas de serviço e federação.
-2. **Pratique:** [Prática](03-Pratica/README.md).
-3. **Aplique:** [Laboratórios](04-Laboratorios/README.md).
-4. **Explique:** registre o fluxo de identidade e diretório com suas próprias palavras.
-5. **Valide:** execute `roadmap.ps1 validar` e responda sem consultar.
+**Estude → Pratique → Aplique → Explique → Teste → Avance**
 
-**As demais áreas são aprofundamento, não uma fila obrigatória.**
+1. **Estude:** diretórios, LDAP, Active Directory, objetos, grupos, DNS/Kerberos, sincronização e contas de serviço.
+2. **Pratique:** modele um diretório corporativo.
+3. **Aplique:** investigue uma identidade/conta de serviço com falha.
+4. **Explique:** descreva o fluxo de identidade entre diretório e aplicação.
+5. **Teste:** responda sem consultar.
 
-## 🎯 Validação final
+### Teste da fase
+1. Que problema um directory service resolve?
+2. Como objeto, atributo, grupo e OU se relacionam?
+3. Onde LDAP, DNS e Kerberos entram no fluxo?
+4. Como sincronizar identidades mantendo governança?
+5. Como investigar uma conta de serviço quebrada?
 
-1. Qual problema um directory service resolve em uma empresa?
-2. Explique a relação entre objeto, atributo, grupo e OU.
-3. Onde LDAP, DNS e Kerberos entram em uma arquitetura de diretório?
-4. Como uma identidade pode ser sincronizada entre ambientes sem perder governança?
-5. Como você investigaria uma conta de serviço que deixou de funcionar?
+## Gate
+- [ ] Estudei o núcleo
+- [ ] Fiz a prática
+- [ ] Resolvi o cenário
+- [ ] Expliquei sem consultar
+- [ ] Passei no teste e registrei evidência
 
-## 🎯 Gate da fase
-
-- [ ] Estudei o núcleo da fase
-- [ ] Executei a prática proposta
-- [ ] Apliquei o conhecimento em um cenário ou laboratório
-- [ ] Expliquei o fluxo sem consultar
-- [ ] Passei na validação final e registrei a evidência
-
-## Aprofundamento opcional
-
-- [02 Conhecimentos](02-Conhecimentos/README.md)
-- [03 Prática](03-Pratica/README.md)
-- [04 Laboratórios](04-Laboratorios/README.md)
-- [05 Exercícios](05-Exercicios/README.md)
-- [06 Troubleshooting](06-Troubleshooting/README.md)
-- [07 Checklist](07-Checklist/README.md)
-- [08 Revisão](08-Revisao/README.md)
-- [09 Certificações](09-Certificacoes/README.md)
+## Biblioteca
+[`conteudo/`](conteudo/) contém todo o aprofundamento preservado.
