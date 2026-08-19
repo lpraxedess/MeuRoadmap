@@ -1,66 +1,42 @@
 # Fase 04 — Authentication e Authorization
 
-[← Voltar ao início](../README.md) · [📈 Painel](../docs/progresso/painel.md)
+[← Início](../README.md) · [Painel](../docs/progresso/painel.md)
 
-> **Objetivo:** dominar autenticação e autorização a ponto de explicar, implementar e diagnosticar decisões de acesso.
+> **Objetivo:** explicar e diagnosticar como uma identidade é autenticada e como uma decisão de autorização é tomada.
 
-> [!IMPORTANT]
-> A fase é uma trilha integrada: entre em um tópico, estude, pratique, registre sua explicação, valide e siga para o próximo.
+## Rota principal
 
----
+1. **Estude:** [Conceitos](01-Conceitos/README.md) — Authentication, Authorization, tokens/claims, sessões, controle de acesso, decisão de acesso e segurança.
+2. **Pratique:** [Prática](03-Pratica/README.md).
+3. **Aplique:** [Laboratórios](04-Laboratorios/README.md).
+4. **Explique:** descreva um acesso completo: identidade → autenticação → contexto → policy → autorização → recurso.
+5. **Valide:** execute `roadmap.ps1 validar` e responda sem consultar.
 
-## 🧭 Caminho da fase
+Os sete tópicos detalhados continuam disponíveis, mas não precisam ser consumidos em sequência antes da prática.
 
-**01 Conceitos → 02 Conhecimentos → 03 Prática → 04 Laboratórios → 05 Exercícios → 06 Troubleshooting → 07 Checklist → 08 Validação → 09 Certificações**
+## 🎯 Validação final
 
-| # | Etapa | Foco | Ação |
-|---:|---|---|---|
-| **01** | 🧠 Conceitos | AuthN, AuthZ, tokens, sessões e segurança | [▶️ Começar](01-Conceitos/README.md) |
-| **02** | 📚 Conhecimentos | mecanismos e controles | [Abrir](02-Conhecimentos/README.md) |
-| **03** | 🧪 Prática | decisões de acesso em cenários | [Abrir](03-Pratica/README.md) |
-| **04** | 🖥️ Laboratórios | implementação | [Abrir](04-Laboratorios/README.md) |
-| **05** | 📝 Exercícios | retenção e raciocínio | [Abrir](05-Exercicios/README.md) |
-| **06** | 🔎 Troubleshooting | falhas de acesso | [Abrir](06-Troubleshooting/README.md) |
-| **07** | ☑️ Checklist | cobertura | [Abrir](07-Checklist/README.md) |
-| **08** | 🎯 Validação | domínio sem consulta | [Abrir](08-Revisao/README.md) |
-| **09** | 🎓 Certificações | carreira | [Abrir](09-Certificacoes/README.md) |
+1. Diferencie identificação, Authentication e Authorization.
+2. Explique como fatores, tokens e sessão participam de um acesso.
+3. Como uma policy pode produzir `allow` ou `deny`?
+4. Como você investigaria um `Access Denied` ponta a ponta?
+5. Quais sinais podem justificar bloquear uma credencial correta por risco?
 
----
+## 🎯 Gate da fase
 
-## ▶️ Comece aqui
+- [ ] Estudei o núcleo da fase
+- [ ] Executei a prática proposta
+- [ ] Apliquei o fluxo em laboratório ou cenário
+- [ ] Expliquei uma decisão de acesso sem consultar
+- [ ] Passei na validação final e registrei a evidência
 
-**[Abrir Conceitos →](01-Conceitos/README.md)**
+## Aprofundamento opcional
 
-### Regra de estudo
-
-**Estudar → Praticar → Explicar → Validar → Registrar evidência → Avançar**
-
-Não marque leitura como domínio. O objetivo é reproduzir o raciocínio sem depender do material.
-
-## ✍️ Meu registro
-
-**O que já domino:**
-
-> Escreva aqui.
-
-**O que ainda preciso praticar:**
-
-> Escreva aqui.
-
-**Dúvidas / erros importantes:**
-
-> Escreva aqui.
-
-## 🏁 Definition of Done
-
-- [ ] Diferencio Authentication e Authorization sem consultar
-- [ ] Entendo fatores, tokens, sessões e políticas
-- [ ] Consigo explicar uma decisão de autorização
-- [ ] Executei os laboratórios
-- [ ] Resolvi cenários de Access Denied
-- [ ] Registrei evidências e explicações próprias
-- [ ] Consigo defender uma solução tecnicamente
-
-### 🧭 Navegação
-
-[← Início](../README.md) · [▶️ Começar: Conceitos](01-Conceitos/README.md) · [📈 Painel](../docs/progresso/painel.md)
+- [02 Conhecimentos](02-Conhecimentos/README.md)
+- [03 Prática](03-Pratica/README.md)
+- [04 Laboratórios](04-Laboratorios/README.md)
+- [05 Exercícios](05-Exercicios/README.md)
+- [06 Troubleshooting](06-Troubleshooting/README.md)
+- [07 Checklist](07-Checklist/README.md)
+- [08 Revisão](08-Revisao/README.md)
+- [09 Certificações](09-Certificacoes/README.md)
