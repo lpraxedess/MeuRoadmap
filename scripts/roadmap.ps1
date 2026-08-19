@@ -47,9 +47,11 @@ function Obter-Validacao([string]$Caminho) {
         }
         if ($emValidacao -and $linha -match '^##\s+') { break }
         if ($emValidacao -and $linha -match '^\s*-\s*\[\s*(x|X| )\s*\]\s*(.*)$') {
+            $marcador = [string]$Matches[1]
+            $texto = [string]$Matches[2]
             $novoItem = [PSCustomObject]@{
-                Concluido = ($Matches[1] -match '^[xX]$')
-                Texto = $Matches[2].Trim()
+                Concluido = ($marcador -match '^[xX]$')
+                Texto = $texto.Trim()
             }
             $itens = @($itens) + @($novoItem)
         }
