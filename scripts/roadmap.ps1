@@ -31,29 +31,36 @@ function Obter-FaseAtual {
     @($estado.fases) | Where-Object { [int]$_.id -eq [int]$estado.faseAtual } | Select-Object -First 1
 }
 
-function Eh-CabecalhoValidacao([string]$Linha) {
-    return ($Linha -match '^##\s+.*(Valida|Definition\s+of\s+Done)')
-}
-
 function Obter-Validacao([string]$Caminho) {
-    $linhas = @(Get-Content $Caminho -Encoding UTF8)
-    $emValidacao = $false
-    $itens = @()
+    if (-not (Test-Path -LiteralPath $Caminho)) { return @() }
 
-    foreach ($linha in $linhas) {
-        if (Eh-CabecalhoValidacao $linha) {
-            $emValidacao = $true
-            continue
-        }
-        if ($emValidacao -and $linha -match '^##\s+') { break }
-        if ($emValidacao -and $linha -match '^\s*-\s*\[\s*(x|X| )\s*\]\s*(.*)$') {
-            $marcador = [string]$Matches[1]
-            $texto = [string]$Matches[2]
-            $novoItem = [PSCustomObject]@{
-                Concluido = ($marcador -match '^[xX]$')
-                Texto = $texto.Trim()
-            }
-            $itens = @($itens) + @($novoItem)
+    $conteudo = Get-Content -LiteralPath $Caminho -Raw -Encoding UTF8
+    if ([string]::IsNullOrWhiteSpace($conteudo)) { return @() }
+
+    # Localiza a primeira secao de validacao, aceitando os formatos usados no roadmap:
+    # ## Validação, ## ✅ Validação e ## 🏁 Definition of Done.
+    $cabecalho = [regex]::Match(
+        $conteudo,
+        '(?im)^##\s+[^\r\n]*(?:Valida|Definition\s+of\s+Done)[^\r\n]*$'
+    )
+    if (-not $cabecalho.Success) { return @() }
+
+    $inicio = $cabecalho.Index + $cabecalho.Length
+    $restante = $conteudo.Substring($inicio)
+    $proximoCabecalho = [regex]::Match($restante, '(?m)^##\s+')
+    if ($proximoCabecalho.Success) {
+        $secao = $restante.Substring(0, $proximoCabecalho.Index)
+    } else {
+        $secao = $restante
+    }
+
+    $itens = @()
+    foreach ($match in [regex]::Matches($secao, '(?m)^\s*-\s*\[\s*(x|X| )\s*\]\s*(.*?)\s*$')) {
+        $marcador = [string]$match.Groups[1].Value
+        $texto = [string]$match.Groups[2].Value
+        $itens += [PSCustomObject]@{
+            Concluido = ($marcador -match '^[xX]$')
+            Texto = $texto.Trim()
         }
     }
 
@@ -78,7 +85,7 @@ function Obter-ArquivosDeEstudo($fase) {
                     Arquivo = $arquivo
                     Validacao = $validacao
                 }
-                $resultado = @($resultado) + @($novoArquivo)
+                $resultado += $novoArquivo
             }
         }
     }
@@ -162,7 +169,7 @@ function Comando-Concluir {
 
     $caminho = $Arquivo
     if (-not [System.IO.Path]::IsPathRooted($caminho)) { $caminho = Join-Path $Root $caminho }
-    if (-not (Test-Path $caminho)) { Write-Host "Arquivo nao encontrado: $Arquivo"; return }
+    if (-not (Test-Path -LiteralPath $caminho)) { Write-Host "Arquivo nao encontrado: $Arquivo"; return }
 
     $v = @(Obter-Validacao $caminho)
     if ($v.Count -eq 0) { Write-Host "O arquivo nao possui uma secao de validacao com itens."; return }
