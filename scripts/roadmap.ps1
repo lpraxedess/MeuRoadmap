@@ -32,7 +32,9 @@ function Obter-FaseAtual {
 }
 
 function Eh-CabecalhoValidacao([string]$Linha) {
-    return ($Linha -match '^##\s+.*Valida(c|ç)ão.*$')
+    # Aceita os dois padrões usados no roadmap:
+    # "## ✅ Validação" e "## 🏁 Definition of Done".
+    return ($Linha -match '^##\s+.*(Valida|Definition\s+of\s+Done)')
 }
 
 function Obter-Validacao([string]$Caminho) {
@@ -54,7 +56,7 @@ function Obter-Validacao([string]$Caminho) {
         }
     }
 
-    return $itens
+    return ,$itens
 }
 
 function Obter-ArquivosDeEstudo($fase) {
@@ -78,7 +80,7 @@ function Obter-ArquivosDeEstudo($fase) {
         }
     }
 
-    return $resultado
+    return ,$resultado
 }
 
 function Mostrar-Ajuda {
