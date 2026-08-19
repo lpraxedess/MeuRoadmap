@@ -2,49 +2,69 @@
 
 [← Conceitos](README.md) · [🏠 Início](../../README.md) · [Próximo →](02-Conta-e-Credencial.md)
 
-## Objetivo
+> **Objetivo profissional:** construir a base para raciocinar sobre pessoas, workloads, contas e acessos.
 
-Entender o que é uma identidade digital e como ela se relaciona com pessoas, contas, recursos e acesso.
-
-## Estudar
+## 🎯 O que dominar
 
 - identidade digital
-- usuário
-- principal
-- sujeito
-- atributo
-- recurso
-- identidade humana
-- identidade não humana
-- service account
-- machine identity
+- usuário, principal e sujeito
+- atributos e identificadores
+- identidade humana e não humana
+- service account e machine identity
+- relação entre identidade, recurso e acesso
 
-## Você precisa conseguir
+## 🧠 Você precisa conseguir
 
-- explicar identidade com suas próprias palavras
-- diferenciar identidade de conta
-- diferenciar identidade de credencial
-- explicar identidade humana e não humana
-- relacionar identidade → recurso → acesso
+- explicar identidade sem decorar definição
+- diferenciar identidade de conta e credencial
+- explicar identidade humana x não humana
+- relacionar **identidade → conta → acesso → recurso**
 
-## Prática
+## 🛠️ Prática guiada
 
-Crie 5 exemplos de identidades e indique tipo, recurso acessado e motivo do acesso.
+Crie uma matriz com 5 exemplos:
 
-## Minha explicação
+| Identidade | Tipo | Conta | Recurso | Acesso | Motivo |
+|---|---|---|---|---|---|
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
 
-> Escreva aqui o que você entendeu, sem copiar uma definição pronta.
+**Regra:** cada acesso precisa ter uma justificativa de negócio.
 
-## Validação
+## 🏢 Cenário profissional
+
+Uma empresa possui funcionários, terceiros, administradores e aplicações automatizadas. Um novo colaborador precisa acessar e-mail, sistema financeiro e ambiente de desenvolvimento.
+
+**Tarefa:** identifique quais identidades, contas, recursos e acessos existem. Aponte o que poderia gerar risco se permanecesse após o desligamento.
+
+## 🎤 Pergunta de entrevista
+
+> Qual a diferença entre identidade, conta e credencial? Dê um exemplo real.
+
+Responda primeiro sem consultar material.
+
+## ✍️ Minha explicação
+
+> Escreva aqui o conceito com suas próprias palavras. Se você não conseguir explicar de forma simples, volte ao estudo.
+
+## 📎 Evidência
+
+Registre ou vincule sua matriz e o cenário resolvido em `docs/evidencias/01-identidade/`.
+
+## ✅ Validação
 
 - [ ] Estudei o conteúdo
 - [ ] Fiz a prática
-- [ ] Consigo explicar sem consultar
+- [ ] Resolvi o cenário profissional
+- [ ] Respondi à pergunta de entrevista sem consultar
 - [ ] Registrei minha explicação
 - [ ] Consigo dar um exemplo profissional
 
-## Conclusão
+## ▶️ Próximo passo
 
-Quando todos os itens acima estiverem concluídos, marque o tópico no comando do roadmap.
+Quando todos os itens estiverem validados, avance para **Conta e Credencial**.
 
 [← Voltar](README.md) · [🏠 Início](../../README.md) · [Próximo →](02-Conta-e-Credencial.md)
