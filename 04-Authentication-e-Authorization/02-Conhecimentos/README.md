@@ -1,12 +1,23 @@
-# Authentication e Authorization — Conhecimentos
+# 02 — Conhecimentos de Authentication & Authorization
 
-[← Voltar para a fase](../README.md) · [→ Próxima etapa: Prática](../03-Pratica/README.md)
+[← Fase 04](../README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md) · [Próximo → Prática](../03-Pratica/README.md)
 
-> **Objetivo:** entender os mecanismos por trás da autenticação e autorização antes de partir para implementação.
+> **Objetivo:** transformar os conceitos em um modelo técnico coerente antes de implementar ou diagnosticar.
 
-## 🧭 Como estudar
+> [!IMPORTANT]
+> Esta etapa responde **como os mecanismos funcionam**. A anterior respondeu **o que são**; a próxima exige **aplicação**.
 
-Siga de cima para baixo. Para cada tópico: **estude → explique com suas palavras → relacione a um cenário IAM → marque como concluído**.
+---
+
+## 🧭 Trilha
+
+`01 AuthN → 02 Tokens/Sessões → 03 AuthZ → 04 Decisão → 05 Segurança → Validação`
+
+## 🔁 Método
+
+**Estude → conecte ao fluxo → explique sem consultar → registre dúvidas → valide → avance.**
+
+---
 
 ## 01 — Mecanismos de autenticação
 
@@ -17,27 +28,38 @@ Siga de cima para baixo. Para cada tópico: **estude → explique com suas palav
 - [ ] Passkeys / WebAuthn
 - [ ] Passwordless
 
-**Consigo explicar:** por que cada mecanismo existe, seus riscos e quando utilizá-lo.
+| Mecanismo | O que prova | Risco reduzido | Limitação |
+|---|---|---|---|
+| Senha | | | |
+| OTP | | | |
+| Certificado | | | |
+| Passkey | | | |
 
-### Minha explicação
+**Minha explicação:**
 
-> Escreva aqui com suas próprias palavras.
+> Explique fator, método e política de autenticação.
+
+---
 
 ## 02 — Tokens e sessões
 
-- [ ] Token de acesso
+- [ ] Access token
 - [ ] Refresh token
 - [ ] ID token
 - [ ] Sessão
 - [ ] Expiração e renovação
 - [ ] Revogação
-- [ ] Cookies e armazenamento de sessão
+- [ ] Cookies e armazenamento
 
-**Consigo explicar:** o que acontece depois da autenticação e como uma sessão é mantida e encerrada.
+`Authentication → emissão de contexto → access/session → recurso → expiração/renovação → encerramento`
 
-### Minha explicação
+**Exercício:** explique por que autenticar novamente e renovar um token não são necessariamente a mesma operação.
 
-> Escreva aqui.
+**Minha explicação:**
+
+> Registre o fluxo e o que ocorre quando cada elemento expira.
+
+---
 
 ## 03 — Autorização
 
@@ -51,11 +73,22 @@ Siga de cima para baixo. Para cada tópico: **estude → explique com suas palav
 - [ ] ABAC
 - [ ] Policy-Based Access Control
 
-**Consigo explicar:** como uma solicitação chega a uma decisão de permitir ou negar acesso.
+`Subject + Action + Resource + Context → Policy Evaluation → Allow/Deny`
 
-### Minha explicação
+| Termo | Representa | Exemplo próprio |
+|---|---|---|
+| Permission | | |
+| Role | | |
+| Policy | | |
+| Scope | | |
+| Claim | | |
+| ACL | | |
 
-> Escreva aqui.
+**Minha explicação:**
+
+> Explique por que role, permission, scope e claim não são sinônimos.
+
+---
 
 ## 04 — Decisão de acesso
 
@@ -68,37 +101,80 @@ Siga de cima para baixo. Para cada tópico: **estude → explique com suas palav
 - [ ] Default deny
 - [ ] Least privilege
 
-**Exercício mental:**
+**Cenário:** um usuário solicita `aprovar pagamento` no recurso `pedido 123`.
 
-> Usuário solicita `ação X` no `recurso Y`. Quais informações o sistema precisa para decidir se permite ou nega?
+| Elemento | Minha resposta |
+|---|---|
+| Subject | |
+| Action | |
+| Resource | |
+| Contexto | |
+| Policies aplicáveis | |
+| Condições | |
+| Resultado esperado | |
+| Evidência da decisão | |
 
-### Minha resposta
+**Minha resposta:**
 
-> Escreva aqui.
+> Explique a decisão passo a passo, sem pular diretamente para a permissão.
+
+---
 
 ## 05 — Segurança e falhas comuns
 
-- [ ] Credential stuffing
-- [ ] Brute force
-- [ ] Phishing
-- [ ] Session hijacking
-- [ ] Token theft
-- [ ] Privilege escalation
-- [ ] Excessive permissions
-- [ ] Broken access control
+| Ameaça | Onde atua | Controle | Evidência |
+|---|---|---|---|
+| Credential stuffing | | | |
+| Brute force | | | |
+| Phishing | | | |
+| Session hijacking | | | |
+| Token theft | | | |
+| Privilege escalation | | | |
+| Excessive permissions | | | |
+| Broken access control | | | |
 
-### Minha explicação
+**Exercício:** escolha duas ameaças e explique **prevenção + detecção + contenção** para cada uma.
 
-> Escreva aqui.
+**Minha explicação:**
+
+> Registre o raciocínio, não apenas a definição.
+
+---
+
+## 🔗 Integração dos conhecimentos
+
+```text
+Identidade
+   ↓
+Authentication
+   ↓
+Token / Sessão / Contexto
+   ↓
+Subject + Action + Resource
+   ↓
+Policy Evaluation
+   ↓
+Authorization
+   ↓
+Allow / Deny
+   ↓
+Recurso + Logs
+```
+
+Explique onde uma falha de AuthN, uma falha de AuthZ e um abuso de privilégio aparecem nesse fluxo.
 
 ## 🎯 Definition of Done
 
-- [ ] Consigo explicar os principais mecanismos de autenticação sem consultar
-- [ ] Consigo explicar token, sessão, expiração e revogação
-- [ ] Consigo diferenciar role, permission, policy, scope e claim
-- [ ] Consigo descrever uma decisão de autorização passo a passo
-- [ ] Consigo identificar riscos comuns de AuthN/AuthZ
+- [ ] Explico mecanismos de autenticação e trade-offs
+- [ ] Explico access token, refresh token, ID token e sessão
+- [ ] Explico expiração, renovação e revogação
+- [ ] Diferencio permission, role, policy, scope e claim
+- [ ] Explico RBAC, ABAC e policy-based access control
+- [ ] Modelo decisão com subject, action, resource e contexto
+- [ ] Relaciono ameaças a controles e evidências
+- [ ] Reconstruo o fluxo completo sem consultar
 - [ ] Registrei minhas explicações próprias
+- [ ] Tenho evidência para os pontos que ainda preciso praticar
 
 ## 📝 Registro de estudo
 
@@ -114,8 +190,17 @@ Siga de cima para baixo. Para cada tópico: **estude → explique com suas palav
 
 > 
 
+**Evidência / laboratório relacionado:**
+
+> 
+
 **Data da revisão:**
 
 > 
 
-[← Voltar para a fase](../README.md) · [→ Ir para Prática](../03-Pratica/README.md)
+> [!TIP]
+> Ao terminar, vá para **Prática** e aplique o fluxo em cenários reais.
+
+## ▶️ Próximo passo
+
+[← Conceitos](../01-Conceitos/README.md) · [🧪 Prática](../03-Pratica/README.md) · [🏠 Fase 04](../README.md)
