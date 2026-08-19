@@ -1,70 +1,102 @@
-# 🎓 Certificações — Authentication e Authorization
+# 09 — Certificações: Authentication & Authorization
 
-[← Voltar para a fase](../README.md) · [📈 Painel](../../docs/progresso/painel.md) · [← Revisão](../08-Revisao/README.md)
+[← Validação](../08-Revisao/README.md) · [🏠 Fase 04](../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-> **Objetivo:** usar certificações como validação do conhecimento, não como substituto da prática.
+> **Objetivo:** decidir se e quando uma certificação agrega valor depois do domínio técnico.
 
-## 🎯 Quando considerar certificação
+> [!IMPORTANT]
+> Certificação é consequência da preparação, não substituto de prática, troubleshooting ou evidência.
 
-Não avance apenas porque terminou o conteúdo. Primeiro confirme:
+## 🚦 Gate antes da prova
 
-- [ ] Consigo explicar Authentication e Authorization sem consulta.
-- [ ] Consigo diferenciar AuthN de AuthZ em cenários reais.
-- [ ] Consigo explicar MFA e fatores de autenticação.
-- [ ] Consigo explicar RBAC e ABAC com exemplos.
-- [ ] Consigo analisar um Access Denied.
-- [ ] Concluí os laboratórios relacionados.
-- [ ] Concluí a revisão da fase.
-- [ ] Tenho evidências práticas documentadas.
+- [ ] Concluí a validação final da fase
+- [ ] Consigo explicar AuthN/AuthZ sem consulta
+- [ ] Consigo explicar MFA, tokens, claims e sessões
+- [ ] Consigo modelar RBAC/ABAC
+- [ ] Consigo diagnosticar `403` por evidências
+- [ ] Concluí os laboratórios
+- [ ] Tenho evidências práticas sanitizadas
+- [ ] Identifiquei meus gaps técnicos
 
-## 🧭 Certificações para avaliar
+**Resultado:** ⬜ Apto a planejar certificação · ⬜ Reforçar fundamentos
+
+## 🧭 Como escolher
+
+Avalie nesta ordem:
+
+**Objetivo profissional → ecossistema-alvo → aderência do exame → pré-requisitos → experiência prática → custo/tempo → prioridade**
+
+## 🎓 Opções relacionadas
 
 ### Microsoft SC-300 — Identity and Access Administrator
 
-**Aderência:** alta para uma trilha profissional focada em identidade e acesso no ecossistema Microsoft.
+Boa aderência para uma trajetória focada em identidade e acesso no ecossistema Microsoft/Entra.
 
-Antes de estudar especificamente para a prova:
+- [ ] Fundamentos de identidade dominados
+- [ ] Authentication e Authorization dominados
+- [ ] MFA e métodos de autenticação dominados
+- [ ] Microsoft Entra estudado em profundidade
+- [ ] Políticas e controles de acesso praticados
+- [ ] Gaps específicos do exame mapeados
 
-- [ ] Fundamentos de identidade dominados.
-- [ ] Authentication e Authorization dominados.
-- [ ] MFA e métodos de autenticação compreendidos.
-- [ ] IAM em Microsoft Entra compreendido.
-- [ ] Prática com políticas, identidades e acesso realizada.
-
-**Decisão:** ⬜ Considerar depois dos pré-requisitos · ⬜ Ainda não
+**Decisão:** ⬜ Priorizar · ⬜ Avaliar depois · ⬜ Não priorizar
 
 ### ISC2 CC — Certified in Cybersecurity
 
-**Aderência:** complementar. Pode reforçar fundamentos gerais de segurança, mas não substitui uma trilha prática de IAM.
+Pode complementar fundamentos gerais de segurança; não substitui a profundidade prática de IAM desta fase.
 
-**Decisão:** ⬜ Considerar · ⬜ Não é prioridade
+**Decisão:** ⬜ Priorizar · ⬜ Complementar · ⬜ Não priorizar
 
-## 🚫 Regra desta fase
+> [!NOTE]
+> Escopo, objetivos, formato e requisitos de certificações podem mudar. Confirme sempre a documentação oficial do fornecedor antes de montar um plano de prova.
 
-Não transformar o roadmap em preparação para prova. O critério principal continua sendo **capacidade de explicar, executar e solucionar problemas**.
+## 📝 Meu plano
 
-## 📝 Minha decisão
+**Certificação escolhida:**
 
-**Certificação prioritária:**
 > 
 
-**Por quê:**
+**Objetivo profissional:**
+
 > 
 
-**O que ainda falta dominar:**
+**Gaps técnicos:**
+
 > 
 
-**Próxima ação:**
+**Tópicos específicos do exame:**
+
 > 
 
-## ✅ Definition of Done
+**Plano de estudo:**
 
-- [ ] A revisão da fase foi concluída.
-- [ ] Os gaps técnicos foram registrados.
-- [ ] A certificação escolhida possui relação direta com meu objetivo profissional.
-- [ ] Sei quais tópicos preciso estudar especificamente para a prova.
-- [ ] Tenho prática suficiente para não depender apenas de memorização.
+> 
 
-**Pronto para a próxima fase?** ⬜ Sim · ⬜ Não
+**Data-alvo:**
 
-[← Voltar para a fase](../README.md) · [← Revisão](../08-Revisao/README.md) · [🏠 Início](../../README.md)
+> 
+
+## 🏁 Definition of Done
+
+- [ ] Escolhi a certificação por objetivo profissional
+- [ ] Comparei requisitos atuais do exame
+- [ ] Mapeei meus gaps
+- [ ] Separei estudo para prova de estudo técnico da fase
+- [ ] Tenho prática suficiente para não depender de memorização
+- [ ] Defini próxima ação objetiva
+
+## ▶️ Saída da fase
+
+**Próxima fase:**
+
+> 
+
+**O que levo desta fase:**
+
+> 
+
+**O que preciso continuar praticando:**
+
+> 
+
+[← Validação](../08-Revisao/README.md) · [🏠 Fase 04](../README.md) · [🏠 Início](../../README.md)
