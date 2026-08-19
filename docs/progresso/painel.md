@@ -4,11 +4,11 @@ Estado atual
 Item	Status
 Fase atual	Fase 01 - Fundamentos de IAM
 Status	EM_ANDAMENTO
-Progresso	6%
+Progresso	7%
 Proxima fase	Fase 02 - Identidade e Diretorios
 Progresso da Fase Atual
 Area	Progresso
-| Conceitos | 38% |
+| Conceitos | 44% |
 | Conhecimentos | 0% |
 | Pratica | 0% |
 | Laboratorios | 0% |
@@ -20,7 +20,7 @@ Area	Progresso
 	
 Fases
 Fase	Area	Status	Progresso
-| 01 | Fundamentos de IAM | EM_ANDAMENTO | 6% |
+| 01 | Fundamentos de IAM | EM_ANDAMENTO | 7% |
 | 02 | Identidade e Diretorios | BLOQUEADA | 0% |
 | 03 | Protocolos IAM | BLOQUEADA | 0% |
 | 04 | Authentication e Authorization | BLOQUEADA | 0% |
