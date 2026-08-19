@@ -2,7 +2,7 @@
 
 [← Início](../README.md)
 
-> **Status:** 🔒 Bloqueada · entra em foco quando a Fase 01 estiver validada.
+> **Status:** ⚪ Não iniciada · **conteúdo disponível para estudo a qualquer momento.**
 
 ## 🎯 Objetivo
 
