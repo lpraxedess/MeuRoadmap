@@ -1,42 +1,42 @@
-# Painel de Progresso — MeuRoadmap
+# Painel do MeuRoadmap
 
-## Agora
+## Fase atual
 
-| | |
-|---|---|
-| **Fase atual** | **01 — Fundamentos de IAM** |
-| **Progresso** | **0%** (0/5 etapas) |
-| **Próxima fase** | 02 — Identidade e Diretórios |
+**01 — Fundamentos de IAM**
 
-## Fluxo
+**Progresso:** 0%
 
-**Estude → Pratique → Aplique → Explique → Valide → Próxima fase**
+### Fluxo
 
-## Roadmap
+`Estude → Pratique → Aplique → Explique → Teste → Avance`
 
-| # | Fase | Estado | Progresso |
-|---:|---|---|---:|
-| 01 | Fundamentos de IAM | EM_ANDAMENTO | 0% |
-| 02 | Identidade e Diretórios | NAO_INICIADA | 0% |
-| 03 | Protocolos IAM | NAO_INICIADA | 0% |
-| 04 | Authentication e Authorization | NAO_INICIADA | 0% |
-| 05 | IGA | NAO_INICIADA | 0% |
-| 06 | Access Management | NAO_INICIADA | 0% |
-| 07 | PAM | NAO_INICIADA | 0% |
-| 08 | Cloud IAM | NAO_INICIADA | 0% |
-| 09 | CIAM | NAO_INICIADA | 0% |
-| 10 | Zero Trust e ITDR | NAO_INICIADA | 0% |
-| 11 | Automação e DevSecOps | NAO_INICIADA | 0% |
-| 12 | Arquitetura IAM | NAO_INICIADA | 0% |
+### Etapas
 
-## Controle
+- [ ] Estudar o núcleo
+- [ ] Praticar decisões de IAM
+- [ ] Aplicar em cenário profissional
+- [ ] Explicar sem consultar
+- [ ] Teste final
+
+### Comando
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 estudar
-powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 validar
-powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 concluir
-powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 status
-powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 verificar
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 agora
 ```
 
-> O conteúdo interno das fases permanece disponível como aprofundamento. O painel acompanha somente o Gate da fase.
+## Trilha
+
+| # | Fase | Estado |
+|---:|---|---|
+| 01 | Fundamentos de IAM | ATUAL |
+| 02 | Identidade e Diretórios | BLOQUEADA |
+| 03 | Protocolos IAM | BLOQUEADA |
+| 04 | Authentication e Authorization | BLOQUEADA |
+| 05 | IGA | BLOQUEADA |
+| 06 | Access Management | BLOQUEADA |
+| 07 | PAM | BLOQUEADA |
+| 08 | Cloud IAM | BLOQUEADA |
+| 09 | CIAM | BLOQUEADA |
+| 10 | Zero Trust e ITDR | BLOQUEADA |
+| 11 | Automação e DevSecOps | BLOQUEADA |
+| 12 | Arquitetura IAM | BLOQUEADA |
