@@ -2,11 +2,9 @@
 
 [← Voltar](08-Entitlement.md) · [🏠 Início](../../README.md) · [Próximo →](10-Arquitetura-IAM.md)
 
-## Objetivo
+> **Objetivo profissional:** reconhecer combinações de acesso que permitem fraude, erro ou abuso sem controle independente.
 
-Entender como separar funções incompatíveis para reduzir fraude, erro e abuso de privilégio.
-
-## Estudar
+## 🎯 O que dominar
 
 - Segregation of Duties
 - conflito de acesso
@@ -15,27 +13,53 @@ Entender como separar funções incompatíveis para reduzir fraude, erro e abuso
 - aprovação
 - compensating control
 
-## Você precisa conseguir
+## 🧠 Você precisa conseguir
 
-- explicar SoD
-- identificar um conflito
-- explicar por que o conflito representa risco
-- propor uma separação ou controle compensatório
+- explicar SoD com um exemplo de negócio
+- identificar um conflito entre permissões
+- explicar o risco criado pelo conflito
+- propor separação de funções ou controle compensatório
 
-## Prática
+## 🛠️ Prática guiada
 
-Crie um cenário financeiro em que solicitar pagamento e aprovar pagamento sejam funções incompatíveis. Documente o risco e a solução.
+Crie uma matriz com pelo menos 4 funções e identifique combinações incompatíveis.
 
-## Minha explicação
+| Função A | Função B | Conflito? | Risco | Controle |
+|---|---|---|---|---|
+| | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
 
-> Explique SoD com suas próprias palavras.
+## 🏢 Cenário profissional
 
-## Validação
+No processo financeiro, a mesma pessoa pode criar um fornecedor, alterar seus dados bancários e aprovar o pagamento.
+
+**Tarefa:** identifique o conflito, explique o risco e proponha uma separação ou controle compensatório.
+
+## 🎤 Pergunta de entrevista
+
+> Dê um exemplo de SoD em um ambiente corporativo e explique por que o conflito é perigoso.
+
+## ✍️ Minha explicação
+
+> Explique SoD como se estivesse orientando alguém responsável por governança de acesso.
+
+## 📎 Evidência
+
+Registre a matriz e o cenário em `docs/evidencias/09-sod/`.
+
+## ✅ Validação
 
 - [ ] Estudei
-- [ ] Fiz o cenário
+- [ ] Fiz a matriz
+- [ ] Resolvi o cenário profissional
 - [ ] Identifiquei o risco
 - [ ] Registrei minha explicação
 - [ ] Consigo propor um controle
+
+## ▶️ Próximo passo
+
+Depois de validar SoD, avance para **Arquitetura IAM**.
 
 [← Voltar](08-Entitlement.md) · [🏠 Início](../../README.md) · [Próximo →](10-Arquitetura-IAM.md)
