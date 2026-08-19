@@ -2,12 +2,7 @@ $Root = Split-Path $PSScriptRoot -Parent
 $EstadoPath = Join-Path $Root "docs\progresso\estado.json"
 $PainelPath = Join-Path $Root "docs\progresso\painel.md"
 
-$estadoAtual = if (Test-Path $EstadoPath) {
-    Get-Content $EstadoPath -Raw -Encoding UTF8 | ConvertFrom-Json
-} else {
-    $null
-}
-
+$estadoAtual = if (Test-Path $EstadoPath) { Get-Content $EstadoPath -Raw -Encoding UTF8 | ConvertFrom-Json } else { $null }
 $FaseAtual = if ($estadoAtual -and $estadoAtual.faseAtual) { [int]$estadoAtual.faseAtual } else { 1 }
 
 $fases = @(
@@ -25,166 +20,86 @@ $fases = @(
     @{ Id=12; Nome="Arquitetura IAM"; Diretorio="12-Arquitetura-IAM" }
 )
 
-$areas = @(
-    @{ Nome="Conceitos"; Diretorio="01-Conceitos" },
-    @{ Nome="Conhecimentos"; Diretorio="02-Conhecimentos" },
-    @{ Nome="Pratica"; Diretorio="03-Pratica" },
-    @{ Nome="Laboratorios"; Diretorio="04-Laboratorios" },
-    @{ Nome="Exercicios"; Diretorio="05-Exercicios" },
-    @{ Nome="Troubleshooting"; Diretorio="06-Troubleshooting" },
-    @{ Nome="Checklist"; Diretorio="07-Checklist" },
-    @{ Nome="Revisao"; Diretorio="08-Revisao" },
-    @{ Nome="Certificacoes"; Diretorio="09-Certificacoes" }
-)
-
-function Get-Validacao {
-    param([string]$Arquivo)
-
-    $linhas = @(Get-Content $Arquivo -Encoding UTF8)
-    $emValidacao = $false
-    $total = 0
-    $concluidos = 0
-
-    foreach ($linha in $linhas) {
-        if ($linha -match '^##\s+.*Valida(c|ç)ão.*$') {
-            $emValidacao = $true
-            continue
-        }
-
-        if ($emValidacao -and $linha -match '^##\s+') { break }
-
-        if ($emValidacao -and $linha -match '^\s*-\s*\[\s*(x|X| )\s*\]\s+') {
-            $total++
-            if ($Matches[1] -match '^[xX]$') { $concluidos++ }
+function Get-Gate {
+    param([string]$Readme)
+    if (-not (Test-Path $Readme)) { return @() }
+    $ativo = $false
+    $itens = @()
+    foreach ($linha in @(Get-Content $Readme -Encoding UTF8)) {
+        $trim = ([string]$linha).Trim()
+        if (-not $ativo -and $trim -match '^##\s+.*Gate da fase') { $ativo = $true; continue }
+        if ($ativo -and $trim -match '^##\s+') { break }
+        if ($ativo -and $trim -match '^[-*]\s*\[([ xX])\]\s*(.+)$') {
+            $itens += [PSCustomObject]@{ Concluido=($matches[1] -ne ' '); Texto=$matches[2].Trim() }
         }
     }
-
-    [PSCustomObject]@{
-        Total = $total
-        Concluidos = $concluidos
-    }
+    return @($itens)
 }
 
-function Get-Progresso {
-    param([string]$Diretorio)
-
-    if (-not (Test-Path $Diretorio)) {
-        return [PSCustomObject]@{ Total=0; Concluidos=0; Percentual=0 }
-    }
-
-    $total = 0
-    $concluidos = 0
-
-    Get-ChildItem $Diretorio -Filter "*.md" -Recurse -File | ForEach-Object {
-        $resultado = Get-Validacao $_.FullName
-        $total += $resultado.Total
-        $concluidos += $resultado.Concluidos
-    }
-
+function Get-ProgressoFase {
+    param([hashtable]$Fase)
+    $readme = Join-Path (Join-Path $Root $Fase.Diretorio) "README.md"
+    $gate = @(Get-Gate $readme)
+    $total = $gate.Count
+    $concluidos = @($gate | Where-Object { $_.Concluido }).Count
     $percentual = if ($total -gt 0) { [math]::Round(($concluidos / $total) * 100) } else { 0 }
-
-    [PSCustomObject]@{
-        Total = $total
-        Concluidos = $concluidos
-        Percentual = $percentual
-    }
+    return [PSCustomObject]@{ Total=$total; Concluidos=$concluidos; Percentual=$percentual }
 }
 
-if ($FaseAtual -lt 1 -or $FaseAtual -gt $fases.Count) {
-    $FaseAtual = 1
-}
-
+if ($FaseAtual -lt 1 -or $FaseAtual -gt $fases.Count) { $FaseAtual = 1 }
 $faseAtualObj = $fases[$FaseAtual - 1]
-$faseAtualPath = Join-Path $Root $faseAtualObj.Diretorio
-$progressoAtual = Get-Progresso $faseAtualPath
-
-$areaTabela = ""
-
-foreach ($area in $areas) {
-    $path = Join-Path $faseAtualPath $area.Diretorio
-    $resultado = Get-Progresso $path
-    $areaTabela += "| $($area.Nome) | $($resultado.Concluidos)/$($resultado.Total) | $($resultado.Percentual)% |`r`n"
-}
+$progressoAtual = Get-ProgressoFase $faseAtualObj
 
 $faseTabela = ""
 $fasesEstado = @()
-
 foreach ($fase in $fases) {
-    $path = Join-Path $Root $fase.Diretorio
-    $resultado = Get-Progresso $path
-
-    if ($fase.Id -lt $FaseAtual) {
-        $status = "CONCLUIDA"
-    }
-    elseif ($fase.Id -eq $FaseAtual) {
-        $status = "EM_ANDAMENTO"
-    }
-    else {
-        $status = "NAO_INICIADA"
-    }
-
+    $resultado = Get-ProgressoFase $fase
+    if ($fase.Id -lt $FaseAtual) { $status = "CONCLUIDA" }
+    elseif ($fase.Id -eq $FaseAtual) { $status = "EM_ANDAMENTO" }
+    else { $status = "NAO_INICIADA" }
     $faseTabela += "| $($fase.Id.ToString('00')) | $($fase.Nome) | $status | $($resultado.Percentual)% |`r`n"
-
-    $fasesEstado += [ordered]@{
-        id = $fase.Id
-        nome = $fase.Nome
-        diretorio = $fase.Diretorio
-        status = $status
-    }
+    $fasesEstado += [ordered]@{ id=$fase.Id; nome=$fase.Nome; diretorio=$fase.Diretorio; status=$status }
 }
 
 $proxima = if ($FaseAtual -lt $fases.Count) { $fases[$FaseAtual] } else { $null }
 $proximaTexto = if ($proxima) { "Fase $($proxima.Id.ToString('00')) - $($proxima.Nome)" } else { "Roadmap concluido" }
 
 $painel = @"
-# 📈 Painel de Progresso — MeuRoadmap
+# Painel de Progresso — MeuRoadmap
 
-[🏠 Início](../../README.md) · [▶️ Fase atual](../../$($faseAtualObj.Diretorio)/README.md)
+[Início](../../README.md) · [Fase atual](../../$($faseAtualObj.Diretorio)/README.md)
 
-## 🧭 Agora
+## Agora
 
 | | |
 |---|---|
 | **Fase** | $($faseAtualObj.Id.ToString('00')) — $($faseAtualObj.Nome) |
-| **Progresso** | **$($progressoAtual.Percentual)%** ($($progressoAtual.Concluidos)/$($progressoAtual.Total) validações) |
+| **Progresso** | **$($progressoAtual.Percentual)%** ($($progressoAtual.Concluidos)/$($progressoAtual.Total) etapas) |
 | **Próxima fase** | $proximaTexto |
 
-## 📚 Fase atual
-
-| Área | Concluído | Progresso |
-|---|---:|---:|
-$areaTabela
-## 🗺️ Roadmap
+## Roadmap
 
 | # | Fase | Estado | Progresso |
 |---:|---|---|---:|
 $faseTabela
-## 🔁 Fluxo
+## Fluxo
 
-**Estudar → Praticar → Explicar → Validar → Concluir → Próximo**
+**Estude → Pratique → Aplique → Explique → Valide → Próxima fase**
 
-## ⚙️ Controle local
+## Controle
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 estudar
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 validar
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 concluir
 ```
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 status
-```
-
-> [!IMPORTANT]
-> Todo o conteúdo do roadmap permanece disponível. O status apenas mostra sua evolução; ele não impede a entrada em uma fase.
+> O conteúdo detalhado permanece disponível como aprofundamento. O progresso considera somente o **Gate da fase**.
 "@
 
 Set-Content -Path $PainelPath -Value $painel -Encoding UTF8
 
-$estado = [ordered]@{
-    roadmap = "MeuRoadmap"
-    faseAtual = $FaseAtual
-    fases = $fasesEstado
-}
-
+$estado = [ordered]@{ roadmap="MeuRoadmap"; faseAtual=$FaseAtual; fases=$fasesEstado }
 $estado | ConvertTo-Json -Depth 8 | Set-Content -Path $EstadoPath -Encoding UTF8
 
 Write-Host "Painel atualizado com sucesso."
