@@ -1,48 +1,38 @@
-# Cloud IAM
+# Fase 08 — Cloud IAM
 
-## Status
+[← Início](../README.md)
 
-**⬜ Não iniciado**
+> **Status:** 🔒 Bloqueada · foco em identidade e autorização na nuvem.
 
-## Objetivo da fase
+## 🎯 Objetivo
 
-Esta fase representa uma etapa da formação profissional em IAM.
+Dominar identidade, roles, policies, recursos, contas e controles de acesso em cloud.
 
-## Navegação
+## 🧭 Fluxo
 
-| Área | Objetivo |
+**Conceitos → Conhecimentos → Prática → Laboratórios → Troubleshooting → Validação**
+
+| Etapa | Acesso |
 |---|---|
-| [Conceitos](01-Conceitos/README.md) | Teoria |
-| [Conhecimentos](02-Conhecimentos/README.md) | Competências |
-| [Prática](03-Pratica/README.md) | Aplicação |
-| [Laboratórios](04-Laboratorios/README.md) | Hands-on |
-| [Exercícios](05-Exercicios/README.md) | Fixação |
-| [Troubleshooting](06-Troubleshooting/README.md) | Problemas reais |
-| [Checklist](07-Checklist/README.md) | Definition of Done |
-| [Revisão](08-Revisao/README.md) | Retenção |
-| [Certificações](09-Certificacoes/README.md) | Carreira |
+| Conceitos | [Abrir](01-Conceitos/README.md) |
+| Conhecimentos | [Abrir](02-Conhecimentos/README.md) |
+| Prática | [Abrir](03-Pratica/README.md) |
+| Laboratórios | [Abrir](04-Laboratorios/README.md) |
+| Exercícios | [Abrir](05-Exercicios/README.md) |
+| Troubleshooting | [Abrir](06-Troubleshooting/README.md) |
+| Checklist | [Abrir](07-Checklist/README.md) |
+| Revisão | [Abrir](08-Revisao/README.md) |
+| Certificações | [Abrir](09-Certificacoes/README.md) |
 
-## Progressão
+## 🏁 Definition of Done
 
-**0%**
-
-[████████████████████] 0%
-
-## Definition of Done
-
-A fase somente poderá ser marcada como concluída quando:
-
-- [ ] Teoria dominada
-- [ ] Conhecimentos consolidados
-- [ ] Exercícios concluídos
-- [ ] Laboratórios concluídos
+- [ ] Cloud IAM dominado
+- [ ] Policies e roles praticados
+- [ ] Labs concluídos
 - [ ] Troubleshooting realizado
-- [ ] Documentação criada
-- [ ] Consigo explicar o conteúdo em entrevista
-- [ ] Consigo relacionar o conteúdo com arquitetura corporativa
+- [ ] Evidências registradas
+- [ ] Explicação sem consulta
 
-## Próximo passo
+### Navegação
 
-Complete os itens desta fase antes de avançar.
-
-[Voltar ao Roadmap](../README.md)
+[← Início](../README.md) · [▶️ Ver Conceitos](01-Conceitos/README.md)

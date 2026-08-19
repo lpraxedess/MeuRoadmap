@@ -1,48 +1,38 @@
-# Protocolos e Padrões IAM
+# Fase 03 — Protocolos IAM
 
-## Status
+[← Início](../README.md)
 
-**⬜ Não iniciado**
+> **Status:** 🔒 Bloqueada · esta fase entra em foco após as bases anteriores.
 
-## Objetivo da fase
+## 🎯 Objetivo
 
-Esta fase representa uma etapa da formação profissional em IAM.
+Dominar os principais protocolos e padrões que sustentam autenticação, federação e troca de identidade.
 
-## Navegação
+## 🧭 Fluxo
 
-| Área | Objetivo |
+**Conceitos → Conhecimentos → Prática → Laboratórios → Troubleshooting → Validação**
+
+| Etapa | Acesso |
 |---|---|
-| [Conceitos](01-Conceitos/README.md) | Teoria |
-| [Conhecimentos](02-Conhecimentos/README.md) | Competências |
-| [Prática](03-Pratica/README.md) | Aplicação |
-| [Laboratórios](04-Laboratorios/README.md) | Hands-on |
-| [Exercícios](05-Exercicios/README.md) | Fixação |
-| [Troubleshooting](06-Troubleshooting/README.md) | Problemas reais |
-| [Checklist](07-Checklist/README.md) | Definition of Done |
-| [Revisão](08-Revisao/README.md) | Retenção |
-| [Certificações](09-Certificacoes/README.md) | Carreira |
+| Conceitos | [Abrir](01-Conceitos/README.md) |
+| Conhecimentos | [Abrir](02-Conhecimentos/README.md) |
+| Prática | [Abrir](03-Pratica/README.md) |
+| Laboratórios | [Abrir](04-Laboratorios/README.md) |
+| Exercícios | [Abrir](05-Exercicios/README.md) |
+| Troubleshooting | [Abrir](06-Troubleshooting/README.md) |
+| Checklist | [Abrir](07-Checklist/README.md) |
+| Revisão | [Abrir](08-Revisao/README.md) |
+| Certificações | [Abrir](09-Certificacoes/README.md) |
 
-## Progressão
+## 🏁 Definition of Done
 
-**0%**
+- [ ] Protocolos compreendidos
+- [ ] Fluxos praticados
+- [ ] Laboratórios executados
+- [ ] Troubleshooting resolvido
+- [ ] Evidências registradas
+- [ ] Explicação sem consulta
 
-[████████████████████] 0%
+### Navegação
 
-## Definition of Done
-
-A fase somente poderá ser marcada como concluída quando:
-
-- [ ] Teoria dominada
-- [ ] Conhecimentos consolidados
-- [ ] Exercícios concluídos
-- [ ] Laboratórios concluídos
-- [ ] Troubleshooting realizado
-- [ ] Documentação criada
-- [ ] Consigo explicar o conteúdo em entrevista
-- [ ] Consigo relacionar o conteúdo com arquitetura corporativa
-
-## Próximo passo
-
-Complete os itens desta fase antes de avançar.
-
-[Voltar ao Roadmap](../README.md)
+[← Início](../README.md) · [▶️ Ver Conceitos](01-Conceitos/README.md)

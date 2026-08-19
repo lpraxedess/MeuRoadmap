@@ -1,41 +1,62 @@
 # Fase 01 — Fundamentos de IAM
 
-> **Objetivo:** construir a base necessária para trabalhar profissionalmente com IAM.
-
 [← Voltar ao início](../README.md)
 
-## Progresso
+> **Objetivo:** construir a base técnica para entender IAM, operar controles de identidade e começar a pensar como profissional da área.
 
-**Em andamento**
+---
 
-> O progresso é baseado nos tópicos que você realmente estudou, praticou e registrou.
+## 🎯 Seu caminho nesta fase
 
-## Como usar esta fase
+**Conceitos → Conhecimentos → Prática → Laboratórios → Troubleshooting → Validação**
 
-Siga os módulos na ordem. Em cada tópico:
+Você não precisa decorar tudo. Precisa chegar ao ponto de **explicar, executar, diagnosticar e documentar**.
 
-1. Estude o conteúdo.
-2. Faça a prática proposta.
-3. Explique o assunto com suas próprias palavras.
-4. Registre uma evidência quando houver prática/lab.
-5. Só então marque o tópico como concluído.
-6. Use **Próximo** para continuar.
+## 📚 Módulos
 
-## Módulos
+| # | Módulo | Você sai sabendo | Ação |
+|---:|---|---|---|
+| **01** | Conceitos | Modelo mental de IAM | [▶️ Começar](01-Conceitos/README.md) |
+| **02** | Conhecimentos técnicos | Base de redes, Windows, Linux, diretórios e automação | [Abrir](02-Conhecimentos/README.md) |
+| **03** | Prática | Transformar teoria em decisões | [Abrir](03-Pratica/README.md) |
+| **04** | Laboratórios | Operar ambientes e produzir evidências | [Abrir](04-Laboratorios/README.md) |
+| **05** | Troubleshooting | Investigar falhas de identidade e acesso | [Abrir](06-Troubleshooting/README.md) |
+| **06** | Validação final | Comprovar que o conhecimento ficou seu | [Abrir](08-Revisao/README.md) |
 
-| # | Módulo | Objetivo | Acesso |
-|---|---|---|---|
-| 01 | **Conceitos de IAM** | Construir o modelo mental de IAM | [Abrir →](01-Conceitos/README.md) |
-| 02 | **Conhecimentos técnicos** | Base de redes, Windows, Linux, diretórios, segurança e automação | [Abrir →](02-Conhecimentos/README.md) |
-| 03 | **Prática** | Transformar teoria em decisões de acesso | [Abrir →](03-Pratica/README.md) |
-| 04 | **Laboratórios** | Trabalhar em ambientes próximos da realidade | [Abrir →](04-Laboratorios/README.md) |
-| 05 | **Troubleshooting** | Desenvolver diagnóstico de incidentes de identidade | [Abrir →](06-Troubleshooting/README.md) |
-| 06 | **Validação** | Revisar, testar e consolidar o conhecimento | [Abrir →](08-Revisao/README.md) |
+<details>
+<summary>📦 Materiais de apoio</summary>
 
-## Regra da fase
+- [Exercícios](05-Exercicios/README.md)
+- [Checklist geral](07-Checklist/README.md)
+- [Certificações](09-Certificacoes/README.md)
 
-A Fase 01 termina quando você consegue **explicar, praticar, solucionar problemas e demonstrar evidências** dos fundamentos — não apenas quando leu o conteúdo.
+</details>
 
-## Navegação
+---
 
-[🏠 Início](../README.md) · [▶️ Começar pelos Conceitos](01-Conceitos/README.md)
+## 🔁 Como estudar cada módulo
+
+1. **Estude** o conteúdo.
+2. **Pratique** imediatamente.
+3. **Explique** com suas palavras.
+4. **Registre** evidências quando aplicável.
+5. **Valide** sem consultar.
+6. **Conclua** no controle local.
+7. **Avance** para o próximo item.
+
+## 🏁 Definition of Done
+
+A fase está pronta quando você consegue:
+
+- [ ] explicar os fundamentos sem depender de definição decorada
+- [ ] resolver os exercícios propostos
+- [ ] executar os laboratórios essenciais
+- [ ] diagnosticar cenários básicos de acesso
+- [ ] documentar o que fez e por quê
+- [ ] explicar os fundamentos em uma conversa técnica
+
+---
+
+### Navegação
+
+[🏠 Início](../README.md) · [▶️ Começar](01-Conceitos/README.md)

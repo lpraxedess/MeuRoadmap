@@ -2,52 +2,46 @@
 
 [← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-> Aqui você transforma conceito em decisão e execução.
+> **Objetivo:** transformar conceitos em decisões que você conseguiria defender em um ambiente corporativo.
 
-## Exercícios
+## 🧪 Exercícios
 
-### 01 — Matriz de identidades
+| # | Exercício | Resultado esperado |
+|---:|---|---|
+| 01 | Matriz de identidades | identidade, tipo, recurso, acesso e justificativa |
+| 02 | RBAC | usuários, roles, recursos e permissões coerentes |
+| 03 | Least Privilege | identificar e corrigir excesso de acesso |
+| 04 | JML | modelar Joiner → Mover → Leaver |
+| 05 | SoD | identificar conflito e risco |
 
-Crie uma matriz com identidade, tipo, recurso, acesso e justificativa.
-
-### 02 — RBAC
-
-Crie 3 usuários, 3 roles e 3 recursos com permissões diferentes. Documente o resultado.
-
-### 03 — Least Privilege
-
-Crie um cenário com excesso de privilégios, identifique o excesso, reduza os acessos e justifique cada decisão.
-
-### 04 — JML
-
-Modele Joiner → Mover → Leaver. Registre evento, identidade, aprovação, acesso concedido e acesso removido.
-
-### 05 — SoD
-
-Crie duas funções incompatíveis, identifique o risco e proponha um controle.
-
-## Evidência obrigatória
-
-Para cada exercício registre:
+<details>
+<summary>📋 Como documentar cada exercício</summary>
 
 - objetivo
 - cenário
 - execução
+- decisão tomada
 - resultado
+- erro encontrado
+- correção
 - conclusão
 - evidência
 
-## Validação
+</details>
 
-- [ ] Matriz de identidades concluída
-- [ ] Exercício RBAC concluído
-- [ ] Exercício Least Privilege concluído
-- [ ] Exercício JML concluído
-- [ ] Exercício SoD concluído
+## ✍️ Minha explicação
+
+> O que você aprendeu fazendo? O que errou? Como explicaria a decisão para outra pessoa?
+
+## ✅ Validação
+
+- [ ] Matriz de identidades
+- [ ] RBAC
+- [ ] Least Privilege
+- [ ] JML
+- [ ] SoD
 - [ ] Evidências registradas
 
-## Minha explicação
+### Navegação
 
-> O que você aprendeu fazendo os exercícios? O que foi difícil?
-
-[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Laboratórios](../04-Laboratorios/README.md)
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Próximo: Laboratórios](../04-Laboratorios/README.md)

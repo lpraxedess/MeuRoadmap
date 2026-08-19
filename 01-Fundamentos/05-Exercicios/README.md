@@ -1,54 +1,37 @@
-# 05 - ExercÃ­cios
+# 05 — Exercícios de retenção
 
-## Objetivo
+[← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-Validar retenÃ§Ã£o do conhecimento.
+> Use esta área para descobrir o que você realmente sabe sem consultar material.
 
-## NÃ­vel 1
+## 🧠 Nível 1 — Definição
 
-Responder sem consultar material:
+Responda sem consultar: IAM, identidade, conta, autenticação, autorização, privilégio, entitlement e MFA.
 
-1. O que Ã© IAM?
-2. O que Ã© identidade?
-3. O que Ã© conta?
-4. O que Ã© autenticaÃ§Ã£o?
-5. O que Ã© autorizaÃ§Ã£o?
-6. O que Ã© privilÃ©gio?
-7. O que Ã© entitlement?
-8. O que Ã© MFA?
+## 🧠 Nível 2 — Explicação
 
-## NÃ­vel 2
+Explique RBAC, ABAC, PBAC, ReBAC, Least Privilege, JML, SoD, Federation e SSO.
 
-Explicar:
+## 🧠 Nível 3 — Cenários
 
-- RBAC
-- ABAC
-- PBAC
-- ReBAC
-- Least Privilege
-- JML
-- SoD
-- Federation
-- SSO
+Resolva casos de acesso excessivo, acesso ausente, conta órfã, usuário desligado ativo, service account privilegiada e conflito de SoD.
 
-## NÃ­vel 3
+## 📝 Registre o erro
 
-Resolver cenÃ¡rios:
-
-- usuÃ¡rio com acesso excessivo
-- usuÃ¡rio sem acesso necessÃ¡rio
-- conta Ã³rfÃ£
-- funcionÃ¡rio desligado ainda ativo
-- service account com privilÃ©gio administrativo
-- conflito de SoD
-
-## Regra
-
-NÃ£o considerar o exercÃ­cio concluÃ­do apenas por conseguir pesquisar a resposta.
-
-Registrar:
+Para cada exercício, registre:
 
 - resposta inicial
-- erro
-- correÃ§Ã£o
-- explicaÃ§Ã£o final
+- onde errou ou ficou inseguro
+- correção
+- explicação final
+
+## ✅ Validação
+
+- [ ] Nível 1 concluído
+- [ ] Nível 2 concluído
+- [ ] Nível 3 concluído
+- [ ] Erros registrados
+
+### Navegação
+
+[← Fase 01](../README.md) · [🏠 Início](../../README.md) · [▶️ Laboratórios](../04-Laboratorios/README.md)

@@ -1,48 +1,38 @@
-# Identidade, Diretórios e Serviços de Identidade
+# Fase 02 — Identidade e Diretórios
 
-## Status
+[← Início](../README.md)
 
-**⬜ Não iniciado**
+> **Status:** 🔒 Bloqueada · entra em foco quando a Fase 01 estiver validada.
 
-## Objetivo da fase
+## 🎯 Objetivo
 
-Esta fase representa uma etapa da formação profissional em IAM.
+Dominar identidade, diretórios e serviços de identidade em ambientes corporativos.
 
-## Navegação
+## 🧭 Como esta fase funciona
 
-| Área | Objetivo |
-|---|---|
-| [Conceitos](01-Conceitos/README.md) | Teoria |
-| [Conhecimentos](02-Conhecimentos/README.md) | Competências |
-| [Prática](03-Pratica/README.md) | Aplicação |
-| [Laboratórios](04-Laboratorios/README.md) | Hands-on |
-| [Exercícios](05-Exercicios/README.md) | Fixação |
-| [Troubleshooting](06-Troubleshooting/README.md) | Problemas reais |
-| [Checklist](07-Checklist/README.md) | Definition of Done |
-| [Revisão](08-Revisao/README.md) | Retenção |
-| [Certificações](09-Certificacoes/README.md) | Carreira |
+**Conceitos → Conhecimentos → Prática → Laboratórios → Troubleshooting → Validação**
 
-## Progressão
+| Módulo | Objetivo | Acesso |
+|---|---|---|
+| 01 — Conceitos | Modelo mental da fase | [Abrir](01-Conceitos/README.md) |
+| 02 — Conhecimentos | Base técnica | [Abrir](02-Conhecimentos/README.md) |
+| 03 — Prática | Aplicação | [Abrir](03-Pratica/README.md) |
+| 04 — Laboratórios | Hands-on | [Abrir](04-Laboratorios/README.md) |
+| 05 — Exercícios | Fixação | [Abrir](05-Exercicios/README.md) |
+| 06 — Troubleshooting | Diagnóstico | [Abrir](06-Troubleshooting/README.md) |
+| 07 — Checklist | Visão de domínio | [Abrir](07-Checklist/README.md) |
+| 08 — Revisão | Validação | [Abrir](08-Revisao/README.md) |
+| 09 — Certificações | Carreira | [Abrir](09-Certificacoes/README.md) |
 
-**0%**
-
-[████████████████████] 0%
-
-## Definition of Done
-
-A fase somente poderá ser marcada como concluída quando:
+## 🏁 Definition of Done
 
 - [ ] Teoria dominada
-- [ ] Conhecimentos consolidados
-- [ ] Exercícios concluídos
+- [ ] Prática executada
 - [ ] Laboratórios concluídos
 - [ ] Troubleshooting realizado
-- [ ] Documentação criada
-- [ ] Consigo explicar o conteúdo em entrevista
-- [ ] Consigo relacionar o conteúdo com arquitetura corporativa
+- [ ] Evidências registradas
+- [ ] Consigo explicar o conteúdo sem consultar
 
-## Próximo passo
+### Navegação
 
-Complete os itens desta fase antes de avançar.
-
-[Voltar ao Roadmap](../README.md)
+[← Início](../README.md) · [▶️ Ver Conceitos](01-Conceitos/README.md)

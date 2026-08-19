@@ -14,7 +14,7 @@ $EstadoPath = Join-Path $Root "docs\progresso\estado.json"
 $AtualizarPath = Join-Path $Root "scripts\atualizar-progresso.ps1"
 
 function Ler-Estado {
-    return Get-Content $EstadoPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    Get-Content $EstadoPath -Raw -Encoding UTF8 | ConvertFrom-Json
 }
 
 function Atualizar-Painel {
@@ -23,29 +23,17 @@ function Atualizar-Painel {
     }
 }
 
-function Mostrar-Ajuda {
-    Write-Host ""
-    Write-Host "MEUROADMAP - CONTROLE DE ESTUDO"
-    Write-Host ""
-    Write-Host "Comandos:"
-    Write-Host "  status"
-    Write-Host "  estudar"
-    Write-Host "  concluir ARQUIVO ITEM"
-    Write-Host ""
-    Write-Host "Exemplo:"
-    Write-Host ".\scripts\roadmap.ps1 concluir .\01-Fundamentos\01-Conceitos\01-Identidade.md 1"
-    Write-Host ""
+function Caminho-Relativo([string]$Path) {
+    $Path.Substring($Root.Length).TrimStart('\')
 }
 
 function Obter-FaseAtual {
     $estado = Ler-Estado
     $id = [int]$estado.faseAtual
-    return $estado.fases | Where-Object { [int]$_.id -eq $id } | Select-Object -First 1
+    $estado.fases | Where-Object { [int]$_.id -eq $id } | Select-Object -First 1
 }
 
-function Obter-Validacao {
-    param([string]$Caminho)
-
+function Obter-Validacao([string]$Caminho) {
     $linhas = Get-Content $Caminho -Encoding UTF8
     $emValidacao = $false
     $itens = @()
@@ -55,11 +43,7 @@ function Obter-Validacao {
             $emValidacao = $true
             continue
         }
-
-        if ($emValidacao -and $linha -match '^##\s+') {
-            break
-        }
-
+        if ($emValidacao -and $linha -match '^##\s+') { break }
         if ($emValidacao -and $linha -match '^\s*-\s*\[\s*(x|X| )\s*\]\s*(.*)$') {
             $itens += [PSCustomObject]@{
                 Concluido = ($Matches[1] -match 'x|X')
@@ -67,30 +51,49 @@ function Obter-Validacao {
             }
         }
     }
-
     return $itens
+}
+
+function Mostrar-Ajuda {
+    Write-Host ""
+    Write-Host "========================================"
+    Write-Host "          MEUROADMAP - CONTROLE"
+    Write-Host "========================================"
+    Write-Host ""
+    Write-Host "status"
+    Write-Host "estudar"
+    Write-Host "concluir ARQUIVO ITEM"
+    Write-Host ""
+    Write-Host "Exemplo:"
+    Write-Host ".\scripts\roadmap.ps1 concluir .\01-Fundamentos\01-Conceitos\01-Identidade.md 1"
+    Write-Host ""
 }
 
 function Comando-Status {
     Atualizar-Painel
     $fase = Obter-FaseAtual
-
     Write-Host ""
     Write-Host "========================================"
-    Write-Host "          STATUS DO MEUROADMAP"
+    Write-Host "             STATUS DO ROADMAP"
     Write-Host "========================================"
     Write-Host ""
-    Write-Host "Fase atual: $($fase.id.ToString('00')) - $($fase.nome)"
-    Write-Host "Status: $($fase.status)"
-    Write-Host ""
-    Write-Host "Painel: docs\progresso\painel.md"
+    Write-Host "Fase atual : $($fase.id.ToString('00')) - $($fase.nome)"
+    Write-Host "Status     : $($fase.status)"
+    Write-Host "Painel     : docs\progresso\painel.md"
     Write-Host ""
 }
 
 function Comando-Estudar {
     $fase = Obter-FaseAtual
     $diretorio = Join-Path $Root $fase.diretorio
-    $conceitos = Join-Path $diretorio "01-Conceitos"
+    $ordem = @(
+        "01-Conceitos",
+        "02-Conhecimentos",
+        "03-Pratica",
+        "04-Laboratorios",
+        "06-Troubleshooting",
+        "08-Revisao"
+    )
 
     Write-Host ""
     Write-Host "========================================"
@@ -100,14 +103,15 @@ function Comando-Estudar {
     Write-Host "Fase: $($fase.id.ToString('00')) - $($fase.nome)"
     Write-Host ""
 
-    if (Test-Path $conceitos) {
-        $topicos = Get-ChildItem $conceitos -Filter "*.md" -File |
-            Where-Object { $_.Name -ne "README.md" } |
+    foreach ($nomeArea in $ordem) {
+        $area = Join-Path $diretorio $nomeArea
+        if (-not (Test-Path $area)) { continue }
+
+        $arquivos = Get-ChildItem $area -Filter "*.md" -File |
             Sort-Object Name
 
-        foreach ($topico in $topicos) {
-            $validacao = @(Obter-Validacao $topico.FullName)
-
+        foreach ($arquivoAtual in $arquivos) {
+            $validacao = @(Obter-Validacao $arquivoAtual.FullName)
             if ($validacao.Count -eq 0) { continue }
 
             $concluidos = @($validacao | Where-Object { $_.Concluido }).Count
@@ -115,23 +119,29 @@ function Comando-Estudar {
             $progresso = [math]::Floor(($concluidos / $total) * 100)
 
             if ($concluidos -lt $total) {
-                Write-Host "Topico: $($topico.BaseName)"
+                $numero = 0
+                for ($i = 0; $i -lt $validacao.Count; $i++) {
+                    if (-not $validacao[$i].Concluido) {
+                        $numero = $i + 1
+                        break
+                    }
+                }
+
+                Write-Host "Área     : $nomeArea"
+                Write-Host "Tópico   : $($arquivoAtual.BaseName)"
                 Write-Host "Progresso: $progresso%"
+                Write-Host "Item     : $numero - $($validacao[$numero - 1].Texto)"
+                Write-Host "Arquivo  : $(Caminho-Relativo $arquivoAtual.FullName)"
                 Write-Host ""
-                Write-Host "Arquivo:"
-                Write-Host ($topico.FullName.Substring($Root.Length).TrimStart('\'))
-                Write-Host ""
-                Write-Host "Fluxo: estudar -> praticar -> explicar -> validar -> concluir"
-                Write-Host ""
-                Write-Host "Abra o arquivo acima para continuar."
+                Write-Host "Fluxo: estudar -> praticar -> explicar -> validar -> concluir -> próximo"
                 Write-Host ""
                 return
             }
         }
     }
 
-    Write-Host "Nenhum tópico pendente em Conceitos."
-    Write-Host "Próximo módulo: 02 - Conhecimentos"
+    Write-Host "Nenhum item pendente nos módulos principais."
+    Write-Host "Abra a validação da fase para conferir o Definition of Done."
     Write-Host ""
 }
 
@@ -140,9 +150,8 @@ function Comando-Concluir {
         Write-Host "Informe o arquivo."
         return
     }
-
     if ($Item -lt 1) {
-        Write-Host "Informe o numero do item."
+        Write-Host "Informe um número de item válido."
         return
     }
 
@@ -152,12 +161,11 @@ function Comando-Concluir {
     }
 
     if (-not (Test-Path $caminho)) {
-        Write-Host "Arquivo nao encontrado: $Arquivo"
+        Write-Host "Arquivo não encontrado: $Arquivo"
         return
     }
 
     $scriptMarcar = Join-Path $Root "scripts\marcar-item.ps1"
-
     powershell -ExecutionPolicy Bypass -File $scriptMarcar -Arquivo $caminho -Item $Item
     Atualizar-Painel
 }

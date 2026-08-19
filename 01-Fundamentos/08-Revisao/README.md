@@ -2,47 +2,36 @@
 
 [← Fase 01](../README.md) · [🏠 Início](../../README.md)
 
-> A revisão confirma se o conhecimento ficou realmente seu.
+> Esta etapa decide se o conhecimento está pronto para seguir adiante.
 
-## Revisão 01 — Sem consultar
+## 🧪 Teste 01 — Sem consultar
 
-Responda por escrito:
+Explique IAM, identidade vs. conta, AuthN vs. AuthZ, RBAC, ABAC, Least Privilege, JML, SoD, Federation e SSO.
 
-- O que é IAM?
-- Qual a diferença entre identidade e conta?
-- Qual a diferença entre AuthN e AuthZ?
-- Como funciona RBAC?
-- Como funciona ABAC?
-- O que é Least Privilege?
-- O que é JML?
-- O que é SoD?
-- O que é Federation?
-- O que é SSO?
+## 🏗️ Teste 02 — Arquitetura
 
-## Revisão 02 — Arquitetura
+Desenhe usuário, dispositivo, IdP, Directory, aplicação, recurso, policy, role e autorização.
 
-Desenhe uma arquitetura contendo usuário, dispositivo, IdP, Directory, aplicação, recurso, policy, role e autorização.
+## 🏢 Teste 03 — Cenário corporativo
 
-## Revisão 03 — Cenário corporativo
+Resolva o ciclo: **entrada → acesso → mudança de função → novos acessos → remoção dos antigos → desligamento**.
 
-Resolva o ciclo completo:
+## ✍️ Minha explicação
 
-**entrada → acesso inicial → mudança de departamento → novos acessos → remoção dos antigos → desligamento**
+> O que já consigo explicar? Onde ainda tenho insegurança? O que preciso revisar antes da próxima fase?
 
-## Validação
+## ✅ Definition of Done
 
-- [ ] Respondi a revisão sem copiar respostas
-- [ ] Desenhei a arquitetura
-- [ ] Resolvi o cenário corporativo
-- [ ] Documentei minhas dificuldades
-- [ ] Consigo explicar os fundamentos em uma conversa técnica
+- [ ] Teste sem consultar concluído
+- [ ] Arquitetura desenhada
+- [ ] Cenário corporativo resolvido
+- [ ] Dificuldades registradas
+- [ ] Consigo explicar os fundamentos em conversa técnica
 
-## Minha explicação
+## 🚪 Próxima etapa
 
-> O que ainda não está sólido? O que você consegue explicar para outra pessoa?
+Depois desta validação, a trilha avança para **Fase 02 — Identidade e Diretórios**.
 
-## Próximo passo
-
-Quando a Fase 01 estiver validada, o roadmap libera a próxima etapa: **Fase 02 — Identidade e Diretórios**.
+### Navegação
 
 [← Fase 01](../README.md) · [🏠 Início](../../README.md)
