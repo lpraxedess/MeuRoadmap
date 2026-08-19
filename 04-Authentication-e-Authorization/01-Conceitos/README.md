@@ -2,32 +2,56 @@
 
 [← Fase 04](../README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-> **7 tópicos fundamentais.** Faça um por vez. Cada página tem estudo, prática, cenário profissional, pergunta de entrevista, explicação própria e validação.
+> **7 tópicos fundamentais**, organizados como uma única sequência de aprendizagem. Cada tópico exige estudo, aplicação, explicação, evidência e validação.
 
-> [!TIP]
-> Não marque um item porque leu. Marque quando conseguir **explicar, aplicar e validar**.
+> [!IMPORTANT]
+> **Critério de avanço:** leitura não é domínio. Avance somente quando conseguir reproduzir o raciocínio sem consultar.
 
 ---
 
-## 🧭 Trilha
+## 🧭 Trilha integrada
 
-| # | Tópico | Foco | Ação |
+`01 Authentication → 02 Authorization → 03 Tokens → 04 Sessões → 05 Controle → 06 Decisão → 07 Segurança → Validação`
+
+| # | Tópico | Pergunta central | Ação |
 |---:|---|---|---|
-| **01** | Authentication | identidade, fatores e MFA | [▶️ Começar](01-Authentication.md) |
-| **02** | Authorization | permissions, roles e policies | [Abrir](02-Authorization.md) |
-| **03** | Tokens e Claims | contexto e tokens | [Abrir](03-Tokens-e-Claims.md) |
-| **04** | Sessões | estado, expiração e revogação | [Abrir](04-Sessoes.md) |
-| **05** | Controle de Acesso | RBAC, ABAC e contexto | [Abrir](05-Controle-de-Acesso.md) |
-| **06** | Decisão de Acesso | investigação ponta a ponta | [Abrir](06-Decisao-de-Acesso.md) |
-| **07** | Segurança | ameaças e controles | [Abrir](07-Seguranca.md) |
+| **01** | Authentication | **Quem é você e como prova isso?** | [▶️ Começar](01-Authentication.md) |
+| **02** | Authorization | **O que você pode fazer?** | [Abrir](02-Authorization.md) |
+| **03** | Tokens e Claims | **Qual contexto foi transportado?** | [Abrir](03-Tokens-e-Claims.md) |
+| **04** | Sessões | **Por quanto tempo o acesso permanece válido?** | [Abrir](04-Sessoes.md) |
+| **05** | Controle de Acesso | **Qual mecanismo representa a regra?** | [Abrir](05-Controle-de-Acesso.md) |
+| **06** | Decisão de Acesso | **Por que foi permitido ou negado?** | [Abrir](06-Decisao-de-Acesso.md) |
+| **07** | Segurança | **Como reduzir probabilidade e impacto?** | [Abrir](07-Seguranca.md) |
 
----
+## 🔁 Método único de estudo
 
-## 🔁 Padrão de estudo
+**Estudar → Praticar → Resolver cenário → Explicar → Validar → Registrar evidência → Próximo**
 
-**Estudar → Praticar → Explicar → Validar → Registrar evidência → Próximo**
+Todos os tópicos seguem esse ciclo. Isso transforma o diretório em uma trilha, não em uma coleção de páginas.
 
-Cada tópico segue o mesmo formato para que você não precise descobrir como estudar de novo a cada página.
+## 🧩 Conexão entre os tópicos
+
+```text
+Identidade
+    ↓
+Authentication
+    ↓
+Token / Claims / Contexto
+    ↓
+Sessão
+    ↓
+Controle de Acesso
+    ↓
+Policy + Authorization
+    ↓
+Allow / Deny
+    ↓
+Recurso
+    ↓
+Segurança + Monitoramento
+```
+
+Use esse fluxo como mapa mental para interpretar os cenários dos sete tópicos.
 
 ## ⚙️ Controle pelo terminal
 
@@ -41,15 +65,23 @@ Para concluir uma validação específica:
 powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 concluir ".\04-Authentication-e-Authorization\01-Conceitos\01-Authentication.md" 1
 ```
 
-> [!IMPORTANT]
-> O número usado em `concluir` conta somente os itens da seção **Validação** do arquivo informado.
+> [!NOTE]
+> O número usado em `concluir` corresponde somente aos itens da seção **Validação** do arquivo informado.
 
-## 🏁 Critério do módulo
+## 🏁 Definition of Done do módulo
 
-O módulo está concluído quando os 7 tópicos estiverem validados e você conseguir explicar o fluxo completo:
+Considere **Conceitos concluído** somente quando:
 
-`Identidade → Authentication → Token/Contexto → Policy → Authorization → Recurso`
+- [ ] Os 7 tópicos foram validados individualmente
+- [ ] Consigo explicar Authentication x Authorization sem consultar
+- [ ] Consigo interpretar token, claims e sessão
+- [ ] Consigo escolher um mecanismo de controle de acesso para um cenário
+- [ ] Consigo investigar um `401` ou `403` seguindo evidências
+- [ ] Consigo relacionar ameaça → impacto → controle
+- [ ] Consigo explicar o fluxo completo:
 
-### 🧭 Navegação
+`Identidade → Authentication → Token/Contexto → Sessão → Policy → Authorization → Recurso → Segurança`
 
-[← Fase 04](../README.md) · [🏠 Início](../../README.md) · [▶️ Primeiro tópico](01-Authentication.md) · [📚 Próximo módulo](../02-Conhecimentos/README.md)
+## ▶️ Navegação
+
+[← Fase 04](../README.md) · [🏠 Início](../../README.md) · [▶️ Começar Authentication](01-Authentication.md) · [📚 Próximo módulo: Conhecimentos](../02-Conhecimentos/README.md)
