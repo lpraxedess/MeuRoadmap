@@ -1,18 +1,29 @@
-# Identity Governance and Administration — Revisão
+# 08 — Validação de IGA
 
-## Revisões pendentes
+[← Checklist](../07-Checklist/README.md) · [🏠 Início](../../README.md) · [📈 Painel](../../docs/progresso/painel.md)
 
-- [ ] Revisar conceito 1
-- [ ] Revisar conceito 2
-- [ ] Refazer laboratório
-- [ ] Resolver novamente exercício
+## 🎯 Teste sem consulta
 
-## Última revisão
+Explique, em suas palavras:
 
-**Data:** ainda não realizada
+1. por que governar identidades e acessos;
+2. como funciona um Access Request;
+3. como aprovação e provisioning se relacionam;
+4. como uma Access Review encontra excesso de privilégio;
+5. como SoD evita combinações de risco;
+6. quais evidências sustentam uma decisão.
 
-## Próxima revisão
+## 🧪 Cenário final
 
-**Data:** definir após conclusão
+Uma pessoa mudou de função e manteve acessos antigos. Descreva investigação, risco, correção e evidência esperada.
 
-[Voltar para a fase](../README.md)
+## 🏁 Definition of Done
+
+- [ ] Respondi sem consultar
+- [ ] Resolvi o cenário ponta a ponta
+- [ ] Expliquei decisões e evidências
+- [ ] Identifiquei pontos que ainda precisam de reforço
+
+### ▶️ Próximo
+
+[09 — Certificações →](../09-Certificacoes/README.md)
