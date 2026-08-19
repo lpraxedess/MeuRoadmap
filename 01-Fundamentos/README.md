@@ -1,51 +1,41 @@
-# Fase 01 - Fundamentos de IAM
+# Fase 01 — Fundamentos de IAM
 
-Status: [ ] Nao iniciado
+> **Objetivo:** construir a base necessária para trabalhar profissionalmente com IAM.
 
-## Objetivo
+[← Voltar ao início](../README.md)
 
-Construir a base tecnica necessaria para iniciar uma carreira profissional em IAM.
+## Progresso
 
-## Ordem obrigatoria
+**Em andamento**
 
-1. 01 - Conceitos
-2. 02 - Conhecimentos
-3. 03 - Pratica
-4. 04 - Laboratorios
-5. 05 - Exercicios
-6. 06 - Troubleshooting
-7. 07 - Checklist
-8. 08 - Revisao
-9. 09 - Certificacoes
+> O progresso é baseado nos tópicos que você realmente estudou, praticou e registrou.
 
-## Navegacao
+## Como usar esta fase
 
-- [01 - Conceitos](01-Conceitos/README.md)
-- [02 - Conhecimentos](02-Conhecimentos/README.md)
-- [03 - Pratica](03-Pratica/README.md)
-- [04 - Laboratorios](04-Laboratorios/README.md)
-- [05 - Exercicios](05-Exercicios/README.md)
-- [06 - Troubleshooting](06-Troubleshooting/README.md)
-- [07 - Checklist](07-Checklist/README.md)
-- [08 - Revisao](08-Revisao/README.md)
-- [09 - Certificacoes](09-Certificacoes/README.md)
+Siga os módulos na ordem. Em cada tópico:
 
-## Regra de conclusao
+1. Estude o conteúdo.
+2. Faça a prática proposta.
+3. Explique o assunto com suas próprias palavras.
+4. Registre uma evidência quando houver prática/lab.
+5. Só então marque o tópico como concluído.
+6. Use **Próximo** para continuar.
 
-A fase somente pode ser concluida quando:
+## Módulos
 
-- [ ] Conceitos dominados
-- [ ] Conhecimentos dominados
-- [ ] Pratica concluida
-- [ ] Laboratorios concluidos
-- [ ] Exercicios concluidos
-- [ ] Troubleshooting concluido
-- [ ] Checklist concluido
-- [ ] Revisao concluida
-- [ ] Evidencias documentadas
+| # | Módulo | Objetivo | Acesso |
+|---|---|---|---|
+| 01 | **Conceitos de IAM** | Construir o modelo mental de IAM | [Abrir →](01-Conceitos/README.md) |
+| 02 | **Conhecimentos técnicos** | Base de redes, Windows, Linux, diretórios, segurança e automação | [Abrir →](02-Conhecimentos/README.md) |
+| 03 | **Prática** | Transformar teoria em decisões de acesso | [Abrir →](03-Pratica/README.md) |
+| 04 | **Laboratórios** | Trabalhar em ambientes próximos da realidade | [Abrir →](04-Laboratorios/README.md) |
+| 05 | **Troubleshooting** | Desenvolver diagnóstico de incidentes de identidade | [Abrir →](06-Troubleshooting/README.md) |
+| 06 | **Validação** | Revisar, testar e consolidar o conhecimento | [Abrir →](08-Revisao/README.md) |
 
-## Proxima fase
+## Regra da fase
 
-02 - Identidade e Diretorios
+A Fase 01 termina quando você consegue **explicar, praticar, solucionar problemas e demonstrar evidências** dos fundamentos — não apenas quando leu o conteúdo.
 
-Status: [ ] Bloqueada
+## Navegação
+
+[🏠 Início](../README.md) · [▶️ Começar pelos Conceitos](01-Conceitos/README.md)
