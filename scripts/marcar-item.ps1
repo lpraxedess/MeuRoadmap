@@ -6,7 +6,7 @@ param(
     [int]$Item
 )
 
-if (-not (Test-Path $Arquivo)) {
+if (-not (Test-Path -LiteralPath $Arquivo -PathType Leaf)) {
     Write-Host "Arquivo nao encontrado:"
     Write-Host $Arquivo
     exit 1
@@ -17,27 +17,26 @@ if ($Item -lt 1) {
     exit 1
 }
 
-$linhas = @(Get-Content $Arquivo -Encoding UTF8)
+$linhas = @(Get-Content -LiteralPath $Arquivo -Encoding UTF8)
 $emValidacao = $false
 $contador = 0
 $indiceAlvo = -1
 
-for ($i = 0; $i -lt $linhas.Count; $i++) {
-    $linha = $linhas[$i]
+foreach ($indice in 0..($linhas.Count - 1)) {
+    $linha = [string]$linhas[$indice]
 
-    if ($linha -match '^##\s+.*Valida(c|ç)ão.*$') {
-        $emValidacao = $true
+    if ($linha -match '^##[ \t]+') {
+        if ($emValidacao) { break }
+        if ($linha -match '(?i)(Validação|Validacao|Definition[ \t]+of[ \t]+Done)') {
+            $emValidacao = $true
+        }
         continue
     }
 
-    if ($emValidacao -and $linha -match '^##\s+') {
-        break
-    }
-
-    if ($emValidacao -and $linha -match '^\s*-\s*\[\s*(x|X| )\s*\]\s*(.*)$') {
+    if ($emValidacao -and $linha -match '^[ \t]*-[ \t]*\[[ \t]*(x|X| )[ \t]*\][ \t]*(.*)$') {
         $contador++
         if ($contador -eq $Item) {
-            $indiceAlvo = $i
+            $indiceAlvo = $indice
             break
         }
     }
@@ -64,7 +63,7 @@ if ($linhas[$indiceAlvo] -match '^\s*-\s*\[\s*[xX]\s*\]') {
 $linhas[$indiceAlvo] = $linhas[$indiceAlvo] -replace '\[\s*\]', '[x]'
 
 [System.IO.File]::WriteAllText(
-    (Resolve-Path $Arquivo).Path,
+    (Resolve-Path -LiteralPath $Arquivo).Path,
     ($linhas -join [Environment]::NewLine),
     (New-Object System.Text.UTF8Encoding($false))
 )
