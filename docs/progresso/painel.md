@@ -1,44 +1,42 @@
-﻿
-Painel de Progresso - MeuRoadmap
-Estado atual
-Item	Status
-Fase atual	Fase 01 - Fundamentos de IAM
-Status	EM_ANDAMENTO
-Progresso	8%
-Proxima fase	Fase 02 - Identidade e Diretorios
-Progresso da Fase Atual
-Area	Progresso
-| Conceitos | 50% |
-| Conhecimentos | 0% |
-| Pratica | 0% |
-| Laboratorios | 0% |
-| Exercicios | 0% |
-| Troubleshooting | 0% |
-| Checklist | 0% |
-| Revisao | 0% |
-| Certificacoes | 0% |
-	
-Fases
-Fase	Area	Status	Progresso
-| 01 | Fundamentos de IAM | EM_ANDAMENTO | 8% |
-| 02 | Identidade e Diretorios | BLOQUEADA | 0% |
-| 03 | Protocolos IAM | BLOQUEADA | 0% |
-| 04 | Authentication e Authorization | BLOQUEADA | 0% |
-| 05 | IGA | BLOQUEADA | 0% |
-| 06 | Access Management | BLOQUEADA | 0% |
-| 07 | PAM | BLOQUEADA | 0% |
-| 08 | Cloud IAM | BLOQUEADA | 0% |
-| 09 | CIAM | BLOQUEADA | 0% |
-| 10 | Zero Trust e ITDR | BLOQUEADA | 0% |
-| 11 | Automacao e DevSecOps | BLOQUEADA | 0% |
-| 12 | Arquitetura IAM | BLOQUEADA | 0% |
-			
-Navegacao
+# Painel de Progresso — MeuRoadmap
 
-Fase atual
+## Agora
 
-Registro de Estudos
+| | |
+|---|---|
+| **Fase atual** | **01 — Fundamentos de IAM** |
+| **Progresso** | **0%** (0/5 etapas) |
+| **Próxima fase** | 02 — Identidade e Diretórios |
 
-Revisoes
+## Fluxo
 
-Sprints
+**Estude → Pratique → Aplique → Explique → Valide → Próxima fase**
+
+## Roadmap
+
+| # | Fase | Estado | Progresso |
+|---:|---|---|---:|
+| 01 | Fundamentos de IAM | EM_ANDAMENTO | 0% |
+| 02 | Identidade e Diretórios | NAO_INICIADA | 0% |
+| 03 | Protocolos IAM | NAO_INICIADA | 0% |
+| 04 | Authentication e Authorization | NAO_INICIADA | 0% |
+| 05 | IGA | NAO_INICIADA | 0% |
+| 06 | Access Management | NAO_INICIADA | 0% |
+| 07 | PAM | NAO_INICIADA | 0% |
+| 08 | Cloud IAM | NAO_INICIADA | 0% |
+| 09 | CIAM | NAO_INICIADA | 0% |
+| 10 | Zero Trust e ITDR | NAO_INICIADA | 0% |
+| 11 | Automação e DevSecOps | NAO_INICIADA | 0% |
+| 12 | Arquitetura IAM | NAO_INICIADA | 0% |
+
+## Controle
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 estudar
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 validar
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 concluir
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 status
+powershell -ExecutionPolicy Bypass -File .\scripts\roadmap.ps1 verificar
+```
+
+> O conteúdo interno das fases permanece disponível como aprofundamento. O painel acompanha somente o Gate da fase.
