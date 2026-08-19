@@ -2,7 +2,7 @@
 
 [← Início](../README.md)
 
-> **Status:** 🔒 Bloqueada · identidade de clientes e usuários externos.
+> **Status:** ⚪ Não iniciada · **conteúdo disponível para estudo a qualquer momento.**
 
 ## 🎯 Objetivo
 
