@@ -28,12 +28,10 @@ function Caminho-Relativo([string]$Path) {
 function Obter-FaseAtual {
     $estado = Ler-Estado
     if (-not $estado) { return $null }
-    $estado.fases | Where-Object { [int]$_.id -eq [int]$estado.faseAtual } | Select-Object -First 1
+    @($estado.fases) | Where-Object { [int]$_.id -eq [int]$estado.faseAtual } | Select-Object -First 1
 }
 
 function Eh-CabecalhoValidacao([string]$Linha) {
-    # Aceita os dois padrões usados no roadmap:
-    # "## ✅ Validação" e "## 🏁 Definition of Done".
     return ($Linha -match '^##\s+.*(Valida|Definition\s+of\s+Done)')
 }
 
@@ -49,10 +47,11 @@ function Obter-Validacao([string]$Caminho) {
         }
         if ($emValidacao -and $linha -match '^##\s+') { break }
         if ($emValidacao -and $linha -match '^\s*-\s*\[\s*(x|X| )\s*\]\s*(.*)$') {
-            $itens += [PSCustomObject]@{
+            $novoItem = [PSCustomObject]@{
                 Concluido = ($Matches[1] -match '^[xX]$')
                 Texto = $Matches[2].Trim()
             }
+            $itens = @($itens) + @($novoItem)
         }
     }
 
@@ -68,14 +67,16 @@ function Obter-ArquivosDeEstudo($fase) {
         $area = Join-Path $diretorio $nomeArea
         if (-not (Test-Path $area)) { continue }
 
-        foreach ($arquivo in @(Get-ChildItem $area -Filter "*.md" -File | Where-Object { $_.Name -ne "README.md" } | Sort-Object Name)) {
+        $arquivos = @(Get-ChildItem $area -Filter "*.md" -File | Where-Object { $_.Name -ne "README.md" } | Sort-Object Name)
+        foreach ($arquivo in $arquivos) {
             $validacao = @(Obter-Validacao $arquivo.FullName)
             if ($validacao.Count -gt 0) {
-                $resultado += [PSCustomObject]@{
+                $novoArquivo = [PSCustomObject]@{
                     Area = $nomeArea
                     Arquivo = $arquivo
                     Validacao = $validacao
                 }
+                $resultado = @($resultado) + @($novoArquivo)
             }
         }
     }
@@ -100,8 +101,9 @@ function Comando-Status {
     $total = 0
     $concluidos = 0
     foreach ($item in $itens) {
-        $total += $item.Validacao.Count
-        $concluidos += @($item.Validacao | Where-Object { $_.Concluido }).Count
+        $validacoes = @($item.Validacao)
+        $total += $validacoes.Count
+        $concluidos += @($validacoes | Where-Object { $_.Concluido }).Count
     }
     $p = if ($total -gt 0) { [math]::Round(($concluidos / $total) * 100) } else { 0 }
 
@@ -139,7 +141,7 @@ function Comando-Estudar {
     }
 
     $estado = Ler-Estado
-    $proxima = $estado.fases | Where-Object { [int]$_.id -gt [int]$fase.id } | Sort-Object id | Select-Object -First 1
+    $proxima = @($estado.fases) | Where-Object { [int]$_.id -gt [int]$fase.id } | Sort-Object id | Select-Object -First 1
     Write-Host ""
     Write-Host "FASE CONCLUIDA" -ForegroundColor Green
     if ($proxima) {
