@@ -1,0 +1,29 @@
+:root{color-scheme:dark}
+/* Navigation: app-v8 renders plain buttons; style them directly so no legacy class is required. */
+.sidebar nav{display:grid;gap:4px}
+.sidebar nav button{appearance:none;border:0;background:transparent;color:var(--muted);padding:10px 11px;border-radius:8px;text-align:left;font:inherit;font-size:11px;cursor:pointer;width:100%;transition:background .15s,color .15s}
+.sidebar nav button:hover{background:var(--panel2);color:var(--text)}
+.sidebar nav button[data-view="today"]{color:var(--text);background:rgba(122,162,255,.08)}
+/* Roadmap: compact, scannable, no dashboard noise. */
+.roadmap-list{max-width:980px;display:grid;gap:8px}
+.phase-card{background:var(--panel)!important;border:1px solid var(--line);border-radius:10px}
+.phase-card summary{min-height:58px;padding:12px 15px}
+.phase-card summary b{font-size:12px;font-weight:650}
+.phase-card summary small{font-size:9px}
+.phase-card summary strong{font-size:11px;color:var(--accent)!important}
+.phase-tasks{padding:0 15px 6px}
+.phase-tasks .task{padding:10px 0;min-height:48px}
+.phase-tasks .task b{font-size:11px}
+.phase-tasks .task small{font-size:9px}
+.phase-tasks .task button{appearance:none;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;padding:7px 11px;font-size:9px;min-width:58px}
+.phase-tasks .task button:hover{color:var(--text);border-color:var(--accent)}
+.phase-tasks .task.done b{color:var(--muted);text-decoration:none}
+/* Today: one decision, one action. */
+.today-focus{max-width:760px!important;padding:22px!important}
+.today-focus h2{font-size:23px!important}
+.today-exec{display:flex;gap:14px;margin-top:8px;color:var(--muted);font-size:10px}
+.today-exec span+span{padding-left:14px;border-left:1px solid var(--line)}
+.today-focus .primary{min-width:150px!important;width:auto;margin-top:14px}
+.today-next{max-width:760px!important}
+.today-routine{max-width:760px!important;font-size:10px!important}
+@media(max-width:600px){.sidebar nav button{font-size:9px!important;text-align:center;padding:8px 3px}.today-exec{flex-wrap:wrap}.today-exec span+span{padding-left:0;border-left:0}.phase-tasks .task{gap:8px}.phase-tasks .task button{min-width:52px;padding:6px 8px}}
