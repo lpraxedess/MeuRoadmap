@@ -4,7 +4,7 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 concurrency:
@@ -19,45 +19,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Normalize generated competency data
+      - name: Validate competency data
         shell: bash
         run: |
           set -euo pipefail
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path('data/competency-details.js')
-          s = p.read_text(encoding='utf-8')
-          start = s.index('var map=[') + len('var map=[')
-          end = s.index('\n];', start)
-          lines = s[start:end].splitlines()
-          fixed = []
-          for line in lines:
-              t = line.rstrip()
-              if not t:
-                  fixed.append(t)
-                  continue
-              # Each entry must end exactly with: ]],
-              # (outer map-entry bracket + inner data-array bracket + comma).
-              if t.endswith(']]],'):
-                  t = t[:-4] + ']],'
-              elif t.endswith(']]]'):
-                  t = t[:-3] + ']]'
-              elif t.startswith('[') and t.endswith(',') and not t.endswith(']],'):
-                  t = t[:-1] + ']],'
-              elif t.startswith('[') and t.endswith(']') and not t.endswith(']]'):
-                  t = t + ']'
-              fixed.append(t)
-          new = s[:start] + '\n'.join(fixed) + s[end:]
-          p.write_text(new, encoding='utf-8')
-          PY
           node --check data/competency-details.js
-          if ! git diff --quiet -- data/competency-details.js; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add data/competency-details.js
-            git commit -m 'fix: normalize competency map entries'
-            git push
-          fi
       - name: Validate JavaScript syntax
         shell: bash
         run: |
