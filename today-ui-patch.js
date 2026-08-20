@@ -6,6 +6,7 @@ function update(){
   document.querySelectorAll('.today-focus .focus-meta').forEach(function(el){
     var text=el.textContent||'';var m=text.match(/\d+/);el.textContent=m?(m[0]+' min'):text;
   });
+  document.querySelectorAll('.today-focus>.bar').forEach(function(el){el.remove();});
   document.querySelectorAll('.today-grid .task').forEach(function(row){
     var small=row.querySelector('small');if(!small)return;
     var text=small.textContent||'';var pct=text.match(/(\d+)%\s*validado/);if(!pct)return;
@@ -20,12 +21,15 @@ function update(){
 function unifyProgress(){
   var focus=document.querySelector('.today-focus');var grid=document.querySelector('.today-grid');if(!focus||!grid)return;
   var panels=grid.querySelectorAll('.panel');if(panels.length<2)return;
-  var progress=panels[1];if(progress.dataset.moved==='1')return;
-  var title=progress.querySelector('.panel-head');var num=progress.querySelector('.big-number');var bar=progress.querySelector('.bar');
+  var progress=panels[1];
+  var old=focus.querySelector('.today-overall-progress');if(old)old.remove();
+  var num=progress.querySelector('.big-number');var bar=progress.querySelector('.bar');
   var box=document.createElement('div');box.className='today-overall-progress';
   box.innerHTML='<div class="today-overall-label"><span>Progresso da carreira</span><b>'+(num?num.textContent.trim():'0%')+'</b></div>';
   if(bar)box.appendChild(bar.cloneNode(true));
-  focus.appendChild(box);progress.dataset.moved='1';progress.remove();
+  var label=focus.querySelector('.focus-label');
+  if(label)focus.insertBefore(box,label);else focus.insertBefore(box,focus.firstChild);
+  progress.remove();
 }
 function renderCompleted(){
   var grid=document.querySelector('.today-grid');if(!grid||!window.ROADMAP)return;
@@ -38,11 +42,11 @@ function renderCompleted(){
   items.forEach(function(x){html+='<div class="task done"><div><b>✓ '+esc(x.t.name)+'</b><small>'+x.t.mins+' min · concluído</small></div><div class="task-actions"><button class="icon-btn" data-page-task="'+esc(x.t.id)+'">Revisar</button></div></div>';});
   html+='</div>';sec.innerHTML=html;grid.parentNode.insertBefore(sec,grid.nextSibling);
 }
-function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/'/g,'&#39;');}
 function init(){
-  if(!document.getElementById('today-ui-patch-style-v2')){
-    var s=document.createElement('style');s.id='today-ui-patch-style-v2';
-    s.textContent='.today-focus .focus-meta{margin-bottom:8px}.today-focus>.bar{margin-top:4px;margin-bottom:18px}.today-grid .task{min-height:92px;padding:18px 20px;align-items:center;box-sizing:border-box}.today-grid .task>div:first-child{min-width:0;flex:1}.today-grid .task small{display:block;margin-top:7px}.today-task-progress{height:5px!important;margin-top:9px!important;width:min(260px,100%);overflow:hidden}.today-task-progress i{display:block;height:100%;transition:width .25s ease}.today-grid .task-actions{flex-shrink:0;margin-left:18px}.today-grid .panel{overflow:hidden}.today-grid .panel-head{margin-bottom:14px}.today-overall-progress{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}.today-overall-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.today-overall-label span{font-size:.82rem;opacity:.7}.today-overall-label b{font-size:1rem}.today-overall-progress .bar{margin:0!important}.today-completed{margin-top:18px}.today-completed .task{margin-top:8px}.today-completed .task small{opacity:.7}.today-completed-list{display:grid;gap:8px}.today-completed .panel-head>span{font-weight:700;opacity:.7}@media(max-width:760px){.today-overall-progress{margin-top:12px}.today-completed .task{padding:15px}}';
+  if(!document.getElementById('today-ui-patch-style-v3')){
+    var s=document.createElement('style');s.id='today-ui-patch-style-v3';
+    s.textContent='.today-focus .focus-meta{margin-bottom:8px}.today-grid{grid-template-columns:1fr!important}.today-grid .task{min-height:92px;padding:18px 20px;align-items:center;box-sizing:border-box}.today-grid .task>div:first-child{min-width:0;flex:1}.today-grid .task small{display:block;margin-top:7px}.today-task-progress{height:5px!important;margin-top:9px!important;width:min(260px,100%);overflow:hidden}.today-task-progress i{display:block;height:100%;transition:width .25s ease}.today-grid .task-actions{flex-shrink:0;margin-left:18px}.today-grid .panel{overflow:hidden}.today-grid .panel-head{margin-bottom:14px}.today-overall-progress{margin:0 0 20px;padding:0 0 16px;border-bottom:1px solid rgba(255,255,255,.08)}.today-overall-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.today-overall-label span{font-size:.82rem;opacity:.7}.today-overall-label b{font-size:1rem}.today-overall-progress .bar{margin:0!important}.today-completed{margin-top:18px}.today-completed .task{margin-top:8px}.today-completed .task small{opacity:.7}.today-completed-list{display:grid;gap:8px}.today-completed .panel-head>span{font-weight:700;opacity:.7}@media(max-width:760px){.today-overall-progress{margin-bottom:14px}.today-completed .task{padding:15px}}';
     document.head.appendChild(s);
   }
   update();
