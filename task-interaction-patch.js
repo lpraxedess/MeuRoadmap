@@ -1,6 +1,5 @@
 (function(){
 'use strict';
-
 var PENDING_KEY='iam-hub-pending-view-v1';
 var MODAL_ID='task-action-confirm';
 
@@ -11,19 +10,34 @@ var MODAL_ID='task-action-confirm';
   document.head.appendChild(s);
 })();
 
-function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/'/g,'&#39;');}
 function removeModal(){var m=document.getElementById(MODAL_ID);if(m)m.remove();}
 
-function openConfirm(taskId,index,label,description){
+function getTaskButton(taskId,index){
+  return document.querySelector('[data-stage-page="'+CSS.escape(taskId)+'"][data-index="'+index+'"]');
+}
+
+function getTaskState(taskId,index){
+  var btn=getTaskButton(taskId,index);
+  return !!(btn&&(btn.classList.contains('complete')||btn.getAttribute('aria-pressed')==='true'||btn.getAttribute('data-complete')==='true'));
+}
+
+function countTaskLines(section){
+  return section?section.querySelectorAll('.detail-line').length:0;
+}
+
+function openConfirm(taskId,index,description){
   removeModal();
+  var stageName=['Estudar','Praticar','Recapitular','Validar'][index]||'Etapa';
   var modal=document.createElement('div');modal.id=MODAL_ID;modal.className='task-confirm-overlay';
-  modal.innerHTML='<div class="task-confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="task-confirm-title"><div class="eyebrow">CONFIRMAR ETAPA</div><h2 id="task-confirm-title">Você concluiu esta atividade?</h2><p><strong>'+esc(label)+'</strong></p><p class="task-confirm-description">'+esc(description)+'</p><div class="task-confirm-actions"><button type="button" class="secondary" id="task-confirm-cancel">Ainda não</button><button type="button" class="primary" id="task-confirm-ok">Sim, marcar como concluído</button></div></div>';
+  modal.innerHTML='<div class="task-confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="task-confirm-title"><div class="eyebrow">CONFIRMAR ATIVIDADE</div><h2 id="task-confirm-title">Você concluiu esta atividade?</h2><p><strong>'+esc(stageName)+'</strong></p><p class="task-confirm-description">'+esc(description)+'</p><div class="task-confirm-actions"><button type="button" class="secondary" id="task-confirm-cancel">Ainda não</button><button type="button" class="primary" id="task-confirm-ok">Sim, marcar como concluído</button></div></div>';
   document.body.appendChild(modal);
   document.getElementById('task-confirm-cancel').onclick=removeModal;
   document.getElementById('task-confirm-ok').onclick=function(){
-    var btn=document.querySelector('[data-stage-page="'+CSS.escape(taskId)+'"][data-index="'+index+'"]');
-    if(btn && !btn.disabled && !btn.classList.contains('complete'))btn.click();
+    var btn=getTaskButton(taskId,index);
+    if(btn&&!getTaskState(taskId,index))btn.click();
     removeModal();
+    setTimeout(function(){refreshStageCompletion(taskId,index);},80);
   };
   modal.addEventListener('click',function(e){if(e.target===modal)removeModal();});
   var ok=document.getElementById('task-confirm-ok');if(ok)ok.focus();
@@ -34,20 +48,39 @@ function sectionStage(el){
   var h=section.querySelector('h2');var title=h?h.textContent.trim():'';
   if(title==='Estudar')return 0;
   if(title==='Praticar')return 1;
+  if(title==='Recapitular')return 2;
   if(title==='Validar')return 3;
   return null;
+}
+
+/*
+ * Cada linha é uma tarefa independente.
+ * A etapa só é considerada concluída quando TODAS as linhas daquela seção
+ * tiverem sido concluídas. Uma tarefa individual jamais conclui a etapa inteira.
+ */
+function refreshStageCompletion(taskId,index){
+  var btn=getTaskButton(taskId,index);if(!btn)return;
+  var page=btn.closest('.task-page');if(!page)return;
+  var sections=page.querySelectorAll('section');
+  var target=null;
+  sections.forEach(function(section){if(sectionStage(section)===index)target=section;});
+  if(!target)return;
+  var lines=Array.from(target.querySelectorAll('.detail-line'));
+  if(!lines.length)return;
+  var done=lines.every(function(line){return line.classList.contains('task-complete')||line.getAttribute('data-complete')==='true'||line.querySelector('.task-check.complete,.complete');});
+  if(done&&!getTaskState(taskId,index))btn.click();
 }
 
 document.addEventListener('click',function(e){
   var line=e.target.closest&&e.target.closest('.learning-panel .detail-line');
   if(!line)return;
   var page=line.closest('.task-page');
-  var id=page&&page.querySelector('[data-stage-page]')&&page.querySelector('[data-stage-page]').getAttribute('data-stage-page');
+  var anchor=page&&page.querySelector('[data-stage-page]');
+  var id=anchor&&anchor.getAttribute('data-stage-page');
   var index=sectionStage(line);
   if(!id||index===null)return;
   e.preventDefault();e.stopPropagation();
-  var label=index===0?'Estudar':index===1?'Praticar':'Validar';
-  openConfirm(id,index,label,line.textContent.trim());
+  openConfirm(id,index,line.textContent.trim());
 },true);
 
 function handleNavigation(){
