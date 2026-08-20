@@ -34,17 +34,17 @@ jobs:
         run: |
           set -euo pipefail
           files=(
-            app-v6.js
-            task-interaction-patch.js
-            today-ui-patch.js
-            ui-fixes-v15.js
+            app-v8.js
             data/roadmap.js
             data/learning.js
             data/resources.js
             data/competency-details.js
             data/competency-deep.js
+            data/career-audit.js
+            data/career-audit-extension.js
             data/certifications.js
             data/roadmap-extension.js
+            data/roadmap-v2.js
             data/certification-extension.js
           )
           for file in "${files[@]}"; do
@@ -66,8 +66,11 @@ jobs:
             'data/resources.js',
             'data/competency-details.js',
             'data/competency-deep.js',
+            'data/career-audit.js',
+            'data/career-audit-extension.js',
             'data/certifications.js',
             'data/roadmap-extension.js',
+            'data/roadmap-v2.js',
             'data/certification-extension.js'
           ];
           const ctx = { window: {}, console };
@@ -119,22 +122,21 @@ jobs:
           required=(
             index.html
             styles.css
+            stage.css
             pages.css
+            ui-final-v2.css
             data/roadmap.js
             data/learning.js
             data/certifications.js
-            app-v6.js
-            task-interaction-patch.js
-            today-ui-patch.js
+            app-v8.js
           )
           for file in "${required[@]}"; do
             test -s "$file"
             echo "OK: $file"
           done
 
-          grep -q 'app-v6.js' index.html
-          grep -q 'task-interaction-patch.js' index.html
-          grep -q 'today-ui-patch.js' index.html
+          grep -q 'app-v8.js' index.html
+          ! grep -qE 'app-v6.js|task-interaction-patch.js|today-ui-patch.js|ui-fixes-v15.js|execution-ui-patch.js|today-resilience|routine-ui-fix' index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
