@@ -19,19 +19,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Validate competency data
-        shell: bash
-        run: |
-          set -euo pipefail
-          node --check data/competency-details.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Validate JavaScript syntax
         shell: bash
         run: |
           set -euo pipefail
-          for file in data/*.js app-v5.js certification-ui.js; do
-            echo "Checking $file"
-            node --check "$file"
+          for file in data/*.js app.js app-v4.js app-v5.js app-v6.js cert-ui-patch.js certification-ui.js certification-ui-v2.js navigation-fix.js progress-ui-patch.js stage.css task-interaction-patch.js today-ui-patch.js ui-fixes-v15.js ui-polish.js; do
+            if [[ "$file" == *.js ]]; then
+              echo "Checking $file"
+              node --check "$file"
+            fi
           done
+      - name: Validate required entrypoint assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s index.html
+          test -s styles.css
+          test -s pages.css
+          test -s data/roadmap.js
+          test -s data/learning.js
+          test -s data/certifications.js
+          grep -q 'app-v6.js' index.html
+          grep -q 'task-interaction-patch.js' index.html
+          grep -q 'today-ui-patch.js' index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
