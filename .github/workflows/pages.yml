@@ -27,12 +27,38 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for file in data/*.js app.js app-v4.js app-v5.js app-v6.js cert-ui-patch.js certification-ui.js certification-ui-v2.js navigation-fix.js progress-ui-patch.js stage.css task-interaction-patch.js today-ui-patch.js ui-fixes-v15.js ui-polish.js; do
-            if [[ "$file" == *.js ]]; then
-              echo "Checking $file"
-              node --check "$file"
-            fi
+          for file in data/*.js app.js app-v4.js app-v5.js app-v6.js cert-ui-patch.js certification-ui.js certification-ui-v2.js navigation-fix.js progress-ui-patch.js task-interaction-patch.js today-ui-patch.js ui-fixes-v15.js ui-polish.js; do
+            echo "Checking $file"
+            node --check "$file"
           done
+      - name: Validate roadmap data integrity
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+          const files = ['data/roadmap.js','data/learning.js','data/resources.js','data/competency-details.js','data/competency-deep.js','data/certifications.js','data/roadmap-extension.js','data/certification-extension.js'];
+          const ctx = { window: {}, console };
+          vm.createContext(ctx);
+          for (const file of files) vm.runInContext(fs.readFileSync(file,'utf8'), ctx, {filename:file});
+          const roadmap = ctx.window.ROADMAP;
+          if (!roadmap || !Array.isArray(roadmap.phases) || !roadmap.phases.length) throw new Error('ROADMAP inválido ou vazio');
+          const ids = new Set();
+          for (const phase of roadmap.phases) {
+            if (!phase.id || !Array.isArray(phase.tasks)) throw new Error(`Fase inválida: ${phase.id || '<sem id>'}`);
+            for (const task of phase.tasks) {
+              if (!task.id || ids.has(task.id)) throw new Error(`ID de competência ausente ou duplicado: ${task.id}`);
+              ids.add(task.id);
+            }
+          }
+          for (const phase of roadmap.phases) for (const task of phase.tasks) for (const pre of (task.pre || [])) {
+            if (!ids.has(pre)) throw new Error(`${task.id}: pré-requisito inexistente: ${pre}`);
+          }
+          const certs = ctx.window.CERTIFICATIONS;
+          if (!certs || !Array.isArray(certs.tracks)) throw new Error('CERTIFICATIONS inválido ou vazio');
+          console.log(`OK: ${roadmap.phases.length} fases, ${ids.size} competências, ${certs.tracks.length} certificações/trilhas.`);
+          NODE
       - name: Validate required entrypoint assets
         shell: bash
         run: |
