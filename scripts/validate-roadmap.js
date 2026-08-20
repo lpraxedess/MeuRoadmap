@@ -10,8 +10,9 @@ for(let pi=0;pi<R.phases.length;pi++){
   if(!t.id||ids.has(t.id))throw Error(`ID duplicado: ${t.id}`);
   if(!t.name||names.has(t.name))throw Error(`Competência duplicada/sem nome: ${t.name||t.id}`);
   if(!Number.isFinite(Number(t.mins))||Number(t.mins)<=0)throw Error(`${t.id}: mins inválido`);
-  if(t.pre==null)t.pre=[];
-  if(!Array.isArray(t.pre))throw Error(`${t.id}: pre deve ser array`);
+  const pre=t.pre==null?[]:t.pre;
+  if(!Array.isArray(pre))throw Error(`${t.id}: pre deve ser array ou ausente`);
+  t.pre=pre;
   if(!t.evidence)warnings.push(`${t.id}: evidência derivada do conteúdo`);
   ids.set(t.id,t);names.add(t.name);
  }
