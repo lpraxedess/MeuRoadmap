@@ -34,7 +34,7 @@ jobs:
         run: |
           set -euo pipefail
           files=(
-            app-v8.js
+            app-v9.js
             data/roadmap.js
             data/learning.js
             data/resources.js
@@ -61,82 +61,41 @@ jobs:
           const fs = require('fs');
           const vm = require('vm');
           const files = [
-            'data/roadmap.js',
-            'data/learning.js',
-            'data/resources.js',
-            'data/competency-details.js',
-            'data/competency-deep.js',
-            'data/career-audit.js',
-            'data/career-audit-extension.js',
-            'data/certifications.js',
-            'data/roadmap-extension.js',
-            'data/roadmap-v2.js',
-            'data/certification-extension.js'
+            'data/roadmap.js','data/learning.js','data/resources.js',
+            'data/competency-details.js','data/competency-deep.js',
+            'data/career-audit.js','data/career-audit-extension.js',
+            'data/certifications.js','data/roadmap-extension.js',
+            'data/roadmap-v2.js','data/certification-extension.js'
           ];
           const ctx = { window: {}, console };
           vm.createContext(ctx);
-          for (const file of files) {
-            vm.runInContext(fs.readFileSync(file, 'utf8'), ctx, { filename: file });
-          }
-
-          const roadmap = ctx.window.ROADMAP;
-          if (!roadmap || !Array.isArray(roadmap.phases) || !roadmap.phases.length) {
-            throw new Error('ROADMAP inválido ou vazio');
-          }
-
-          const ids = new Set();
-          for (const phase of roadmap.phases) {
-            if (!phase.id || !Array.isArray(phase.tasks)) {
-              throw new Error(`Fase inválida: ${phase.id || '<sem id>'}`);
-            }
-            for (const task of phase.tasks) {
-              if (!task.id || ids.has(task.id)) {
-                throw new Error(`ID de competência ausente ou duplicado: ${task.id || '<sem id>'}`);
-              }
+          for (const file of files) vm.runInContext(fs.readFileSync(file,'utf8'),ctx,{filename:file});
+          const roadmap=ctx.window.ROADMAP;
+          if(!roadmap||!Array.isArray(roadmap.phases)||!roadmap.phases.length) throw new Error('ROADMAP inválido ou vazio');
+          const ids=new Set();
+          for(const phase of roadmap.phases){
+            if(!phase.id||!Array.isArray(phase.tasks)) throw new Error(`Fase inválida: ${phase.id||'<sem id>'}`);
+            for(const task of phase.tasks){
+              if(!task.id||ids.has(task.id)) throw new Error(`ID ausente ou duplicado: ${task.id||'<sem id>'}`);
               ids.add(task.id);
             }
           }
-
-          for (const phase of roadmap.phases) {
-            for (const task of phase.tasks) {
-              for (const pre of task.pre || []) {
-                if (!ids.has(pre)) {
-                  throw new Error(`${task.id}: pré-requisito inexistente: ${pre}`);
-                }
-              }
-            }
-          }
-
-          const certs = ctx.window.CERTIFICATIONS;
-          if (!certs || !Array.isArray(certs.tracks)) {
-            throw new Error('CERTIFICATIONS inválido ou vazio');
-          }
-
+          for(const phase of roadmap.phases) for(const task of phase.tasks) for(const pre of task.pre||[])
+            if(!ids.has(pre)) throw new Error(`${task.id}: pré-requisito inexistente: ${pre}`);
+          const certs=ctx.window.CERTIFICATIONS;
+          if(!certs||!Array.isArray(certs.tracks)) throw new Error('CERTIFICATIONS inválido ou vazio');
           console.log(`OK: ${roadmap.phases.length} fases, ${ids.size} competências, ${certs.tracks.length} trilhas de certificação.`);
           NODE
 
-      - name: Validate required entrypoint assets
+      - name: Validate entrypoint and single runtime
         shell: bash
         run: |
           set -euo pipefail
-          required=(
-            index.html
-            styles.css
-            stage.css
-            pages.css
-            ui-final-v2.css
-            data/roadmap.js
-            data/learning.js
-            data/certifications.js
-            app-v8.js
-          )
-          for file in "${required[@]}"; do
-            test -s "$file"
-            echo "OK: $file"
-          done
-
-          grep -q 'app-v8.js' index.html
-          ! grep -qE 'app-v6.js|task-interaction-patch.js|today-ui-patch.js|ui-fixes-v15.js|execution-ui-patch.js|today-resilience|routine-ui-fix' index.html
+          required=(index.html styles.css stage.css pages.css ui-final-v2.css app-v9.js data/roadmap.js data/learning.js data/certifications.js)
+          for file in "${required[@]}"; do test -s "$file"; echo "OK: $file"; done
+          grep -q 'app-v9.js' index.html
+          ! grep -qE 'app-v[0-8]\.js|runtime-ux-fix|task-interaction-patch|today-ui-patch|ui-fixes-v15|execution-ui-patch|today-resilience|routine-ui-fix' index.html
+          test "$(grep -c 'app-v9.js' index.html)" -eq 1
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
