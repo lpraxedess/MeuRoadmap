@@ -1,19 +1,15 @@
 name: Deploy IAM Career Hub
-
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: pages
   cancel-in-progress: true
-
 jobs:
   validate-and-deploy:
     environment:
@@ -31,7 +27,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          files=(app-v10.js scripts/validate-roadmap.js data/*.js)
+          files=(app-v10.js migration-v10-to-v11.js scripts/validate-roadmap.js data/*.js)
           for file in "${files[@]}"; do test -s "$file"; node --check "$file"; done
       - name: Validate roadmap model
         run: node scripts/validate-roadmap.js
@@ -39,9 +35,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          required=(index.html styles.css stage.css pages.css ui-final-v2.css roadmap-unified-v1.css app-v10.js data/roadmap.js data/learning.js data/certifications.js)
+          required=(index.html styles.css stage.css pages.css ui-final-v2.css roadmap-unified-v1.css app-v10.js migration-v10-to-v11.js data/roadmap.js data/learning.js data/certifications.js)
           for file in "${required[@]}"; do test -s "$file"; done
           test "$(grep -c 'app-v10.js' index.html)" -eq 1
+          test "$(grep -c 'migration-v10-to-v11.js' index.html)" -eq 1
           ! grep -qE 'app-v[0-9]+\.js|runtime-ux-fix|task-interaction-patch|today-ui-patch|ui-fixes-v15|execution-ui-patch|today-resilience|routine-ui-fix' index.html
       - name: Validate no legacy runtime is referenced
         shell: bash
