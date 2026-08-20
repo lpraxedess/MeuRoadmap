@@ -1,41 +1,45 @@
 window.LEARNING={
-  version:'2.0.0',
-  defaults:{
-    study:{goal:'Compreender o conceito até conseguir explicar o porquê, o fluxo e os principais riscos sem consultar material.',actions:['Ler documentação oficial e material técnico','Criar um resumo próprio de até 10 pontos','Explicar o conceito em voz alta sem consultar','Registrar dúvidas e termos que ainda não domina'],evidence:'Resumo próprio + respostas de validação.'},
-    lab:{goal:'Executar a competência em ambiente de laboratório e conseguir reproduzir e solucionar a configuração.',actions:['Preparar o ambiente','Executar a configuração sem copiar passo a passo cegamente','Testar cenário normal e cenário de falha','Registrar comandos, configuração, resultado e troubleshooting'],evidence:'README do laboratório + evidências técnicas + troubleshooting.'},
-    validate:{goal:'Demonstrar domínio independente.',actions:['Responder perguntas conceituais sem consulta','Resolver um cenário prático','Explicar decisões e riscos','Revisar erros antes de concluir'],evidence:'Respostas + cenário resolvido + decisão técnica registrada.'}
-  },
-  rules:[
-    {match:['Authentication vs Authorization'],study:['Definir autenticação e autorização','Comparar identidade, credencial, sessão e permissão','Explicar um fluxo de login até acesso a recurso'],practice:['Criar dois cenários: autenticação bem-sucedida com autorização negada e autenticação negada'],validate:['Explicar a diferença usando um exemplo corporativo de IAM']},
-    {match:['RBAC, ABAC'],study:['Comparar RBAC, ABAC e least privilege','Identificar subject, resource, action e policy','Mapear quando cada modelo é adequado'],practice:['Criar uma matriz simples de acesso por função e por atributo'],validate:['Projetar acesso mínimo para três perfis diferentes']},
-    {match:['MFA, Passwordless'],study:['Comparar fatores de autenticação','Entender FIDO2/passkeys e Authenticator','Identificar phishing-resistant authentication'],practice:['Configurar e testar MFA disponível no laboratório'],validate:['Explicar quais fatores resistem melhor a phishing e por quê']},
-    {match:['SSO, Federation'],study:['Entender IdP, SP/RP, federation e trust','Diferenciar SSO de federation','Relacionar SAML, OIDC e tokens'],practice:['Desenhar um fluxo SSO com IdP e aplicação'],validate:['Explicar o fluxo de autenticação de ponta a ponta']},
-    {match:['JML'],study:['Mapear Joiner, Mover e Leaver','Relacionar ciclo de vida a provisionamento/desprovisionamento','Identificar riscos de orphaned accounts'],practice:['Modelar um processo JML com AD/Entra'],validate:['Explicar controles e evidências de cada etapa']},
-    {match:['Kerberos'],study:['Entender KDC, AS, TGS, tickets e SPN','Explicar autenticação Kerberos passo a passo','Comparar Kerberos e NTLM'],practice:['Inspecionar tickets e eventos no laboratório','Simular troubleshooting de SPN/autenticação'],validate:['Explicar por que um problema de SPN pode quebrar autenticação']},
-    {match:['LDAP'],study:['Entender directory, DN, objectClass e atributos','Diferenciar LDAP de AD DS','Conhecer operações de consulta e alteração'],practice:['Executar consultas LDAP no laboratório'],validate:['Explicar como uma aplicação consulta identidades no diretório']},
-    {match:['Conditional Access'],study:['Entender signals, conditions, grant/session controls','Aprender evaluation flow e policy precedence','Relacionar CA a MFA, device, location e risk'],practice:['Criar política de teste','Validar allow/block/MFA','Inspecionar Sign-in Logs'],validate:['Diagnosticar por que uma política permitiu ou bloqueou um login']},
-    {match:['Sign-in Logs'],study:['Conhecer campos relevantes','Correlacionar usuário, aplicação, IP, dispositivo, CA e resultado'],practice:['Investigar três logins normais e um cenário anômalo'],validate:['Explicar a causa de uma falha de login somente pelos logs']},
-    {match:['PHS, PTA'],study:['Comparar Password Hash Sync, Pass-through Authentication e Federation','Entender onde ocorre autenticação','Mapear dependências e riscos'],practice:['Desenhar os três fluxos'],validate:['Escolher arquitetura para três cenários corporativos']},
-    {match:['SAML 2.0'],study:['Entender IdP, SP, assertion, claims, ACS e metadata','Seguir o fluxo AuthnRequest/Response','Identificar causas comuns de falha'],practice:['Configurar uma integração SAML de laboratório quando possível','Inspecionar assertion e logs'],validate:['Diagnosticar uma falha de SAML']},
-    {match:['OAuth 2.0'],study:['Entender resource owner, client, authorization server e resource server','Estudar authorization code, client credentials e tokens','Diferenciar OAuth de autenticação'],practice:['Executar um fluxo de autorização controlado'],validate:['Explicar por que OAuth não é, sozinho, um protocolo de autenticação']},
-    {match:['OpenID Connect'],study:['Relacionar OIDC e OAuth 2.0','Entender ID token, claims, nonce e discovery'],practice:['Inspecionar um fluxo OIDC e seus tokens'],validate:['Explicar autenticação OIDC de ponta a ponta']},
-    {match:['SCIM'],study:['Entender provisioning, deprovisioning e lifecycle','Conhecer Users/Groups e operações SCIM'],practice:['Simular ou configurar provisioning'],validate:['Explicar o impacto de SCIM no JML']},
-    {match:['App Registration vs Enterprise Application'],study:['Diferenciar application object, service principal e enterprise application','Entender permissions, consent e credentials'],practice:['Criar uma aplicação de teste quando o tenant permitir'],validate:['Explicar o relacionamento entre os objetos']},
-    {match:['PIM'],study:['Entender eligible vs active, JIT, approval, MFA e duration','Mapear controles de privilégio'],practice:['Configurar fluxo PIM quando disponível ou simular o desenho'],validate:['Projetar acesso privilegiado temporário']},
-    {match:['Access Reviews'],study:['Entender periodic review, reviewer, scope e decisão','Relacionar recertificação a compliance'],practice:['Modelar uma revisão de acesso'],validate:['Explicar o que fazer quando um acesso não é recertificado']},
-    {match:['Managed Identities'],study:['Diferenciar system-assigned e user-assigned','Entender workload identity e eliminação de secrets'],practice:['Associar identidade a workload e testar acesso mínimo'],validate:['Justificar managed identity versus secret']},
-    {match:['PowerShell'],study:['Dominar pipeline, objetos, filtros e exportação','Conhecer cmdlets de AD/Entra relevantes'],practice:['Criar consultas reutilizáveis de usuários, grupos e contas inativas'],validate:['Explicar segurança e tratamento de erro do script']},
-    {match:['Microsoft Graph'],study:['Entender Graph, permissions, scopes e consent','Conhecer endpoints de users/groups/directory'],practice:['Executar consulta autenticada e exportar resultado'],validate:['Explicar least privilege de permissões Graph']},
-    {match:['Terraform'],study:['Entender state, provider, plan/apply e drift','Relacionar IaC a controle de mudanças'],practice:['Criar recurso IAM simples com plan antes de apply'],validate:['Explicar como evitar privilégio excessivo em IaC']},
-    {match:['IAM Users, Groups, Roles'],study:['Entender principal, policy, role e trust relationship','Diferenciar identidade humana de workload'],practice:['Criar role com política mínima e testar acesso'],validate:['Explicar o fluxo AssumeRole']},
-    {match:['Trust Policy'],study:['Diferenciar trust policy e permission policy','Entender STS e AssumeRole'],practice:['Criar role assumível por principal controlado'],validate:['Diagnosticar AccessDenied em AssumeRole']},
-    {match:['SCP'],study:['Entender Organizations, OU e guardrails','Diferenciar SCP de permission policy'],practice:['Criar uma restrição controlada em laboratório'],validate:['Explicar por que SCP não concede permissões']},
-    {match:['CloudTrail'],study:['Entender eventos de management/data plane e identidade do caller'],practice:['Localizar ações IAM no CloudTrail'],validate:['Reconstruir uma alteração de permissão a partir do evento']},
-    {match:['Zero Trust'],study:['Entender verify explicitly, least privilege e assume breach','Relacionar identidade, device, network e data'],practice:['Mapear controles Zero Trust para um cenário corporativo'],validate:['Projetar um fluxo de acesso Zero Trust']}
-  ],
-  enrich(task){
-    const specific=this.rules.find(r=>r.match.some(x=>task.name.toLowerCase().includes(x.toLowerCase())));
-    const base=this.defaults[task.type]||this.defaults.study;
-    return {goal:base.goal,study:specific?.study||base.actions,practice:specific?.practice||((task.type==='lab')?base.actions:[]),validate:specific?.validate||base.actions.slice(-2),evidence:base.evidence,pass:`Concluir todas as etapas e conseguir executar/explicar a competência sem depender de tutorial.`};
-  }
+version:'3.0.0',
+defaults:{
+study:{goal:'Compreender o conceito, explicar o fluxo, identificar riscos e relacioná-lo a IAM corporativo.',study:['Ler a documentação oficial indicada','Produzir resumo próprio com conceitos, fluxo e riscos','Explicar o assunto sem consultar'],practice:['Aplicar o conceito em cenário de laboratório ou desenho técnico'],validate:['Responder perguntas sem consulta','Justificar uma decisão técnica e seus riscos'],evidence:'Resumo próprio + resultado prático + validação.'},
+lab:{goal:'Executar, testar e solucionar a competência em laboratório.',study:['Revisar conceito, arquitetura e pré-requisitos','Identificar configuração segura e riscos'],practice:['Preparar laboratório','Executar sem copiar cegamente','Testar cenário normal e falha'],validate:['Solucionar problema deliberado','Explicar causa, impacto e correção'],evidence:'README + configuração/comandos + evidências + troubleshooting.'},
+validate:{goal:'Demonstrar domínio independente em cenário de trabalho ou entrevista.',study:['Revisar conceitos relacionados'],practice:['Resolver cenário prático'],validate:['Explicar solução sem consulta','Justificar decisões','Identificar riscos e controles'],evidence:'Resposta técnica + cenário resolvido + decisão registrada.'}
+},
+rules:[
+{m:'Authentication vs Authorization',s:['Definir autenticação, autorização, identidade, credencial, sessão e permissão','Explicar fluxo de login até acesso'],p:['Criar autenticação válida com autorização negada','Criar autenticação negada'],v:['Explicar a diferença em cenário corporativo']},
+{m:'Identity, Principal, Account, Credential e Session',s:['Diferenciar cada termo','Relacionar principal a identidade humana ou workload'],p:['Mapear objetos em fluxo AD/Entra'],v:['Explicar ciclo completo']},
+{m:'MFA, Passwordless, FIDO2 e Authenticator',s:['Comparar fatores','Entender FIDO2/passkeys','Identificar autenticação resistente a phishing'],p:['Configurar e testar MFA disponível'],v:['Escolher método para três cenários']},
+{m:'SSO, Federation e Identity Provider',s:['Diferenciar SSO e federation','Entender IdP, SP/RP, trust e tokens'],p:['Desenhar fluxo SSO'],v:['Explicar autenticação ponta a ponta']},
+{m:'RBAC, ABAC e Least Privilege',s:['Comparar modelos','Identificar subject, resource, action e policy'],p:['Criar matriz de acesso'],v:['Projetar privilégio mínimo']},
+{m:'JML: Joiner, Mover, Leaver',s:['Mapear ciclo de vida','Identificar orphaned accounts e riscos'],p:['Modelar JML AD/Entra'],v:['Definir controles e evidências']},
+{m:'Kerberos: tickets, SPN e autenticação',s:['Entender KDC, AS, TGS e SPN','Comparar Kerberos e NTLM'],p:['Inspecionar tickets/eventos','Simular falha de SPN'],v:['Diagnosticar autenticação Kerberos']},
+{m:'LDAP e consultas de diretório',s:['Entender DN, objectClass, atributos e operações','Diferenciar LDAP de AD DS'],p:['Executar consultas LDAP'],v:['Explicar consulta de aplicação']},
+{m:'GPO: segurança, aplicação e troubleshooting',s:['Entender processamento e precedência','Relacionar GPO a hardening'],p:['Criar GPO de segurança','Testar aplicação'],v:['Diagnosticar GPO não aplicada']},
+{m:'PowerShell: consultas AD essenciais',s:['Dominar objetos, pipeline, filtros e exportação'],p:['Consultar usuários/grupos/inativos','Exportar relatório'],v:['Explicar segurança e tratamento de erro']},
+{m:'Conditional Access: signals, conditions e controls',s:['Entender signals, conditions, grant/session controls','Compreender avaliação e impacto'],p:['Criar política de teste','Testar MFA/block','Inspecionar Sign-in Logs'],v:['Diagnosticar decisão de CA']},
+{m:'Sign-in Logs e Audit Logs',s:['Conhecer campos e correlação'],p:['Investigar logins normais e anômalos'],v:['Explicar causa de falha somente pelos logs']},
+{m:'Identity Protection e risco',s:['Entender user risk, sign-in risk e controles'],p:['Modelar política baseada em risco'],v:['Escolher resposta adequada']},
+{m:'Entra Connect e Cloud Sync',s:['Comparar arquiteturas e dependências'],p:['Desenhar sincronização'],v:['Escolher solução para cenários']},
+{m:'PHS, PTA e Federation',s:['Comparar onde ocorre autenticação e riscos'],p:['Desenhar os três fluxos'],v:['Escolher arquitetura']},
+{m:'Lab: AD → Entra Sync',s:['Preparar AD e tenant','Validar sincronização'],p:['Executar sync','Testar criação/alteração/desativação'],v:['Solucionar falha de sincronização']},
+{m:'SAML 2.0: fluxo, assertions e claims',s:['Entender IdP, SP, assertion, ACS e metadata','Seguir AuthnRequest/Response'],p:['Inspecionar assertion/logs','Configurar integração quando possível'],v:['Diagnosticar falha SAML']},
+{m:'OAuth 2.0: roles, grants e access tokens',s:['Entender roles, authorization code, client credentials e tokens','Diferenciar OAuth de autenticação'],p:['Executar fluxo controlado'],v:['Explicar riscos e fluxo']},
+{m:'OpenID Connect: ID token e authentication layer',s:['Relacionar OIDC e OAuth','Entender ID token, claims, nonce e discovery'],p:['Inspecionar fluxo e tokens'],v:['Explicar autenticação OIDC']},
+{m:'SCIM: provisioning e lifecycle',s:['Entender provisioning/deprovisioning e Users/Groups'],p:['Simular ou configurar provisioning'],v:['Explicar impacto no JML']},
+{m:'App Registration vs Enterprise Application vs Service Principal',s:['Diferenciar application object, service principal e enterprise application','Entender permissions, consent e credentials'],p:['Criar aplicação de teste quando possível'],v:['Explicar relacionamento']},
+{m:'PIM: eligible, active, approval e JIT',s:['Entender eligible/active, JIT, approval, MFA e duration'],p:['Desenhar/configurar fluxo PIM'],v:['Projetar acesso privilegiado temporário']},
+{m:'Access Reviews e recertificação',s:['Entender scope, reviewer, decisão e periodicidade'],p:['Modelar revisão de acesso'],v:['Definir ação para acesso não recertificado']},
+{m:'Managed Identities e workload identity',s:['Diferenciar system/user assigned','Entender eliminação de secrets'],p:['Associar identidade a workload','Testar privilégio mínimo'],v:['Justificar managed identity']},
+{m:'Microsoft Graph: users, groups e directory',s:['Entender Graph, scopes, permissions e consent'],p:['Executar consulta autenticada','Exportar resultado'],v:['Aplicar least privilege']},
+{m:'IAM Users, Groups, Roles e Policies',s:['Entender principal, policy, role e trust'],p:['Criar role mínima e testar'],v:['Explicar AssumeRole']},
+{m:'Trust Policy, STS e AssumeRole',s:['Diferenciar trust e permission policy','Entender STS'],p:['Criar role assumível controladamente'],v:['Diagnosticar AccessDenied']},
+{m:'Permission Boundaries e SCP',s:['Diferenciar guardrail, boundary e permission policy'],p:['Criar restrição controlada'],v:['Explicar por que SCP não concede permissões']},
+{m:'CloudTrail para auditoria de identidade',s:['Entender caller identity e eventos'],p:['Localizar ações IAM','Reconstruir alteração de permissão'],v:['Explicar investigação']},
+{m:'Zero Trust e identidade como perímetro',s:['Verify explicitly, least privilege, assume breach'],p:['Mapear controles para cenário'],v:['Projetar fluxo Zero Trust']},
+{m:'CIEM: excesso de permissões e entitlement',s:['Entender entitlement, toxic permissions e shadow admin'],p:['Revisar permissões excessivas'],v:['Propor redução de privilégio']},
+{m:'AWS Identity Center',s:['Entender permission sets, accounts e federation'],p:['Modelar acesso multi-account'],v:['Explicar desenho']},
+{m:'Federation Entra → AWS via SAML',s:['Entender trust entre IdP e AWS'],p:['Configurar ou desenhar federation'],v:['Troubleshoot de acesso']},
+{m:'Terraform fundamentals para IAM',s:['Provider, state, plan/apply e drift'],p:['Criar recurso IAM com plan'],v:['Explicar controle de mudanças e least privilege']}
+],
+enrich(task){const r=this.rules.find(x=>task.name.toLowerCase().includes(x.m.toLowerCase()));const b=this.defaults[task.type]||this.defaults.study;return {goal:b.goal,study:r?.s||b.study,practice:r?.p||b.practice,validate:r?.v||b.validate,evidence:b.evidence,pass:'Todas as etapas concluídas e competência demonstrada sem depender de tutorial.'}}
 };
