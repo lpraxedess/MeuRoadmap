@@ -8,6 +8,15 @@
   <title>IAM Career Hub</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="stage.css">
+  <script>
+    window.__HUB_BOOT__ = true;
+    window.addEventListener('error', function (e) {
+      var app = document.getElementById('app');
+      if (app && !app.hasChildNodes()) {
+        app.innerHTML = '<main style="margin:40px;max-width:760px"><div class="eyebrow">BOOT ERROR</div><h1>IAM Career Hub</h1><p style="color:#8d9ab5">A interface não conseguiu iniciar. O erro abaixo permite identificar exatamente o recurso que falhou.</p><pre style="white-space:pre-wrap;background:#11182b;border:1px solid #26324d;border-radius:10px;padding:16px;color:#fb7185">' + String(e.message || e.error || e.filename || 'Erro desconhecido').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]}) + '</pre><p style="color:#8d9ab5">Abra o console do navegador (F12 → Console) se precisar do detalhe completo.</p></main>';
+      }
+    }, true);
+  </script>
 </head>
 <body>
   <div id="app"></div>
