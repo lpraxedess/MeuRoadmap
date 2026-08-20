@@ -4,13 +4,14 @@ var KEY='iam-career-hub-state-v9';
 function readState(){try{return JSON.parse(localStorage.getItem(KEY)||'null')||{};}catch(e){return {};}}
 function update(){
   document.querySelectorAll('.today-focus .focus-meta').forEach(function(el){
-    var text=el.textContent||'';var m=text.match(/\d+/);el.textContent=m?(m[0]+' min'):text;
+    var text=el.textContent||'';var pct=text.match(/(\d+)%\s*validado/);
+    if(pct){el.textContent='';var bar=el.parentNode.querySelector('.today-focus-progress');if(!bar){bar=document.createElement('div');bar.className='bar today-focus-progress';bar.innerHTML='<i></i>';el.parentNode.appendChild(bar);}var i=bar.querySelector('i');if(i)i.style.width=pct[1]+'%';}
   });
-  document.querySelectorAll('.today-focus>.bar').forEach(function(el){el.remove();});
+  document.querySelectorAll('.today-focus>.bar').forEach(function(el){if(!el.classList.contains('today-focus-progress'))el.remove();});
   document.querySelectorAll('.today-grid .task').forEach(function(row){
     var small=row.querySelector('small');if(!small)return;
     var text=small.textContent||'';var pct=text.match(/(\d+)%\s*validado/);if(!pct)return;
-    small.textContent=(text.match(/\d+/)||['0'])[0]+' min';
+    small.textContent='';
     var bar=row.querySelector('.today-task-progress');
     if(!bar){bar=document.createElement('div');bar.className='bar today-task-progress';bar.innerHTML='<i></i>';small.parentNode.appendChild(bar);}
     var i=bar.querySelector('i');if(i)i.style.width=pct[1]+'%';
@@ -44,9 +45,9 @@ function renderCompleted(){
 }
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/'/g,'&#39;');}
 function init(){
-  if(!document.getElementById('today-ui-patch-style-v3')){
-    var s=document.createElement('style');s.id='today-ui-patch-style-v3';
-    s.textContent='.today-focus .focus-meta{margin-bottom:8px}.today-grid{grid-template-columns:1fr!important}.today-grid .task{min-height:92px;padding:18px 20px;align-items:center;box-sizing:border-box}.today-grid .task>div:first-child{min-width:0;flex:1}.today-grid .task small{display:block;margin-top:7px}.today-task-progress{height:5px!important;margin-top:9px!important;width:min(260px,100%);overflow:hidden}.today-task-progress i{display:block;height:100%;transition:width .25s ease}.today-grid .task-actions{flex-shrink:0;margin-left:18px}.today-grid .panel{overflow:hidden}.today-grid .panel-head{margin-bottom:14px}.today-overall-progress{margin:0 0 20px;padding:0 0 16px;border-bottom:1px solid rgba(255,255,255,.08)}.today-overall-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.today-overall-label span{font-size:.82rem;opacity:.7}.today-overall-label b{font-size:1rem}.today-overall-progress .bar{margin:0!important}.today-completed{margin-top:18px}.today-completed .task{margin-top:8px}.today-completed .task small{opacity:.7}.today-completed-list{display:grid;gap:8px}.today-completed .panel-head>span{font-weight:700;opacity:.7}@media(max-width:760px){.today-overall-progress{margin-bottom:14px}.today-completed .task{padding:15px}}';
+  if(!document.getElementById('today-ui-patch-style-v4')){
+    var s=document.createElement('style');s.id='today-ui-patch-style-v4';
+    s.textContent='.today-focus .focus-meta{margin-bottom:8px;min-height:5px}.today-focus-progress{height:5px!important;margin:0 0 18px!important;width:100%;overflow:hidden}.today-grid{grid-template-columns:1fr!important}.today-grid .task{min-height:92px;padding:18px 20px;align-items:center;box-sizing:border-box}.today-grid .task>div:first-child{min-width:0;flex:1}.today-grid .task small{display:block;margin-top:7px}.today-task-progress{height:5px!important;margin-top:9px!important;width:min(260px,100%);overflow:hidden}.today-task-progress i,.today-focus-progress i{display:block;height:100%;transition:width .25s ease}.today-grid .task-actions{flex-shrink:0;margin-left:18px}.today-grid .panel{overflow:hidden}.today-grid .panel-head{margin-bottom:14px}.today-overall-progress{margin:0 0 20px;padding:0 0 16px;border-bottom:1px solid rgba(255,255,255,.08)}.today-overall-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.today-overall-label span{font-size:.82rem;opacity:.7}.today-overall-label b{font-size:1rem}.today-overall-progress .bar{margin:0!important}.today-completed{margin-top:18px}.today-completed .task{margin-top:8px}.today-completed .task small{opacity:.7}.today-completed-list{display:grid;gap:8px}.today-completed .panel-head>span{font-weight:700;opacity:.7}@media(max-width:760px){.today-overall-progress{margin-bottom:14px}.today-completed .task{padding:15px}}';
     document.head.appendChild(s);
   }
   update();
