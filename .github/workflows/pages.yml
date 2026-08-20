@@ -27,16 +27,29 @@ jobs:
           from pathlib import Path
           p = Path('data/competency-details.js')
           s = p.read_text(encoding='utf-8')
-          bad = "['Código + plan + evidência.']"
-          good = "'Código + plan + evidência.']"
-          if bad in s:
-              p.write_text(s.replace(bad, good, 1), encoding='utf-8')
+          start = s.index('var map=[') + len('var map=[')
+          end = s.index('];', start)
+          block = s[start:end]
+          lines = block.splitlines()
+          fixed = []
+          for line in lines:
+              stripped = line.rstrip()
+              if stripped:
+                  if stripped.endswith(',') and not stripped.endswith('],'):
+                      stripped += ']'
+                  elif not stripped.endswith(']'):
+                      stripped += ']'
+              fixed.append(stripped)
+          new_block = '\n'.join(fixed)
+          s = s[:start] + new_block + s[end:]
+          p.write_text(s, encoding='utf-8')
           PY
+          node --check data/competency-details.js
           if ! git diff --quiet -- data/competency-details.js; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add data/competency-details.js
-            git commit -m 'fix: repair competency data syntax'
+            git commit -m 'fix: repair competency map structure'
             git push
           fi
       - name: Validate JavaScript syntax
