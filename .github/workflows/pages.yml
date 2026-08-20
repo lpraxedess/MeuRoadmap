@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Repair generated competency data
+      - name: Normalize generated competency data
         shell: bash
         run: |
           set -euo pipefail
@@ -28,7 +28,7 @@ jobs:
           p = Path('data/competency-details.js')
           s = p.read_text(encoding='utf-8')
           start = s.index('var map=[') + len('var map=[')
-          end = s.index('];', start)
+          end = s.index('\n];', start)
           lines = s[start:end].splitlines()
           fixed = []
           for line in lines:
@@ -36,14 +36,13 @@ jobs:
               if not t:
                   fixed.append(t)
                   continue
-              # Normalize generated map entries to exactly: [regex, [goal, study, practice, validate, evidence]],
-              # Some generated revisions contain one extra closing bracket.
-              while t.endswith(']]],'):
-                  t = t[:-3] + ']],'
-              while t.endswith(']]]'):
+              # Each entry must end exactly with: ]],
+              # (outer map-entry bracket + inner data-array bracket + comma).
+              if t.endswith(']]],'):
+                  t = t[:-4] + ']],'
+              elif t.endswith(']]]'):
                   t = t[:-3] + ']]'
-              # Older generated revisions may omit the outer entry bracket.
-              if t.startswith('[') and t.endswith(',') and not t.endswith(']],'):
+              elif t.startswith('[') and t.endswith(',') and not t.endswith(']],'):
                   t = t[:-1] + ']],'
               elif t.startswith('[') and t.endswith(']') and not t.endswith(']]'):
                   t = t + ']'
@@ -56,7 +55,7 @@ jobs:
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add data/competency-details.js
-            git commit -m 'fix: normalize competency map brackets'
+            git commit -m 'fix: normalize competency map entries'
             git push
           fi
       - name: Validate JavaScript syntax
