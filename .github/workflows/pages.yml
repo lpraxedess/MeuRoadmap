@@ -39,12 +39,12 @@ jobs:
           for file in "${required[@]}"; do test -s "$file"; done
           test "$(grep -c 'app-v10.js' index.html)" -eq 1
           test "$(grep -c 'migration-v10-to-v11.js' index.html)" -eq 1
-          ! grep -qE 'app-v[0-9]+\.js|runtime-ux-fix|task-interaction-patch|today-ui-patch|ui-fixes-v15|execution-ui-patch|today-resilience|routine-ui-fix' index.html
+          ! grep -qE 'app-v(7|8|9)\.js|runtime-ux-fix|task-interaction-patch|today-ui-patch|ui-fixes-v15|execution-ui-patch|today-resilience|routine-ui-fix' index.html
       - name: Validate no legacy runtime is referenced
         shell: bash
         run: |
           set -euo pipefail
-          ! grep -RInE '<script[^>]+src="[^"]*(app-v[0-9]+|runtime-ux-fix|task-interaction-patch|today-ui-patch|ui-fixes-v15|execution-ui-patch|today-resilience|routine-ui-fix)' index.html
+          ! grep -RInE '<script[^>]+src="[^"]*(app-v(7|8|9)|runtime-ux-fix|task-interaction-patch|today-ui-patch|ui-fixes-v15|execution-ui-patch|today-resilience|routine-ui-fix)' index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
