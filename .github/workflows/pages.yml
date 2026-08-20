@@ -36,8 +36,13 @@ jobs:
               if not t:
                   fixed.append(t)
                   continue
-              # Every map entry has the shape [regex, [goal, study, practice, validate, evidence]]
-              # The generated file was missing the outer closing bracket on each entry.
+              # Normalize generated map entries to exactly: [regex, [goal, study, practice, validate, evidence]],
+              # Some generated revisions contain one extra closing bracket.
+              while t.endswith(']]],'):
+                  t = t[:-3] + ']],'
+              while t.endswith(']]]'):
+                  t = t[:-3] + ']]'
+              # Older generated revisions may omit the outer entry bracket.
               if t.startswith('[') and t.endswith(',') and not t.endswith(']],'):
                   t = t[:-1] + ']],'
               elif t.startswith('[') and t.endswith(']') and not t.endswith(']]'):
@@ -51,7 +56,7 @@ jobs:
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add data/competency-details.js
-            git commit -m 'fix: close competency map entries correctly'
+            git commit -m 'fix: normalize competency map brackets'
             git push
           fi
       - name: Validate JavaScript syntax
