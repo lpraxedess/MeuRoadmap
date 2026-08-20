@@ -29,5 +29,27 @@
   <script src="data/roadmap-extension.js"></script>
   <script src="app-v5.js"></script>
   <script src="certification-ui.js"></script>
+  <script>
+    // Navigation fallback: keeps the selected view in storage and reloads the app.
+    // This also repairs sessions that were left on the Certifications view.
+    (function () {
+      var VIEW_VERSION = 'iam-hub-navigation-v2';
+      if (!sessionStorage.getItem(VIEW_VERSION)) {
+        localStorage.setItem('iam-view', 'today');
+        sessionStorage.setItem(VIEW_VERSION, '1');
+        if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+        location.reload();
+        return;
+      }
+      document.addEventListener('click', function (event) {
+        var button = event.target.closest ? event.target.closest('[data-view]') : null;
+        if (!button) return;
+        var view = button.getAttribute('data-view');
+        if (!view) return;
+        localStorage.setItem('iam-view', view);
+        location.reload();
+      });
+    })();
+  </script>
 </body>
 </html>
