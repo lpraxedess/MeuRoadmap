@@ -17,10 +17,10 @@
       }
     }, true);
     (function () {
-      var NAV_VERSION = 'iam-hub-navigation-v4';
-      if (!localStorage.getItem(NAV_VERSION)) {
+      var NAV_VERSION = 'iam-hub-navigation-v5';
+      if (localStorage.getItem('iam-view') !== 'today' || localStorage.getItem('iam-nav-version') !== NAV_VERSION) {
         localStorage.setItem('iam-view', 'today');
-        localStorage.setItem(NAV_VERSION, '1');
+        localStorage.setItem('iam-nav-version', NAV_VERSION);
       }
     })();
   </script>
