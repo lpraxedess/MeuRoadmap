@@ -19,19 +19,51 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Validate competency data
-        shell: bash
-        run: |
-          set -euo pipefail
-          node --check data/competency-details.js
+
       - name: Validate JavaScript syntax
         shell: bash
         run: |
           set -euo pipefail
-          for file in data/*.js app-v5.js certification-ui.js; do
+          while IFS= read -r -d '' file; do
             echo "Checking $file"
             node --check "$file"
+          done < <(find data -type f -name '*.js' -print0)
+          for file in app-v5.js certification-ui-v2.js integrity.js; do
+            echo "Checking $file"
+            test -f "$file"
+            node --check "$file"
           done
+
+      - name: Validate published script references
+        shell: bash
+        run: |
+          set -euo pipefail
+          for src in \
+            data/roadmap.js \
+            data/learning.js \
+            data/resources.js \
+            data/competency-details.js \
+            data/career-audit.js \
+            data/certifications.js \
+            data/roadmap-extension.js \
+            app-v5.js \
+            certification-ui-v2.js \
+            integrity.js; do
+            grep -Fq "$src" index.html
+          done
+          if grep -Fq 'navigation-fix.js' index.html || grep -Fq 'ui-polish.js' index.html; then
+            echo 'Legacy navigation/UI patch detected in index.html'
+            exit 1
+          fi
+
+      - name: Validate repository hygiene
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f README.md
+          test -f index.html
+          test -f data/certifications.js
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
