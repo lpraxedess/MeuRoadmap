@@ -1,15 +1,19 @@
 name: Deploy IAM Career Hub
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: true
+
 jobs:
   deploy:
     environment:
@@ -19,18 +23,36 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Validate JavaScript syntax
         shell: bash
         run: |
           set -euo pipefail
-          for file in data/*.js app.js app-v4.js app-v5.js app-v6.js cert-ui-patch.js certification-ui.js certification-ui-v2.js navigation-fix.js progress-ui-patch.js task-interaction-patch.js today-ui-patch.js ui-fixes-v15.js ui-polish.js; do
+          files=(
+            app-v6.js
+            task-interaction-patch.js
+            today-ui-patch.js
+            ui-fixes-v15.js
+            data/roadmap.js
+            data/learning.js
+            data/resources.js
+            data/competency-details.js
+            data/competency-deep.js
+            data/certifications.js
+            data/roadmap-extension.js
+            data/certification-extension.js
+          )
+          for file in "${files[@]}"; do
+            test -s "$file"
             echo "Checking $file"
             node --check "$file"
           done
+
       - name: Validate roadmap data integrity
         shell: bash
         run: |
@@ -38,46 +60,90 @@ jobs:
           node <<'NODE'
           const fs = require('fs');
           const vm = require('vm');
-          const files = ['data/roadmap.js','data/learning.js','data/resources.js','data/competency-details.js','data/competency-deep.js','data/certifications.js','data/roadmap-extension.js','data/certification-extension.js'];
+          const files = [
+            'data/roadmap.js',
+            'data/learning.js',
+            'data/resources.js',
+            'data/competency-details.js',
+            'data/competency-deep.js',
+            'data/certifications.js',
+            'data/roadmap-extension.js',
+            'data/certification-extension.js'
+          ];
           const ctx = { window: {}, console };
           vm.createContext(ctx);
-          for (const file of files) vm.runInContext(fs.readFileSync(file,'utf8'), ctx, {filename:file});
+          for (const file of files) {
+            vm.runInContext(fs.readFileSync(file, 'utf8'), ctx, { filename: file });
+          }
+
           const roadmap = ctx.window.ROADMAP;
-          if (!roadmap || !Array.isArray(roadmap.phases) || !roadmap.phases.length) throw new Error('ROADMAP inválido ou vazio');
+          if (!roadmap || !Array.isArray(roadmap.phases) || !roadmap.phases.length) {
+            throw new Error('ROADMAP inválido ou vazio');
+          }
+
           const ids = new Set();
           for (const phase of roadmap.phases) {
-            if (!phase.id || !Array.isArray(phase.tasks)) throw new Error(`Fase inválida: ${phase.id || '<sem id>'}`);
+            if (!phase.id || !Array.isArray(phase.tasks)) {
+              throw new Error(`Fase inválida: ${phase.id || '<sem id>'}`);
+            }
             for (const task of phase.tasks) {
-              if (!task.id || ids.has(task.id)) throw new Error(`ID de competência ausente ou duplicado: ${task.id}`);
+              if (!task.id || ids.has(task.id)) {
+                throw new Error(`ID de competência ausente ou duplicado: ${task.id || '<sem id>'}`);
+              }
               ids.add(task.id);
             }
           }
-          for (const phase of roadmap.phases) for (const task of phase.tasks) for (const pre of (task.pre || [])) {
-            if (!ids.has(pre)) throw new Error(`${task.id}: pré-requisito inexistente: ${pre}`);
+
+          for (const phase of roadmap.phases) {
+            for (const task of phase.tasks) {
+              for (const pre of task.pre || []) {
+                if (!ids.has(pre)) {
+                  throw new Error(`${task.id}: pré-requisito inexistente: ${pre}`);
+                }
+              }
+            }
           }
+
           const certs = ctx.window.CERTIFICATIONS;
-          if (!certs || !Array.isArray(certs.tracks)) throw new Error('CERTIFICATIONS inválido ou vazio');
-          console.log(`OK: ${roadmap.phases.length} fases, ${ids.size} competências, ${certs.tracks.length} certificações/trilhas.`);
+          if (!certs || !Array.isArray(certs.tracks)) {
+            throw new Error('CERTIFICATIONS inválido ou vazio');
+          }
+
+          console.log(`OK: ${roadmap.phases.length} fases, ${ids.size} competências, ${certs.tracks.length} trilhas de certificação.`);
           NODE
+
       - name: Validate required entrypoint assets
         shell: bash
         run: |
           set -euo pipefail
-          test -s index.html
-          test -s styles.css
-          test -s pages.css
-          test -s data/roadmap.js
-          test -s data/learning.js
-          test -s data/certifications.js
+          required=(
+            index.html
+            styles.css
+            pages.css
+            data/roadmap.js
+            data/learning.js
+            data/certifications.js
+            app-v6.js
+            task-interaction-patch.js
+            today-ui-patch.js
+          )
+          for file in "${required[@]}"; do
+            test -s "$file"
+            echo "OK: $file"
+          done
+
           grep -q 'app-v6.js' index.html
           grep -q 'task-interaction-patch.js' index.html
           grep -q 'today-ui-patch.js' index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
