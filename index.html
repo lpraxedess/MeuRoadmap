@@ -13,9 +13,19 @@
     window.addEventListener('error', function (e) {
       var app = document.getElementById('app');
       if (app && !app.hasChildNodes()) {
-        app.innerHTML = '<main style="margin:40px;max-width:760px"><div class="eyebrow">BOOT ERROR</div><h1>IAM Career Hub</h1><p style="color:#8d9ab5">A interface não conseguiu iniciar. O erro abaixo permite identificar exatamente o recurso que falhou.</p><pre style="white-space:pre-wrap;background:#11182b;border:1px solid #26324d;border-radius:10px;padding:16px;color:#fb7185">' + String(e.message || e.error || e.filename || 'Erro desconhecido').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]}) + '</pre><p style="color:#8d9ab5">Abra o console do navegador (F12 → Console) se precisar do detalhe completo.</p></main>';
+        app.innerHTML = '<main style="margin:40px;max-width:760px"><div class="eyebrow">BOOT ERROR</div><h1>IAM Career Hub</h1><p style="color:#8d9ab5">A interface não conseguiu iniciar. O erro abaixo permite identificar exatamente o recurso que falhou.</p><pre style="white-space:pre-wrap;background:#11182b;border:1px solid #26324d;border-radius:10px;padding:16px;color:#fb7185">' + String(e.message || e.error || e.filename || 'Erro desconhecido').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]}) + '</pre></main>';
       }
     }, true);
+
+    /* Inicialização: não adicionamos um segundo click-handler de navegação.
+       O app-v5.js é a única fonte de verdade para as telas. */
+    (function () {
+      var NAV_VERSION = 'iam-hub-navigation-v3';
+      if (!localStorage.getItem(NAV_VERSION)) {
+        localStorage.setItem('iam-view', 'today');
+        localStorage.setItem(NAV_VERSION, '1');
+      }
+    })();
   </script>
 </head>
 <body>
@@ -29,27 +39,5 @@
   <script src="data/roadmap-extension.js"></script>
   <script src="app-v5.js"></script>
   <script src="certification-ui.js"></script>
-  <script>
-    // Navigation fallback: keeps the selected view in storage and reloads the app.
-    // This also repairs sessions that were left on the Certifications view.
-    (function () {
-      var VIEW_VERSION = 'iam-hub-navigation-v2';
-      if (!sessionStorage.getItem(VIEW_VERSION)) {
-        localStorage.setItem('iam-view', 'today');
-        sessionStorage.setItem(VIEW_VERSION, '1');
-        if (location.hash) history.replaceState(null, '', location.pathname + location.search);
-        location.reload();
-        return;
-      }
-      document.addEventListener('click', function (event) {
-        var button = event.target.closest ? event.target.closest('[data-view]') : null;
-        if (!button) return;
-        var view = button.getAttribute('data-view');
-        if (!view) return;
-        localStorage.setItem('iam-view', view);
-        location.reload();
-      });
-    })();
-  </script>
 </body>
 </html>
