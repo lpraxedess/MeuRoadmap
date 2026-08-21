@@ -14,10 +14,10 @@ jobs:
           node-version: 22
       - name: Validate JavaScript syntax
         run: |
+          node --check data.js
           node --check app-unified.js
           node --check enhancements.js
-      - name: Validate data.js
-        run: node --check data.js
+          node --check career-profiles.js
       - name: Validate required files
         run: |
           test -f index.html
@@ -25,6 +25,8 @@ jobs:
           test -f guide.css
           test -f clay.css
           test -f enhancements.css
+          test -f career-profiles.css
           test -f data.js
           test -f app-unified.js
           test -f enhancements.js
+          test -f career-profiles.js
