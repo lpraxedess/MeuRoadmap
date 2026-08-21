@@ -1,48 +1,73 @@
 name: Deploy Cybersecurity Study Hub
+
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
+
 jobs:
   validate-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24
+
       - name: Validate application JavaScript
         run: |
           set -euo pipefail
           node --check app.js
           node --check data.js
-      - name: Validate entrypoint
+
+      - name: Validate entrypoint and single runtime
         run: |
           set -euo pipefail
-          test -s index.html
-          test -s app.js
-          test -s data.js
-          test -s styles.css
-          grep -q 'app.js' index.html
-          grep -q 'data.js' index.html
+          required=(index.html app.js data.js styles.css)
+          for file in "${required[@]}"; do
+            test -s "$file"
+          done
+          test "$(grep -c 'app.js' index.html)" -eq 1
+          test "$(grep -c 'data.js' index.html)" -eq 1
+          ! grep -qE 'app-v[0-9]+\.js|migration-v|runtime-ux-fix|task-interaction-patch|today-ui-patch|ui-fixes|execution-ui-patch|today-resilience|routine-ui-fix' index.html
+
+      - name: Validate static asset references
+        run: |
+          set -euo pipefail
+          node - <<'NODE'
+          const fs = require('fs');
+          const html = fs.readFileSync('index.html', 'utf8');
+          for (const asset of ['styles.css', 'data.js', 'app.js']) {
+            if (!html.includes(asset)) throw new Error(`Missing entrypoint reference: ${asset}`);
+            if (!fs.existsSync(asset) || fs.statSync(asset).size === 0) throw new Error(`Missing asset: ${asset}`);
+          }
+          NODE
+
       - name: Setup Pages
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
       - name: Deploy
+        if: github.event_name != 'pull_request'
         id: deployment
         uses: actions/deploy-pages@v4
