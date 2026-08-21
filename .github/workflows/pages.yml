@@ -31,17 +31,17 @@ jobs:
       - name: Validate application JavaScript
         run: |
           set -euo pipefail
-          node --check app.js
+          node --check app-unified.js
           node --check data.js
 
       - name: Validate entrypoint and single runtime
         run: |
           set -euo pipefail
-          required=(index.html app.js data.js styles.css)
+          required=(index.html app-unified.js data.js styles.css)
           for file in "${required[@]}"; do
             test -s "$file"
           done
-          test "$(grep -c 'app.js' index.html)" -eq 1
+          test "$(grep -c 'app-unified.js' index.html)" -eq 1
           test "$(grep -c 'data.js' index.html)" -eq 1
           ! grep -qE 'app-v[0-9]+\.js|migration-v|runtime-ux-fix|task-interaction-patch|today-ui-patch|ui-fixes|execution-ui-patch|today-resilience|routine-ui-fix' index.html
 
@@ -51,7 +51,7 @@ jobs:
           node - <<'NODE'
           const fs = require('fs');
           const html = fs.readFileSync('index.html', 'utf8');
-          for (const asset of ['styles.css', 'data.js', 'app.js']) {
+          for (const asset of ['styles.css', 'data.js', 'app-unified.js']) {
             if (!html.includes(asset)) throw new Error(`Missing entrypoint reference: ${asset}`);
             if (!fs.existsSync(asset) || fs.statSync(asset).size === 0) throw new Error(`Missing asset: ${asset}`);
           }
