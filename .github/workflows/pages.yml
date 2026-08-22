@@ -19,6 +19,9 @@ concurrency:
 jobs:
   validate-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -33,6 +36,8 @@ jobs:
           set -euo pipefail
           node --check app-unified.js
           node --check data.js
+          test ! -f topic-guides.js
+          test ! -f topic-guides.css
 
       - name: Validate entrypoint and single runtime
         run: |
